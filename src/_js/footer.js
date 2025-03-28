@@ -32,7 +32,7 @@ class FooterComponent extends HTMLElement {
       <div class="bg-black text-white">
         <footer class="flex flex-col">
           <!-- Main content -->
-          <div class="flex-grow flex flex-col items-center justify-center py-2 px-4 mx-auto max-w-7xl h-[100vh]">
+          <div class="flex-grow flex flex-col items-center justify-center py-2 px-4 mx-auto max-w-7xl">
             <!-- Logo - Fixed container -->
             <div class="mb-8 w-full flex justify-center">
               <div class="logo-container">
