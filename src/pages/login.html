@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Sweet Photography - Login</title>
+    <!-- <link href="../_css/output.css" rel="stylesheet"> -->
+     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00',
+                        secondary: '#FFF8F3',
+                    }
+                }
+            }
+        }
+    </script> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+         .curved-section {
+            /* border-radius: 0 100% 100% 0 / 0 50% 50% 0; */
+            overflow: hidden;
+        }
+        .tab-active {
+            color: #FF6B00;
+            border-bottom: 2px solid #FF6B00;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-white">
+    <div class="flex flex-col md:flex-row h-screen">
+        <!-- Left curved section with image -->
+        <div class="curved-section relative w-50% md:w-1/2 ">
+            <img src="../../assests/images/3.png" alt="Photographer with camera" class="w-[800px] h-[800px] object-contain ">
+            <!-- <div class="absolute inset-0 bg-black bg-opacity-30"></div> -->
+            
+            <!-- Logo -->
+            <div class="absolute top-8 left-8 flex items-center">
+              
+                <img src="../../assests/images/footerlogo.png" alt="Little Sweet Photography Logo" class="h-22 w-auto">
+            </div> 
+        </div>
+        
+        <!-- Right section with login form -->
+        <div class="w-full md:w-1/2 p-6 md:p-12 flex flex-col">
+            <!-- Top navigation -->
+            <div class="flex justify-end space-x-7 items-center mb-12">
+                <a href="#" class="text-gray-700 hover:text-gray-900 ">Home</a>
+                <a href="#" class="text-gray-700 hover:text-gray-900">About Us</a>
+                <a href="#" class="text-gray-700 hover:text-gray-900">Packages</a>
+                <button id="nav-signin" class="bg-primary text-white px-6 py-2 rounded-full" onclick="switchTab('login')">Sign In</button>
+                <button id="nav-signup" class="text-primary border border-primary px-6 py-2 rounded-full" onclick="switchTab('signup')">Sign Up</button>
+            </div>
+            
+            <!-- Login form -->
+            <div class="max-w-md mx-auto w-full mt-8">
+                <!-- Tabs -->
+                <div class="flex border-b mb-8">
+                    <button id="login-tab" class="pb-2 px-8 text-xl font-medium tab-active" onclick="switchTab('login')">Log in</button>
+                    <button id="signup-tab" class="pb-2 px-8 text-xl font-medium text-gray-400" onclick="switchTab('signup')">Sign up</button>
+                </div>
+                
+                <!-- Form -->
+                <form id="login-form" class="space-y-6">
+                    <div>
+                        <input type="email" placeholder="Enter your email address" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Password" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-primary">
+                            <span class="ml-2 text-sm">Remember me</span>
+                        </label>
+                        <a href="#" class="text-sm text-gray-700 hover:text-primary">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-medium">Sign In</button>
+                    
+                    <!-- Social login -->
+                    <div class="mt-8">
+                        <div class="flex items-center justify-center">
+                            <div class="flex-grow h-px bg-gray-300"></div>
+                            <span class="px-4 text-gray-500">Or connect with</span>
+                            <div class="flex-grow h-px bg-gray-300"></div>
+                        </div>
+                        
+                        <div class="flex justify-center space-x-4 mt-6">
+                            <button type="button" class="p-3 border rounded-lg hover:bg-gray-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#EA4335">
+                                    <path d="M12.0001 2C6.4771 2 2.00006 6.477 2.00006 12C2.00006 17.523 6.4771 22 12.0001 22C17.5231 22 22.0001 17.523 22.0001 12C22.0001 6.477 17.5231 2 12.0001 2ZM16.2401 16.24C15.0901 17.39 13.5901 18 12.0001 18C10.4101 18 8.91006 17.39 7.76006 16.24C6.61006 15.09 6.00006 13.59 6.00006 12C6.00006 10.41 6.61006 8.91 7.76006 7.76C8.91006 6.61 10.4101 6 12.0001 6C13.5901 6 15.0901 6.61 16.2401 7.76C17.3901 8.91 18.0001 10.41 18.0001 12C18.0001 13.59 17.3901 15.09 16.2401 16.24Z"/>
+                                    <path d="M12 8V12L15 15"/>
+                                </svg>
+                            </button>
+                            <button type="button" class="p-3 border rounded-lg hover:bg-gray-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black">
+                                    <path d="M17.0001 4H7.00006C5.34006 4 4.00006 5.34 4.00006 7V17C4.00006 18.66 5.34006 20 7.00006 20H17.0001C18.6601 20 20.0001 18.66 20.0001 17V7C20.0001 5.34 18.6601 4 17.0001 4ZM12.0001 18C9.24006 18 7.00006 15.76 7.00006 13C7.00006 10.24 9.24006 8 12.0001 8C14.7601 8 17.0001 10.24 17.0001 13C17.0001 15.76 14.7601 18 12.0001 18Z"/>
+                                    <circle cx="18" cy="6" r="1"/>
+                                </svg>
+                            </button>
+                            <button type="button" class="p-3 border rounded-lg hover:bg-gray-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1877F2">
+                                    <path d="M12.0001 2C6.4771 2 2.00006 6.477 2.00006 12C2.00006 17.523 6.4771 22 12.0001 22C17.5231 22 22.0001 17.523 22.0001 12C22.0001 6.477 17.5231 2 12.0001 2ZM15.0001 8H13.0001C12.4481 8 12.0001 8.448 12.0001 9V11H15.0001V14H12.0001V19H9.00006V14H7.00006V11H9.00006V8.5C9.00006 6.567 10.5671 5 12.5001 5H15.0001V8Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
+                <!-- Sign up form (hidden by default) -->
+                <form id="signup-form" class="space-y-2 hidden ">
+    <h2 class="text-3xl font-bold text-primary mb-2">Create an account</h2>
+    <p class="text-gray-500 mb-3">Already have an account? <a href="#" class="text-primary" onclick="switchTab('login')">log-in</a></p>
+    
+    <div>
+        <input type="email" placeholder="Enter your email address" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <input type="text" placeholder="First Name" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+        </div>
+        <div>
+            <input type="text" placeholder="Last Name" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+        </div>
+    </div>
+    
+    <div>
+        <label class="block text-gray-700 mb-2">Date of Birth</label>
+        <div class="grid grid-cols-3 gap-4">
+            <div>
+                <input type="text" placeholder="Day" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+            </div>
+            <div class="relative">
+                <select class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary appearance-none">
+                    <option value="" disabled selected>Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+            <div>
+                <input type="text" placeholder="Year" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-4">
+        <p class="text-sm text-gray-600">
+            By clicking Create account, I agree that I have read and accepted the
+            <a href="#" class="text-primary">Terms of use</a> and
+            <a href="#" class="text-primary">Privacy Policy</a>
+        </p>
+    </div>
+    
+    <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-medium mt-6">Create Account</button>
+</form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+    // Update tab styling
+    if (tab === 'login') {
+        document.getElementById('login-tab').classList.add('tab-active');
+        document.getElementById('login-tab').classList.remove('text-gray-400');
+        document.getElementById('signup-tab').classList.remove('tab-active');
+        document.getElementById('signup-tab').classList.add('text-gray-400');
+        
+        // Show login form, hide signup form
+        document.getElementById('login-form').classList.remove('hidden');
+        document.getElementById('signup-form').classList.add('hidden');
+    } else {
+        document.getElementById('signup-tab').classList.add('tab-active');
+        document.getElementById('signup-tab').classList.remove('text-gray-400');
+        document.getElementById('login-tab').classList.remove('tab-active');
+        document.getElementById('login-tab').classList.add('text-gray-400');
+        
+        // Show signup form, hide login form
+        document.getElementById('signup-form').classList.remove('hidden');
+        document.getElementById('login-form').classList.add('hidden');
+    }
+}
+    </script>
+</body>
+</html>
