@@ -24,11 +24,11 @@ class HeaderComponent extends HTMLElement {
           
           <!-- Desktop Navigation -->
           <nav class="hidden md:flex items-center space-x-8">
-            <a href="#" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Home</a>
-            <a href="#" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">About Us</a>
-            <a href="#" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Packages</a>
-            <a href="#" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Contact Us</a>
-            <a href="#" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">John As Photographer</a>
+            <a href="../pages/index.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Home</a>
+            <a href="../pages/about.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">About Us</a>
+            <a href="../pages/wedding.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Packages</a>
+            <a href="../pages/contact.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Contact Us</a>
+            <a href="#" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Join As Photographer</a>
           </nav>
           
           <!-- Mobile Menu Button -->
