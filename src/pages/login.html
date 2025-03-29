@@ -24,28 +24,56 @@
 </head>
 <body class="flex flex-col min-h-screen bg-white">
     <div class="flex flex-col md:flex-row h-screen">
-        <!-- Left curved section with image -->
-        <div class="curved-section relative w-50% md:w-1/2 ">
-            <img src="../../assests/images/3.png" alt="Photographer with camera" class="w-[800px] h-[800px] object-contain ">
-            
-            
-            <!-- Logo -->
-            <div class="absolute top-8 left-8 flex items-center">
-              
-                <img src="../../assests/images/footerlogo.png" alt="Little Sweet Photography Logo" class="h-22 w-auto">
-            </div> 
-        </div>
+        
+        <!-- Left curved section with responsive image -->
+<div class="curved-section relative w-full md:w-1/2 h-full flex items-center justify-center overflow-hidden">
+    <img src="../../assests/images/3.png" alt="Photographer with camera" class="w-full h-full object-cover md:object-contain">
+    
+    <!-- Logo -->
+    <div class="absolute top-8 left-8 flex items-center">
+        <img src="../../assests/images/footerlogo.png" alt="Little Sweet Photography Logo" class="h-22 w-auto">
+    </div>
+</div>
+
         
         <!-- Right section with login form -->
         <div class="w-full md:w-1/2 p-6 md:p-12 flex flex-col">
             <!-- Top navigation -->
-            <div class="flex justify-end space-x-7 items-center mb-12">
-                <a href="#" class="text-gray-700 hover:text-gray-900 ">Home</a>
-                <a href="#" class="text-gray-700 hover:text-gray-900">About Us</a>
-                <a href="#" class="text-gray-700 hover:text-gray-900">Packages</a>
-                <button id="nav-signin" class="bg-primary text-white px-6 py-2 rounded-full" onclick="switchTab('login')">Sign In</button>
-                <button id="nav-signup" class="text-primary border border-primary px-6 py-2 rounded-full" onclick="switchTab('signup')">Sign Up</button>
-            </div>
+           <!-- Top navigation -->
+<div class=" relative flex justify-between items-center mb-6">
+    <!-- Logo (visible only on small screens) -->
+    <img src="../../assests/images/footerlogo.png" alt="Little Sweet Photography Logo" class="h-10 w-auto md:hidden">
+
+    <!-- Navigation links (Hidden on small screens) -->
+    <div class="hidden md:flex space-x-7">
+        <a href="index.html" class="text-gray-700 hover:text-gray-900">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-gray-900">About Us</a>
+        <a href="packages.html" class="text-gray-700 hover:text-gray-900">Packages</a>
+    </div>
+
+    <!-- Sign-in and Sign-up Buttons -->
+    <div class="hidden md:flex space-x-4">
+        <button id="nav-signin" class="bg-[#FF6F00] text-white px-6 py-2 rounded-full" onclick="switchTab('login')">Sign In</button>
+        <button id="nav-signup" class="text-[#FF6F00] border border-[#FF6F00] px-6 py-2 rounded-full" onclick="switchTab('signup')">Sign Up</button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-toggle" class="md:hidden text-[#FF6F00] focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+    </button>
+</div>
+
+<!-- Mobile Menu (Hidden by Default) -->
+<div id="mobile-menu" class=" absolute top-16 left-0 w-full bg-white shadow-md md:hidden flex flex-col items-center space-y-4 py-4">
+    <a href="index.html" class="text-gray-700 hover:text-gray-900">Home</a>
+    <a href="about.html" class="text-gray-700 hover:text-gray-900">About Us</a>
+    <a href="packages.html" class="text-gray-700 hover:text-gray-900">Packages</a>
+    <button class="bg-[#FF6F00] text-white px-6 py-2 rounded-full" onclick="switchTab('login')">Sign In</button>
+    <button class="text-[#FF6F00] border border-[#FF6F00] px-6 py-2 rounded-full" onclick="switchTab('signup')">Sign Up</button>
+</div>
+
             
             <!-- Login form -->
             <div class="max-w-md mx-auto w-full mt-8">
@@ -58,19 +86,19 @@
                 <!-- Form -->
                 <form id="login-form" class="space-y-6">
                     <div>
-                        <input type="email" placeholder="Enter your email address" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+                        <input type="email" placeholder="Enter your email address" class="w-full p-4 shadow-[2px 2px 2px 0px #00000040] rounded-lg border-0 focus:ring-2 bg-[#FF6F0012]">
                     </div>
                     <div>
-                        <input type="password" placeholder="Password" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+                        <input type="password" placeholder="Password" class="w-full p-4 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
                     </div>
                     <div class="flex justify-between items-center">
                         <label class="flex items-center">
-                            <input type="checkbox" class="w-4 h-4 text-primary">
+                            <input type="checkbox" class="w-4 h-4 text-[#FF6F00]">
                             <span class="ml-2 text-sm">Remember me</span>
                         </label>
-                        <a href="#" class="text-sm text-gray-700 hover:text-primary">Forgot Password?</a>
+                        <a href="#" class="text-sm text-gray-700 hover:text-[#000000]">Forgot Password?</a>
                     </div>
-                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-medium">Sign In</button>
+                    <button type="submit" class="w-full bg-[#FF6F00] text-white py-4 rounded-full font-medium">Sign In</button>
                     
                     <!-- Social login -->
                     <div class="mt-8">
@@ -104,19 +132,19 @@
                 
                 <!-- Sign up form (hidden by default) -->
                 <form id="signup-form" class="space-y-2 hidden ">
-    <h2 class="text-3xl font-bold text-primary mb-2">Create an account</h2>
-    <p class="text-gray-500 mb-3">Already have an account? <a href="#" class="text-primary" onclick="switchTab('login')">log-in</a></p>
+    <h2 class="text-3xl font-bold text-[#FF6F00] mb-2">Create an account</h2>
+    <p class="text-gray-500 mb-3">Already have an account? <a href="#" class="text-[#FF6F00]" onclick="switchTab('login')">log-in</a></p>
     
     <div>
-        <input type="email" placeholder="Enter your email address" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+        <input type="email" placeholder="Enter your email address" class="w-full p-4 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-            <input type="text" placeholder="First Name" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+            <input type="text" placeholder="First Name" class="w-full p-4 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
         </div>
         <div>
-            <input type="text" placeholder="Last Name" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+            <input type="text" placeholder="Last Name" class="w-full p-4 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
         </div>
     </div>
     
@@ -124,10 +152,10 @@
         <label class="block text-gray-700 mb-2">Date of Birth</label>
         <div class="grid grid-cols-3 gap-4">
             <div>
-                <input type="text" placeholder="Day" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+                <input type="text" placeholder="Day" class="w-full p-4 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
             </div>
             <div class="relative">
-                <select class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary appearance-none">
+                <select class="w-full p-4 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00] appearance-none">
                     <option value="" disabled selected>Month</option>
                     <option value="1">January</option>
                     <option value="2">February</option>
@@ -149,7 +177,7 @@
                 </div>
             </div>
             <div>
-                <input type="text" placeholder="Year" class="w-full p-4 bg-secondary rounded-lg border-0 focus:ring-2 focus:ring-primary">
+                <input type="text" placeholder="Year" class="w-full p-4 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
             </div>
         </div>
     </div>
@@ -157,12 +185,12 @@
     <div class="mt-4">
         <p class="text-sm text-gray-600">
             By clicking Create account, I agree that I have read and accepted the
-            <a href="#" class="text-primary">Terms of use</a> and
-            <a href="#" class="text-primary">Privacy Policy</a>
+            <a href="#" class="text-[#FF6F00]">Terms of use</a> and
+            <a href="#" class="text-[#FF6F00]">Privacy Policy</a>
         </p>
     </div>
     
-    <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-medium mt-6">Create Account</button>
+    <button type="submit" class="w-full bg-[#FF6F00] text-white py-4 rounded-full font-medium mt-6">Create Account</button>
 </form>
             </div>
         </div>
@@ -191,6 +219,13 @@
         document.getElementById('login-form').classList.add('hidden');
     }
 }
+
+
+document.getElementById('menu-toggle').addEventListener('click', function () {
+    let menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+});
+
     </script>
 </body>
 </html>
