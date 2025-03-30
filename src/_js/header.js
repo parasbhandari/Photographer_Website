@@ -13,7 +13,6 @@ class HeaderComponent extends HTMLElement {
         @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
       </style>
       <link href="../_css/output.css" rel="stylesheet">
-      
       <header class="bg-white text-black py-4 px-6 fixed w-full z-50 shadow-md">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -27,8 +26,20 @@ class HeaderComponent extends HTMLElement {
             <a href="../pages/index.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Home</a>
             <a href="../pages/about.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">About Us</a>
             <a href="../pages/wedding.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Packages</a>
-            <a href="../pages/contact.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Contact Us</a>
-            <a href="#" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Join As Photographer</a>
+            <button class="border-2 border-orange-500 p-2 rounded-full" >
+            <a href="../pages/contact.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">
+            <i class="fa-solid fa-phone-volume" style="color: orange;"></i>
+            <span>
+            Contact Us
+            </span>
+            </a>
+            </button>
+            <button class="border-2 border-orange-500 p-2 rounded-full bg-orange-500">
+            <a href="../pages/photographer.html" class="text-white hover:text-white">
+              Join As Photographer
+            </a>
+          </button>
+          
           </nav>
           
           <!-- Mobile Menu Button -->
