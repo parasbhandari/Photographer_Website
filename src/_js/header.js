@@ -14,7 +14,7 @@ class HeaderComponent extends HTMLElement {
       </style>
       <link href="../_css/output.css" rel="stylesheet">
       
-      <header class="bg-white text-black py-4 px-6 fixed w-full z-50 shadow-md">
+      <header class="bg-white text-black py-4 px-6 fixed w-full z-50 shadow-md" style="position: static">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
           <!-- Logo -->
@@ -28,7 +28,7 @@ class HeaderComponent extends HTMLElement {
             <a href="../pages/about.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">About Us</a>
             <a href="../pages/wedding.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Packages</a>
             <a href="../pages/contact.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Contact Us</a>
-            <a href="#" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Join As Photographer</a>
+            <a href="../pages/photographer.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Join As Photographer</a>
           </nav>
           
           <!-- Mobile Menu Button -->
