@@ -18,7 +18,7 @@ class HeaderComponent extends HTMLElement {
         <div class="max-w-7xl mx-auto flex justify-between items-center">
           <!-- Logo -->
           <div class="flex items-center">
-            <img src="../../assests/images/headerlogo.png" alt="Little Sweet Photography Logo" class="h-20 w-auto">
+            <img src="../assets/images/headerlogo.png" alt="Little Sweet Photography Logo" class="h-20 w-auto">
           </div>
           
           <!-- Desktop Navigation -->
@@ -55,12 +55,10 @@ class HeaderComponent extends HTMLElement {
           <button class="absolute top-6 right-6 p-2 focus:outline-none" aria-label="Close menu" id="mobile-menu-close">
             <i class="fas fa-times text-3xl text-white"></i>
           </button>
-          
-          <a href="../pages/index.html" class="hover:text-[#FF6F00] transition-colors duration-300 py-2 px-4">Home</a>
+           <a href="../pages/index.html" class="hover:text-[#FF6F00] transition-colors duration-300 py-2 px-4">Home</a>
           <a href="../pages/about.html" class="hover:text-[#FF6F00] transition-colors duration-300 py-2 px-4">About Us</a>
           <a href="../pages/wedding.html" class="hover:text-[#FF6F00] transition-colors duration-300 py-2 px-4">Packages</a>
-          <button class="border-2 border-orange-500 p-2 rounded-full bg-orange-500" >
-          <a href="../pages/contact.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">
+          <a href="../pages/contact.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium bg-orange-500 p-2 rounded-full">
           <i class="fa-solid fa-phone-volume" style="color: orange;"></i>
           <span>
           Contact Us

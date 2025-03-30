@@ -36,7 +36,7 @@ class FooterComponent extends HTMLElement {
             <!-- Logo - Fixed container -->
             <div class="mb-8 w-full flex justify-center">
               <div class="logo-container">
-                <img src="../../assests/images/footerlogo.png" alt="footer_logo" class="w-full h-auto max-w-full object-contain"/>
+                <img src="../assets/images/footerlogo.png" alt="footer_logo" class="w-full h-auto max-w-full object-contain"/>
               </div>
             </div>
 
