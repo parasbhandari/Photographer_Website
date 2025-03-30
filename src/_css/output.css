@@ -732,6 +732,9 @@
   .h-\[85vh\] {
     height: 85vh;
   }
+  .h-\[100vh\] {
+    height: 100vh;
+  }
   .h-\[298px\] {
     height: 298px;
   }
@@ -827,6 +830,9 @@
   }
   .w-\[40vw\] {
     width: 40vw;
+  }
+  .w-\[70\%\] {
+    width: 70%;
   }
   .w-\[70vw\] {
     width: 70vw;
@@ -2117,6 +2123,10 @@
   .leading-\[30px\] {
     --tw-leading: 30px;
     line-height: 30px;
+  }
+  .leading-\[40px\] {
+    --tw-leading: 40px;
+    line-height: 40px;
   }
   .leading-none {
     --tw-leading: 1;
