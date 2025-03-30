@@ -12,6 +12,7 @@
     --color-orange-500: oklch(0.705 0.213 47.604);
     --color-orange-600: oklch(0.646 0.222 41.116);
     --color-orange-700: oklch(0.553 0.195 38.402);
+    --color-amber-200: oklch(0.924 0.12 95.746);
     --color-green-600: oklch(0.627 0.194 149.214);
     --color-green-700: oklch(0.527 0.154 150.069);
     --color-blue-500: oklch(0.623 0.214 259.815);
@@ -71,7 +72,17 @@
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
+    --default-font-feature-settings: var(--font-sans--font-feature-settings);
+    --default-font-variation-settings: var(
+      --font-sans--font-variation-settings
+    );
     --default-mono-font-family: var(--font-mono);
+    --default-mono-font-feature-settings: var(
+      --font-mono--font-feature-settings
+    );
+    --default-mono-font-variation-settings: var(
+      --font-mono--font-variation-settings
+    );
   }
 }
 @layer base {
@@ -85,10 +96,13 @@
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
-    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-family: var( --default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" );
     font-feature-settings: var(--default-font-feature-settings, normal);
-    font-variation-settings: var(--default-font-variation-settings, normal);
+    font-variation-settings: var( --default-font-variation-settings, normal );
     -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    line-height: inherit;
   }
   hr {
     height: 0;
@@ -112,9 +126,9 @@
     font-weight: bolder;
   }
   code, kbd, samp, pre {
-    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
-    font-feature-settings: var(--default-mono-font-feature-settings, normal);
-    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-family: var( --default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace );
+    font-feature-settings: var( --default-mono-font-feature-settings, normal );
+    font-variation-settings: var( --default-mono-font-variation-settings, normal );
     font-size: 1em;
   }
   small {
@@ -178,11 +192,7 @@
   }
   ::placeholder {
     opacity: 1;
-  }
-  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
-    ::placeholder {
-      color: color-mix(in oklab, currentColor 50%, transparent);
-    }
+    color: color-mix(in oklab, currentColor 50%, transparent);
   }
   textarea {
     resize: vertical;
@@ -217,12 +227,6 @@
   }
 }
 @layer utilities {
-  .\@container {
-    container-type: inline-size;
-  }
-  .\@container-\[inline-size\] {
-    container-type: inline-size;
-  }
   .pointer-events-auto {
     pointer-events: auto;
   }
@@ -451,24 +455,6 @@
       max-width: 96rem;
     }
   }
-  .container\! {
-    width: 100% !important;
-    @media (width >= 40rem) {
-      max-width: 40rem !important;
-    }
-    @media (width >= 48rem) {
-      max-width: 48rem !important;
-    }
-    @media (width >= 64rem) {
-      max-width: 64rem !important;
-    }
-    @media (width >= 80rem) {
-      max-width: 80rem !important;
-    }
-    @media (width >= 96rem) {
-      max-width: 96rem !important;
-    }
-  }
   .m-0 {
     margin: calc(var(--spacing) * 0);
   }
@@ -694,6 +680,9 @@
   .h-72 {
     height: calc(var(--spacing) * 72);
   }
+  .h-\[40vh\] {
+    height: 40vh;
+  }
   .h-\[50vh\] {
     height: 50vh;
   }
@@ -712,11 +701,17 @@
   .h-\[70vh\] {
     height: 70vh;
   }
+  .h-\[70vw\] {
+    height: 70vw;
+  }
   .h-\[75vh\] {
     height: 75vh;
   }
   .h-\[80vh\] {
     height: 80vh;
+  }
+  .h-\[85vh\] {
+    height: 85vh;
   }
   .h-\[298px\] {
     height: 298px;
@@ -732,9 +727,6 @@
   }
   .h-\[450px\] {
     height: 450px;
-  }
-  .h-\[800px\] {
-    height: 800px;
   }
   .h-auto {
     height: auto;
@@ -759,9 +751,6 @@
   }
   .w-1 {
     width: calc(var(--spacing) * 1);
-  }
-  .w-1\/2 {
-    width: calc(1/2 * 100%);
   }
   .w-1\/3 {
     width: calc(1/3 * 100%);
@@ -837,9 +826,6 @@
   }
   .w-\[389px\] {
     width: 389px;
-  }
-  .w-\[800px\] {
-    width: 800px;
   }
   .w-\[867px\] {
     width: 867px;
@@ -1686,15 +1672,6 @@
   .border-red-500 {
     border-color: var(--color-red-500);
   }
-  .bg-\(--my_variable\) {
-    background-color: var(--my_variable);
-  }
-  .bg-\(color\:--my-color\) {
-    background-color: var(--my-color);
-  }
-  .bg-\[\#0088cc\] {
-    background-color: #0088cc;
-  }
   .bg-\[\#FAF3EB\] {
     background-color: #FAF3EB;
   }
@@ -1710,11 +1687,8 @@
   .bg-\[\#fef5f0\] {
     background-color: #fef5f0;
   }
-  .bg-\[color\:var\(--my-color\)\] {
-    background-color: var(--my-color);
-  }
-  .bg-\[var\(--my_variable\)\] {
-    background-color: var(--my_variable);
+  .bg-amber-200 {
+    background-color: var(--color-amber-200);
   }
   .bg-black {
     background-color: var(--color-black);
@@ -1742,12 +1716,6 @@
   }
   .bg-red-500 {
     background-color: var(--color-red-500);
-  }
-  .bg-red-500\/50 {
-    background-color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
-  }
-  .bg-red-500\/\[50\%\] {
-    background-color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -2187,15 +2155,6 @@
   .whitespace-pre-wrap {
     white-space: pre-wrap;
   }
-  .\[color\:red\] {
-    color: red;
-  }
-  .\[color\:red\]\/50 {
-    color: color-mix(in oklab, red 50%, transparent);
-  }
-  .\[color\:red\]\/50\! {
-    color: color-mix(in oklab, red 50%, transparent) !important;
-  }
   .text-\[\#FF6F00\] {
     color: #FF6F00;
   }
@@ -2388,6 +2347,12 @@
   }
   .opacity-5 {
     opacity: 5%;
+  }
+  .opacity-10 {
+    opacity: 10%;
+  }
+  .opacity-25 {
+    opacity: 25%;
   }
   .opacity-30 {
     opacity: 30%;
@@ -2661,9 +2626,6 @@
   .outline-solid {
     --tw-outline-style: solid;
     outline-style: solid;
-  }
-  .\[vite\:html\] {
-    vite: html;
   }
   .backface-hidden {
     backface-visibility: hidden;
