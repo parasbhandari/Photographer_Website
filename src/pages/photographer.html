@@ -6,8 +6,8 @@
     <title>Photographer Sign Up</title>
     <link href="../_css/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Load SweetAlert without defer -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         /* Form step styling */
         .form-step {
@@ -365,7 +365,7 @@
                             
                             <div class="mt-8 flex justify-between">
                                 <button type="button" id="step3-prev" class="prev-btn bg-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-400 transition">Previous</button>
-                                <button type="submit" id="submit-btn" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">Submit</button>
+                                <button type="button" id="submit-btn" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -602,6 +602,30 @@
             }
         }
         
+        // Function to show success message
+        function showSuccessMessage() {
+            console.log("Showing success message with SweetAlert");
+            
+            // Ensure SweetAlert is available
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    title: 'Thank You!',
+                    text: 'Your photographer registration has been submitted successfully. We will review your details and get back to you soon.',
+                    icon: 'success',
+                    confirmButtonColor: '#FF6F00',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resetForm();
+                    }
+                });
+            } else {
+                // Fallback if SweetAlert is still not available
+                alert('Your photographer registration has been submitted successfully. We will review your details and get back to you soon.');
+                resetForm();
+            }
+        }
+        
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Get form elements
@@ -610,8 +634,6 @@
             const fileInput = document.getElementById('fileInput');
             const uploadBtn = document.getElementById('uploadBtn');
             const previewContainer = document.getElementById('previewContainer');
-            const modal = document.getElementById('thankYouModal');
-            const closeModalBtn = document.getElementById('closeModal');
             
             // Get navigation buttons
             const step1NextBtn = document.getElementById('step1-next');
@@ -699,41 +721,45 @@
                 });
             }
             
-            // Form submission
+            // Form submission handler - FIXED CODE HERE
             if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Validate photo submission
-        if (uploadedFiles.length < 3) {
-            showError('photos', 'Please upload at least 3 photos');
-            return;
-        } else {
-            hideError('photos');
-        }
-        
-        // Show success message with SweetAlert2
-        Swal.fire({
-            title: 'Thank You!',
-            text: 'Your photographer registration has been submitted successfully. We will review your details and get back to you soon.',
-            icon: 'success',
-            confirmButtonColor: '#FF6F00',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                resetForm();
-            }
-        });
-    });
-}
-            
-            // Close modal button
-            if (closeModalBtn) {
-                closeModalBtn.addEventListener('click', function() {
-                    if (modal) {
-                        modal.classList.remove('show');
-                        resetForm();
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    console.log("Form submitted");
+                    
+                    // Validate photo submission
+                    if (uploadedFiles.length < 3) {
+                        showError('photos', 'Please upload at least 3 photos');
+                        return;
+                    } else {
+                        hideError('photos');
                     }
+                    
+                    // Show success message
+                    showSuccessMessage();
+                });
+            }
+            
+            // Add a direct click handler to the submit button
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function(e) {
+                    console.log("Submit button clicked directly");
+                    
+                    // Only proceed if we're on the final step
+                    if (currentStep !== 3) return;
+                    
+                    e.preventDefault();
+                    
+                    // Validate photo submission
+                    if (uploadedFiles.length < 3) {
+                        showError('photos', 'Please upload at least 3 photos');
+                        return;
+                    } else {
+                        hideError('photos');
+                    }
+                    
+                    // Show success message
+                    showSuccessMessage();
                 });
             }
             
@@ -759,6 +785,17 @@
                     }
                 });
             });
+            
+            // Check if SweetAlert is available, if not, load it
+            if (typeof Swal === 'undefined') {
+                console.log("SweetAlert not found, loading it dynamically");
+                const sweetAlertScript = document.createElement('script');
+                sweetAlertScript.src = "https://cdn.jsdelivr.net/npm/sweetalert2@11";
+                sweetAlertScript.onload = function() {
+                    console.log("SweetAlert loaded successfully");
+                };
+                document.head.appendChild(sweetAlertScript);
+            }
         });
     </script>
     <script src="../_js/header.js" defer></script>
