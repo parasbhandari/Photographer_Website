@@ -285,6 +285,9 @@
   .top-6 {
     top: calc(var(--spacing) * 6);
   }
+  .top-7 {
+    top: calc(var(--spacing) * 7);
+  }
   .top-8 {
     top: calc(var(--spacing) * 8);
   }
@@ -293,6 +296,21 @@
   }
   .top-60 {
     top: calc(var(--spacing) * 60);
+  }
+  .top-66 {
+    top: calc(var(--spacing) * 66);
+  }
+  .top-70 {
+    top: calc(var(--spacing) * 70);
+  }
+  .top-71 {
+    top: calc(var(--spacing) * 71);
+  }
+  .top-72 {
+    top: calc(var(--spacing) * 72);
+  }
+  .top-74 {
+    top: calc(var(--spacing) * 74);
   }
   .top-96 {
     top: calc(var(--spacing) * 96);
@@ -330,11 +348,23 @@
   .right-\[106px\] {
     right: 106px;
   }
+  .-bottom-16 {
+    bottom: calc(var(--spacing) * -16);
+  }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
+  .bottom-4 {
+    bottom: calc(var(--spacing) * 4);
+  }
+  .bottom-5 {
+    bottom: calc(var(--spacing) * 5);
+  }
   .bottom-8 {
     bottom: calc(var(--spacing) * 8);
+  }
+  .bottom-10 {
+    bottom: calc(var(--spacing) * 10);
   }
   .bottom-16 {
     bottom: calc(var(--spacing) * 16);
@@ -360,6 +390,9 @@
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
+  .left-4 {
+    left: calc(var(--spacing) * 4);
+  }
   .left-8 {
     left: calc(var(--spacing) * 8);
   }
@@ -380,6 +413,12 @@
   }
   .left-24 {
     left: calc(var(--spacing) * 24);
+  }
+  .left-28 {
+    left: calc(var(--spacing) * 28);
+  }
+  .left-30 {
+    left: calc(var(--spacing) * 30);
   }
   .left-36 {
     left: calc(var(--spacing) * 36);
@@ -750,6 +789,12 @@
   .h-\[85vh\] {
     height: 85vh;
   }
+  .h-\[90vh\] {
+    height: 90vh;
+  }
+  .h-\[100vh\] {
+    height: 100vh;
+  }
   .h-\[153vh\] {
     height: 153vh;
   }
@@ -773,6 +818,9 @@
   }
   .h-\[800px\] {
     height: 800px;
+  }
+  .h-\[vh\] {
+    height: vh;
   }
   .h-auto {
     height: auto;
@@ -840,6 +888,9 @@
   .w-96 {
     width: calc(var(--spacing) * 96);
   }
+  .w-\[4vw\] {
+    width: 4vw;
+  }
   .w-\[30vw\] {
     width: 30vw;
   }
@@ -848,6 +899,15 @@
   }
   .w-\[40vw\] {
     width: 40vw;
+  }
+  .w-\[42vw\] {
+    width: 42vw;
+  }
+  .w-\[44vw\] {
+    width: 44vw;
+  }
+  .w-\[48vw\] {
+    width: 48vw;
   }
   .w-\[54vw\] {
     width: 54vw;
@@ -2029,6 +2089,18 @@
   }
   .pb-2 {
     padding-bottom: calc(var(--spacing) * 2);
+  }
+  .pb-20 {
+    padding-bottom: calc(var(--spacing) * 20);
+  }
+  .pb-34 {
+    padding-bottom: calc(var(--spacing) * 34);
+  }
+  .pb-40 {
+    padding-bottom: calc(var(--spacing) * 40);
+  }
+  .pb-44 {
+    padding-bottom: calc(var(--spacing) * 44);
   }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);
