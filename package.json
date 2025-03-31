@@ -1,13 +1,22 @@
 {
   "name": "lsp",
   "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/w3developerspvtltd/LSP#readme",
+  "bugs": {
+    "url": "https://github.com/w3developerspvtltd/LSP/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w3developerspvtltd/LSP.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "@tailwindcss/cli": "^4.0.17",
     "@tailwindcss/vite": "^4.0.17"
