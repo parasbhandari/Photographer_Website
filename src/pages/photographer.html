@@ -6,6 +6,8 @@
     <title>Photographer Sign Up</title>
     <link href="../_css/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         /* Form step styling */
         .form-step {
@@ -15,8 +17,8 @@
             display: block;
         }
         .step-indicator.active {
-            color: #3b82f6;
-            border-bottom: 2px solid #3b82f6;
+            color:#FF6F00;
+            border-bottom: 2px solid #FF6F00;
         }
         .step-indicator.completed {
             color: #10b981;
@@ -93,7 +95,7 @@
         }
         
         .next-btn {
-            background-color: #3b82f6;
+            background-color: #FF6F00;
             color: white;
         }
         
@@ -108,6 +110,35 @@
         
         .prev-btn:hover {
             background-color: #9ca3af;
+        }
+
+        /* Modal styling */
+        #thankYouModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;    
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        #thankYouModal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
         }
     </style>
 </head>
@@ -127,7 +158,7 @@
 
         <!-- Form Container -->
         <div class="container mx-auto px-4 py-8 max-w-4xl">
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-orange-300 p-2">
                 <!-- Progress Steps -->
                 <div class="flex border-b">
                     <div id="step1-indicator" class="step-indicator active flex-1 py-4 text-center font-medium">
@@ -146,23 +177,23 @@
                     <!-- Step 1: Personal Details -->
                     <form id="photographer-form" class="space-y-6">
                         <div id="formStep1" class="form-step active">
-                            <h2 class="text-2xl font-bold mb-6 text-gray-800">Create Account</h2>
+                            <h2 class="text-2xl font-bold mb-6 text-[#FF6F00]">Create Account</h2>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="fullName">Full Name</label>
-                                    <input type="text" id="fullName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Full Name" required>
+                                    <input type="text" id="fullName" class="w-full px-4 py-2 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"  placeholder="Enter Full Name" required>
                                     <p class="text-red-500 text-sm mt-1 hidden" id="fullName-error">This field is required</p>
                                 </div>
                                 
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="country">Country you live in</label>
-                                    <input type="text" id="country" class="w-full px-4 py-2 border rounded-lg bg-gray-100" value="Nepal" readonly>
+                                    <input type="text" id="country" class="w-full px-4 py-2 rounded-lg border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC]" value="Nepal" readonly>
                                 </div>
                                 
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="city">City you Live in</label>
-                                    <select id="city" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                    <select id="city" class="w-full px-4 py-4 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required>
                                         <option value="">Select your City</option>
                                         <option value="kathmandu">Kathmandu</option>
                                         <option value="pokhara">Pokhara</option>
@@ -175,8 +206,8 @@
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="mobile">Mobile (With Country Code)</label>
                                     <div class="flex">
-                                        <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 bg-gray-100 text-gray-700">+977</span>
-                                        <input type="tel" id="mobile" class="w-full px-4 py-2 border rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="xxxxxxxxx" pattern="[0-9]{9,10}" required>
+                                        <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC]">+977</span>
+                                        <input type="tel" id="mobile" class="w-full px-4 py-2 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC] rounded-r-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="xxxxxxxxx" pattern="[0-9]{9,10}" required>
                                     </div>
                                     <p class="text-xs text-gray-500 mt-1">eg: +977xxxxxxxxx, No spaces/symbols</p>
                                     <p class="text-red-500 text-sm mt-1 hidden" id="mobile-error">Please enter a valid 9-10 digit mobile number</p>
@@ -184,18 +215,18 @@
                                 
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="social">FB / Insta page</label>
-                                    <input type="url" id="social" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="FB / Insta page">
+                                    <input type="url" id="social" class="w-full px-4 py-2 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="FB / Insta page">
                                 </div>
                                 
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="email">Email ID</label>
-                                    <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Email ID here" required>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200" placeholder="Email ID here" required>
                                     <p class="text-red-500 text-sm mt-1 hidden" id="email-error">Please enter a valid email address</p>
                                 </div>
                                 
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="state">State you live in</label>
-                                    <select id="state" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                    <select id="state" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC]" required>
                                         <option value="">Select your State</option>
                                         <option value="province1">Province 1</option>
                                         <option value="province2">Province 2</option>
@@ -210,23 +241,23 @@
                                 
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="nearbyCities">Nearby Cities you can Travel</label>
-                                    <input type="text" id="nearbyCities" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Nearby Cities you can Travel">
+                                    <input type="text" id="nearbyCities" class="w-full px-4 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC]" placeholder="Enter Nearby Cities you can Travel">
                                 </div>
                                 
                                 <div class="md:col-span-2">
                                     <label class="block text-gray-700 mb-2" for="portfolio">Portfolio/Any Other Link</label>
-                                    <input type="url" id="portfolio" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Eg: Flickr or Website">
+                                    <input type="url" id="portfolio" class="w-full px-4 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC]" placeholder="Eg: Flickr or Website">
                                 </div>
                             </div>
                             
                             <div class="mt-8 flex justify-end">
-                                <button type="button" id="step1-next" class="next-btn bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Next</button>
+                                <button type="button" id="step1-next" class="next-btn bg-[#FF6F00] text-white px-6 py-2 hover:bg-blue-700 transition rounded-full">Next</button>
                             </div>
                         </div>
                         
                         <!-- Step 2: Skill Details -->
                         <div id="formStep2" class="form-step">
-                            <h2 class="text-2xl font-bold mb-6 text-gray-800">Skill Details</h2>
+                            <h2 class="text-2xl font-bold mb-6 text-[#FF6F00]">Skill Details</h2>
                             
                             <div class="mb-6">
                                 <label class="block text-gray-700 mb-3">Photography Skills</label>
@@ -269,8 +300,8 @@
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label class="block text-gray-700 mb-2" for="skillLevel">Skill Level</label>
-                                    <select id="skillLevel" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                    <label class="block text-[] mb-2" for="skillLevel">Skill Level</label>
+                                    <select id="skillLevel" class="w-full px-4 py-2 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required>
                                         <option value="">Select your Skill Level</option>
                                         <option value="beginner">Beginner</option>
                                         <option value="intermediate">Intermediate</option>
@@ -282,7 +313,7 @@
                                 
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="experience">Experience</label>
-                                    <select id="experience" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                    <select id="experience" class="w-full px-4 py-2 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required>
                                         <option value="">Select years of Experience</option>
                                         <option value="0-1">0-1 years</option>
                                         <option value="1-3">1-3 years</option>
@@ -294,12 +325,12 @@
                                 
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="camera">Camera & Lenses Used</label>
-                                    <input type="text" id="camera" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Comma Separated Names">
+                                    <input type="text" id="camera" class="w-full px-4 py-2 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Enter Comma Separated Names">
                                 </div>
                                 
                                 <div>
                                     <label class="block text-gray-700 mb-2" for="equipment">Tools/Equipment Used</label>
-                                    <input type="text" id="equipment" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Eg: Editing Software, Tripod, Lighting">
+                                    <input type="text" id="equipment" class="w-full px-4 py-2 border border-2 border-orange-300 text-[#FF6F007D] bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Eg: Editing Software, Tripod, Lighting">
                                 </div>
                             </div>
                             
@@ -311,7 +342,7 @@
                         
                         <!-- Step 3: Photo Submission -->
                         <div id="formStep3" class="form-step">
-                            <h2 class="text-2xl font-bold mb-6 text-gray-800">Photo Submission</h2>
+                            <h2 class="text-2xl font-bold mb-6 text-[#FF6F00]">Photo Submission</h2>
                             
                             <div class="mb-6">
                                 <label class="block text-gray-700 mb-3">Upload Your Photos</label>
@@ -353,16 +384,234 @@
         // Store uploaded files
         let uploadedFiles = [];
         
+        // Function to update step indicator
+        function updateStepIndicator() {
+            // Update step indicators
+            for (let i = 1; i <= totalSteps; i++) {
+                const indicator = document.getElementById(`step${i}-indicator`);
+                if (!indicator) continue;
+                
+                if (i === currentStep) {
+                    indicator.classList.add('active');
+                    indicator.classList.remove('completed', 'text-gray-500', 'text-green-600');
+                } else if (i < currentStep) {
+                    indicator.classList.add('completed', 'text-green-600');
+                    indicator.classList.remove('active', 'text-gray-500');
+                } else {
+                    indicator.classList.add('text-gray-500');
+                    indicator.classList.remove('active', 'completed', 'text-green-600');
+                }
+            }
+            
+            // Show/hide form steps
+            document.querySelectorAll('.form-step').forEach((step, index) => {
+                if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+        }
+        
+        // Function to show error messages
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorElement = document.getElementById(`${fieldId}-error`);
+            
+            if (field) {
+                field.classList.add('border-red-500');
+            }
+            
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.classList.remove('hidden');
+            }
+        }
+        
+        // Function to hide error messages
+        function hideError(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorElement = document.getElementById(`${fieldId}-error`);
+            
+            if (field) {
+                field.classList.remove('border-red-500');
+            }
+            
+            if (errorElement) {
+                errorElement.classList.add('hidden');
+            }
+        }
+        
+        // Function to validate current step
+        function validateStep(step) {
+            let isValid = true;
+            
+            if (step === 1) {
+                // Validate personal details
+                const requiredFields = ['fullName', 'city', 'mobile', 'email', 'state'];
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!field || !field.value.trim()) {
+                        showError(fieldId, 'This field is required');
+                        isValid = false;
+                    } else {
+                        hideError(fieldId);
+                    }
+                });
+                
+                // Validate email format
+                const email = document.getElementById('email');
+                if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                    showError('email', 'Please enter a valid email address');
+                    isValid = false;
+                }
+                
+                // Validate mobile number
+                const mobile = document.getElementById('mobile');
+                if (mobile && mobile.value && !/^\d{9,10}$/.test(mobile.value)) {
+                    showError('mobile', 'Please enter a valid 9-10 digit mobile number');
+                    isValid = false;
+                }
+            } else if (step === 2) {
+                // Validate skill details
+                const requiredFields = ['skillLevel', 'experience'];
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!field || !field.value) {
+                        showError(fieldId, `Please select your ${fieldId === 'skillLevel' ? 'skill level' : 'experience'}`);
+                        isValid = false;
+                    } else {
+                        hideError(fieldId);
+                    }
+                });
+                
+                // Validate at least one skill is selected
+                const skills = document.querySelectorAll('input[name="skills"]:checked');
+                if (skills.length === 0) {
+                    document.getElementById('skills-error').classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    document.getElementById('skills-error').classList.add('hidden');
+                }
+            }
+            
+            return isValid;
+        }
+        
+        // Function to handle file uploads
+        function handleFiles(files) {
+            if (!files || files.length === 0) return;
+            
+            // Process each file
+            Array.from(files).forEach((file) => {
+                // Only accept image files
+                if (!file.type.startsWith('image/')) {
+                    console.log(`Skipping non-image file: ${file.name}`);
+                    return;
+                }
+                
+                // Add to uploaded files array
+                uploadedFiles.push(file);
+                
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    // Show the preview container
+                    const previewContainer = document.getElementById('previewContainer');
+                    if (previewContainer) {
+                        previewContainer.classList.add('show');
+                    }
+                    
+                    // Create preview container
+                    const previewItem = document.createElement('div');
+                    previewItem.className = 'preview-item';
+                    
+                    // Create image element
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = `Preview ${file.name}`;
+                    
+                    // Create remove button
+                    const removeBtn = document.createElement('button');
+                    removeBtn.className = 'remove-btn';
+                    removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    removeBtn.onclick = function(evt) {
+                        evt.stopPropagation(); // Prevent event bubbling
+                        
+                        // Find index of file to remove
+                        const index = uploadedFiles.indexOf(file);
+                        if (index > -1) {
+                            uploadedFiles.splice(index, 1);
+                        }
+                        
+                        previewItem.remove();
+                        if (previewContainer && previewContainer.children.length === 0) {
+                            previewContainer.classList.remove('show');
+                        }
+                        
+                        // Hide error if it was shown
+                        if (uploadedFiles.length >= 3) {
+                            hideError('photos');
+                        }
+                    };
+                    
+                    // Append elements
+                    previewItem.appendChild(img);
+                    previewItem.appendChild(removeBtn);
+                    if (previewContainer) {
+                        previewContainer.appendChild(previewItem);
+                    }
+                };
+                
+                reader.onerror = function(error) {
+                    console.error(`Error reading file ${file.name}:`, error);
+                };
+                
+                // Start reading the file
+                reader.readAsDataURL(file);
+            });
+        }
+        
+        // Function to reset the form
+        function resetForm() {
+            const form = document.getElementById('photographer-form');
+            if (form) {
+                form.reset();
+                
+                // Reset the current step
+                currentStep = 1;
+                updateStepIndicator();
+                
+                // Clear uploaded files
+                uploadedFiles = [];
+                const previewContainer = document.getElementById('previewContainer');
+                if (previewContainer) {
+                    previewContainer.innerHTML = '';
+                    previewContainer.classList.remove('show');
+                }
+                
+                // Clear all error messages
+                document.querySelectorAll('[id$="-error"]').forEach(el => {
+                    el.classList.add('hidden');
+                });
+                
+                // Clear all error borders
+                document.querySelectorAll('.border-red-500').forEach(el => {
+                    el.classList.remove('border-red-500');
+                });
+            }
+        }
+        
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
-            console.log("DOM fully loaded");
-            
             // Get form elements
             const form = document.getElementById('photographer-form');
             const dropzone = document.getElementById('dropzone');
             const fileInput = document.getElementById('fileInput');
             const uploadBtn = document.getElementById('uploadBtn');
             const previewContainer = document.getElementById('previewContainer');
+            const modal = document.getElementById('thankYouModal');
+            const closeModalBtn = document.getElementById('closeModal');
             
             // Get navigation buttons
             const step1NextBtn = document.getElementById('step1-next');
@@ -380,42 +629,7 @@
             // Initialize the form
             updateStepIndicator();
             
-            function updateStepIndicator() {
-                console.log("Updating step indicator to step:", currentStep);
-                
-                // Update step indicators
-                for (let i = 1; i <= totalSteps; i++) {
-                    const indicator = document.getElementById(`step${i}-indicator`);
-                    if (!indicator) {
-                        console.error(`Step indicator ${i} not found`);
-                        continue;
-                    }
-                    
-                    if (i === currentStep) {
-                        indicator.classList.add('active');
-                        indicator.classList.remove('completed', 'text-gray-500', 'text-green-600');
-                    } else if (i < currentStep) {
-                        indicator.classList.add('completed', 'text-green-600');
-                        indicator.classList.remove('active', 'text-gray-500');
-                    } else {
-                        indicator.classList.add('text-gray-500');
-                        indicator.classList.remove('active', 'completed', 'text-green-600');
-                    }
-                }
-                
-                // Show/hide form steps
-                document.querySelectorAll('.form-step').forEach((step, index) => {
-                    if (index + 1 === currentStep) {
-                        step.classList.add('active');
-                    } else {
-                        step.classList.remove('active');
-                    }
-                });
-            }
-            
             function nextStep() {
-                console.log("Next step clicked, current step:", currentStep);
-                
                 // Validate current step before proceeding
                 if (validateStep(currentStep)) {
                     if (currentStep < totalSteps) {
@@ -431,8 +645,6 @@
             }
             
             function prevStep() {
-                console.log("Previous step clicked, current step:", currentStep);
-                
                 if (currentStep > 1) {
                     currentStep--;
                     updateStepIndicator();
@@ -442,88 +654,6 @@
                         activeStep.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }
-            }
-            
-            function showError(fieldId, message) {
-                const field = document.getElementById(fieldId);
-                const errorElement = document.getElementById(`${fieldId}-error`);
-                
-                if (field) {
-                    field.classList.add('border-red-500');
-                }
-                
-                if (errorElement) {
-                    errorElement.textContent = message;
-                    errorElement.classList.remove('hidden');
-                }
-            }
-            
-            function hideError(fieldId) {
-                const field = document.getElementById(fieldId);
-                const errorElement = document.getElementById(`${fieldId}-error`);
-                
-                if (field) {
-                    field.classList.remove('border-red-500');
-                }
-                
-                if (errorElement) {
-                    errorElement.classList.add('hidden');
-                }
-            }
-            
-            function validateStep(step) {
-                let isValid = true;
-                
-                if (step === 1) {
-                    // Validate personal details
-                    const requiredFields = ['fullName', 'city', 'mobile', 'email', 'state'];
-                    requiredFields.forEach(fieldId => {
-                        const field = document.getElementById(fieldId);
-                        if (!field || !field.value.trim()) {
-                            showError(fieldId, 'This field is required');
-                            isValid = false;
-                        } else {
-                            hideError(fieldId);
-                        }
-                    });
-                    
-                    // Validate email format
-                    const email = document.getElementById('email');
-                    if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-                        showError('email', 'Please enter a valid email address');
-                        isValid = false;
-                    }
-                    
-                    // Validate mobile number
-                    const mobile = document.getElementById('mobile');
-                    if (mobile && mobile.value && !/^\d{9,10}$/.test(mobile.value)) {
-                        showError('mobile', 'Please enter a valid 9-10 digit mobile number');
-                        isValid = false;
-                    }
-                } else if (step === 2) {
-                    // Validate skill details
-                    const requiredFields = ['skillLevel', 'experience'];
-                    requiredFields.forEach(fieldId => {
-                        const field = document.getElementById(fieldId);
-                        if (!field || !field.value) {
-                            showError(fieldId, `Please select your ${fieldId === 'skillLevel' ? 'skill level' : 'experience'}`);
-                            isValid = false;
-                        } else {
-                            hideError(fieldId);
-                        }
-                    });
-                    
-                    // Validate at least one skill is selected
-                    const skills = document.querySelectorAll('input[name="skills"]:checked');
-                    if (skills.length === 0) {
-                        document.getElementById('skills-error').classList.remove('hidden');
-                        isValid = false;
-                    } else {
-                        document.getElementById('skills-error').classList.add('hidden');
-                    }
-                }
-                
-                return isValid;
             }
             
             // Click on dropzone or button to open file dialog
@@ -569,104 +699,41 @@
                 });
             }
             
-            function handleFiles(files) {
-                if (!files || files.length === 0) return;
-                
-                // Process each file
-                Array.from(files).forEach((file) => {
-                    // Only accept image files
-                    if (!file.type.startsWith('image/')) {
-                        console.log(`Skipping non-image file: ${file.name}`);
-                        return;
-                    }
-                    
-                    // Add to uploaded files array
-                    uploadedFiles.push(file);
-                    
-                    const reader = new FileReader();
-                    
-                    reader.onload = function(e) {
-                        // Show the preview container
-                        if (previewContainer) {
-                            previewContainer.classList.add('show');
-                        }
-                        
-                        // Create preview container
-                        const previewItem = document.createElement('div');
-                        previewItem.className = 'preview-item';
-                        
-                        // Create image element
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        img.alt = `Preview ${file.name}`;
-                        
-                        // Create remove button
-                        const removeBtn = document.createElement('button');
-                        removeBtn.className = 'remove-btn';
-                        removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                        removeBtn.onclick = function(evt) {
-                            evt.stopPropagation(); // Prevent event bubbling
-                            
-                            // Find index of file to remove
-                            const index = uploadedFiles.indexOf(file);
-                            if (index > -1) {
-                                uploadedFiles.splice(index, 1);
-                            }
-                            
-                            previewItem.remove();
-                            if (previewContainer && previewContainer.children.length === 0) {
-                                previewContainer.classList.remove('show');
-                            }
-                            
-                            // Hide error if it was shown
-                            if (uploadedFiles.length >= 3) {
-                                hideError('photos');
-                            }
-                        };
-                        
-                        // Append elements
-                        previewItem.appendChild(img);
-                        previewItem.appendChild(removeBtn);
-                        if (previewContainer) {
-                            previewContainer.appendChild(previewItem);
-                        }
-                    };
-                    
-                    reader.onerror = function(error) {
-                        console.error(`Error reading file ${file.name}:`, error);
-                    };
-                    
-                    // Start reading the file
-                    reader.readAsDataURL(file);
-                });
-            }
-            
             // Form submission
             if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Validate photo submission
-                    if (uploadedFiles.length < 3) {
-                        showError('photos', 'Please upload at least 3 photos');
-                        return;
-                    } else {
-                        hideError('photos');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate photo submission
+        if (uploadedFiles.length < 3) {
+            showError('photos', 'Please upload at least 3 photos');
+            return;
+        } else {
+            hideError('photos');
+        }
+        
+        // Show success message with SweetAlert2
+        Swal.fire({
+            title: 'Thank You!',
+            text: 'Your photographer registration has been submitted successfully. We will review your details and get back to you soon.',
+            icon: 'success',
+            confirmButtonColor: '#FF6F00',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                resetForm();
+            }
+        });
+    });
+}
+            
+            // Close modal button
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', function() {
+                    if (modal) {
+                        modal.classList.remove('show');
+                        resetForm();
                     }
-                    
-                    // If all validations pass, submit the form
-                    alert('Form submitted successfully!');
-                    
-                    // Here you would typically send the form data to a server
-                    // Example:
-                    // const formData = new FormData(this);
-                    // uploadedFiles.forEach((file, index) => {
-                    //     formData.append(`photo${index}`, file);
-                    // });
-                    // fetch('/submit', { method: 'POST', body: formData })
-                    //   .then(response => response.json())
-                    //   .then(data => console.log(data))
-                    //   .catch(error => console.error(error));
                 });
             }
             
