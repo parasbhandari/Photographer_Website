@@ -1,12 +1,18 @@
-@import "tailwindcss";
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
+* {
+  /* padding: 0;
+  margin: 0; */
+  box-sizing: border-box;
+  font-family: var(--font-montserrat);
+  list-style-type: none;
 }
+
+body {
+  overflow-x: hidden;
+  margin: 0px auto;
+  background-color: var(--background-color);
+}
+
 .wrapper {
-  width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-left: auto;
-  margin-right: auto;
+  width: 1300px;
+  margin: 0px auto;
 }

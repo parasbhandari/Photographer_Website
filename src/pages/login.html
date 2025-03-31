@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Sweet Photography - Login</title>
-    <link href="../_css/output.css" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../_css/input.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
     
@@ -26,6 +27,7 @@
     <div class="flex flex-col md:flex-row h-screen">
         
         <!-- Left curved section with responsive image -->
+
 <div class="curved-section relative w-full md:w-1/2 h-full flex items-center justify-center overflow-hidden">
     <div>
 
@@ -46,40 +48,11 @@
         <div class="w-full md:w-1/2 p-6 md:p-12 flex flex-col">
             <!-- Top navigation -->
            <!-- Top navigation -->
-<div class=" relative flex justify-between items-center mb-6">
+<div class=" relative flex justify-between items-center mb-6 ">
     <!-- Logo (visible only on small screens) -->
-    <img src="../assets/images/footerlogo.png" alt="Little Sweet Photography Logo" class="h-10 w-auto md:hidden">
+    <img src="../assets/images/login/footerlogo.png" alt="Little Sweet Photography Logo" class="h-10 w-auto md:hidden">
 
-    <!-- Navigation links (Hidden on small screens) -->
-    <div class="hidden md:flex space-x-7">
-        <a href="index.html" class="text-gray-700 hover:text-gray-900">Home</a>
-        <a href="about.html" class="text-gray-700 hover:text-gray-900">About Us</a>
-        <a href="packages.html" class="text-gray-700 hover:text-gray-900">Packages</a>
-    </div>
-
-    <!-- Sign-in and Sign-up Buttons -->
-    <div class="hidden md:flex space-x-4">
-        <button id="nav-signin" class="bg-[#FF6F00] text-white px-6 py-2 rounded-full" onclick="switchTab('login')">Sign In</button>
-        <button id="nav-signup" class="text-[#FF6F00] border border-[#FF6F00] px-6 py-2 rounded-full" onclick="switchTab('signup')">Sign Up</button>
-    </div>
-
-    <!-- Mobile Menu Button -->
-    <button id="menu-toggle" class="md:hidden text-[#FF6F00] focus:outline-none">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-    </button>
-</div>
-
-<!-- Mobile Menu (Hidden by Default) -->
-<div id="mobile-menu" class=" absolute top-16 left-0 w-full bg-white shadow-md md:hidden flex flex-col items-center space-y-4 py-4">
-    <a href="index.html" class="text-gray-700 hover:text-gray-900">Home</a>
-    <a href="about.html" class="text-gray-700 hover:text-gray-900">About Us</a>
-    <a href="packages.html" class="text-gray-700 hover:text-gray-900">Packages</a>
-    <button class="bg-[#FF6F00] text-white px-6 py-2 rounded-full" onclick="switchTab('login')">Sign In</button>
-    <button class="text-[#FF6F00] border border-[#FF6F00] px-6 py-2 rounded-full" onclick="switchTab('signup')">Sign Up</button>
-</div>
-
+   
             
             <!-- Login form -->
             <div class="max-w-md mx-auto w-full mt-8">
@@ -94,8 +67,10 @@
                     <div>
                         <input type="email" placeholder="Enter your email address" class="w-full p-4 shadow-md bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 ">
                     </div>
-                    <div>
+                    <div class="relative">
                         <input type="password" placeholder="Password" class="w-full p-4 shadow-md shadow-gray-500/20 bg-[#FF6F0012]  rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
+                        
+                        <i class="fa-regular fa-eye-slash absolute right-10 top-5"></i>
                     </div>
                     <div class="flex justify-between items-center">
                         <label class="flex items-center">
@@ -138,9 +113,9 @@
                 
                 <!-- Sign up form (hidden by default) -->
                 <form id="signup-form" class="space-y-2 hidden ">
-    <h2 class="text-3xl font-bold text-[#FF6F00] mb-2">Create an account</h2>
+    <h2 class="text-3xl font-bold text-[#FF6F00] ">Create an account</h2>
     <p class="text-gray-500 mb-3">Already have an account? <a href="#" class="text-[#FF6F00]" onclick="switchTab('login')">log-in</a></p>
-    
+    <div class="flex flex-col gap-4">
     <div>
         <input type="email" placeholder="Enter your email address" class="w-full p-4 shadow-md shadow-gray-500/20 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
     </div>
@@ -153,8 +128,18 @@
             <input type="text" placeholder="Last Name" class="w-full p-4 shadow-md shadow-gray-500/20 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
         </div>
     </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <input type="text" placeholder="Address" class="w-full p-4 shadow-md shadow-gray-500/20 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
+        </div>
+        <div>
+            <input type="text" placeholder="Phone Number" class="w-full p-4 shadow-md shadow-gray-500/20 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
+        </div>
+    </div>
+</div>
     
-    <div>
+    <div class="flex flex-col gap-4">
         <label class="block text-gray-700 mb-2">Date of Birth</label>
         <div class="grid grid-cols-3 gap-4">
             <div>
@@ -186,6 +171,17 @@
                 <input type="text" placeholder="Year" class="w-full p-4 bg-[#FF6F0012] shadow-md shadow-gray-500/20 rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
             </div>
         </div>
+
+    
+        <div class="relative">
+            <input type="password" placeholder="Enter new password" class="w-full p-4 shadow-md shadow-gray-500/20 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
+            <i class="fa-regular fa-eye-slash absolute right-10 top-5"></i>
+        </div>
+        <div class="relative">
+            <input type="password" placeholder="Confirm password" class="w-full p-4 shadow-md shadow-gray-500/20 bg-[#FF6F0012] rounded-lg border-0 focus:ring-2 focus:ring-[#FF6F00]">
+            <i class="fa-regular fa-eye-slash absolute right-10 top-5"></i>
+        </div>
+    
     </div>
     
     <div class="mt-4">
@@ -226,11 +222,96 @@
     }
 }
 
-
-document.getElementById('menu-toggle').addEventListener('click', function () {
-    let menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (validateLoginForm()){
+            this.reset();
+        }
+    });
+    
+    document.getElementById("signup-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if(validateSignupForm()){
+            this.reset();
+        }
+    });
 });
+
+function validateLoginForm() {
+    let email = document.querySelector("#login-form input[type='email']").value.trim();
+    let password = document.querySelector("#login-form input[type='password']").value.trim();
+    
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return;
+    }
+    alert("Login successful!");
+    return true
+}
+
+function validateSignupForm() {
+    let email = document.querySelector("#signup-form input[type='email']").value.trim();
+    let firstName = document.querySelector("#signup-form input[placeholder='First Name']").value.trim();
+    let lastName = document.querySelector("#signup-form input[placeholder='Last Name']").value.trim();
+    let phone = document.querySelector("#signup-form input[placeholder='Phone Number']").value.trim();
+    let password = document.querySelector("#signup-form input[placeholder='Enter new password']").value.trim();
+    let confirmPassword = document.querySelector("#signup-form input[placeholder='Confirm password']").value.trim();
+    
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    if (firstName === "" || lastName === "") {
+        alert("Please enter your full name.");
+        return;
+    }
+    if (!/^[0-9]{10,}$/.test(phone)) {
+        alert("Please enter a valid phone number with at least 10 digits.");
+        return;
+    }
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return;
+    }
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+    }
+    alert("Signup successful!");
+    return true
+}
+
+function validateEmail(email) {
+    let re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Toggle password visibility
+    document.querySelectorAll(".fa-eye-slash, .fa-eye").forEach(icon => {
+        icon.addEventListener("click", function () {
+            let passwordInput = this.previousElementSibling;
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                this.classList.remove("fa-eye-slash");
+                this.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                this.classList.remove("fa-eye");
+                this.classList.add("fa-eye-slash");
+            }
+        });
+    });
+});
+
+
+
 
     </script>
 </body>
