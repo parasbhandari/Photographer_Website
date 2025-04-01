@@ -15,11 +15,11 @@
 <body class="bg-white text-gray-800">
     <div id="header-container"></div>
     <!-- Pricing Plans Section -->
-    <div class=" w-full mb-5">
+    <div class=" w-full mb-5 pt-20">
        <!-- Hero Section -->
        <div class="relative">
-        <img src="../assets/images/wedding.png" alt="Photographer"
-            class="w-full h-48 sm:h-64 md:h-80 lg:h-[500px] object-cover brightness-50" />
+        <img src="../assets/images/wedding.jpg" alt="Photographer"
+            class="w-full h-auto object-fill sm:h-64 md:h-80 lg:h-[500px] brightness-50" />
         <div class="absolute inset-0 flex flex-col justify-center items-center text-white px-4 text-center">
             <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#FF6F00]">WEDDING</h2>
             <p class="mt-2 text-base sm:text-lg md:text-xl max-w-2xl px-4">Make sure the moment of a lifetime is captured for eternity</p>
@@ -32,7 +32,7 @@
         <p class="text-black font-bold mt-2 p-[10px]">Get the best value with our unbeatable prices—no second opinion needed! 🤑 Enjoy a 100% refund if you cancel within 48 hours of booking.*</p>
         <div class="flex  items-center p-[50px] justify-center gap-8">
             <h2 class="text-[24px] text-black tracling-[0px]">Get Custom Pricing</h2>
-            <button class="px-6 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition">
+            <button class="px-6 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition" onclick="window.location.href='./contact.html'">
                 Enquire Now
             </button>  
         </div>
@@ -202,47 +202,46 @@
     }
 </script>
 
-        
-    </section>
-
-   
+ <!-- Ideas for Photo Shoot -->
+ <section class="text-center py-10">
+    <h2 class="text-3xl font-bold text-orange-500">Ideas For Photo Shoot</h2>
+    <p class="text-black p-4 mt-2">Here are some inspiring ideas 🤩 to spark your creativity—check out how we've captured these high-quality shots!</p>
+ </section>  
 
         <!-- Image Section with 4 Images Per Row -->
 <div class="grid grid-cols-4 gap-[35px] mt-6 px-10 w-[1253px] mx-auto">
     <img src="../assets/images/image.jpeg" class="object-cover w-[287px] h-[356px] rounded-[5px] shadow-md">
     <img src="../assets/images/image1.jpeg" class="object-cover w-[287px] h-[356px] rounded-[5px] shadow-md">
     <img src="../assets/images/image2.jpeg" class="object-cover w-[287px] h-[356px] rounded-[5px] shadow-md">
-    <img src="../assets/images/image3.jpeg" class="object-cover w-[287px] h-[356px] rounded-[5px] shadow-md">
     <img src="../assets/images/image4.png" class="object-fill w-[287px] h-[356px] rounded-[5px] shadow-md">
     <img src="../assets/images/image5.png" class="object-fill w-[287px] h-[356px] rounded-[5px] shadow-md">
     <img src="../assets/images/image6.png" class="object-cover w-[287px] h-[356px] rounded-[5px] shadow-md">
     <img src="../assets/images/image7.png" class="object-cover w-[287px] h-[356px] rounded-[5px] shadow-md">
-    <img src="../assets/images/image8.png" class="object-fill w-[287px] h-[356px] rounded-[5px] shadow-md">
+    <img src="../assets/images/wedding1.jpg" class="object-cover w-[287px] h-[356px] rounded-[5px] shadow-md">
     <img src="../assets/images/image9.png" class="object-cover w-[287px] h-[356px] rounded-[5px] shadow-md">
+    <img src="../assets/images/wedding3.jpg" class="object-cover w-[287px] h-[356px] rounded-[5px] shadow-md">
 </div>
 
         
-    </section>
+    
 
-     <!-- Ideas for Photo Shoot -->
-     <section class="text-center py-10">
-        <h2 class="text-3xl font-bold text-orange-500">Ideas For Photo Shoot</h2>
-        <p class="text-black p-4 mt-2">Here are some inspiring ideas 🤩 to spark your creativity—check out how we've captured these high-quality shots!</p>
-
-
+      
          <!-- Cities Available Section -->
      <section class="text-center py-16">
         <h2 class="text-3xl font-bold text-orange-500">Cities Available</h2>
         <p class="text-gray-800 font-semibold mt-2">
             Currently we are available <span class="inline-block">✌️</span> in the following cities:
         </p>
-        <div class="mt-6 mx-auto w-[867px]">
-            <select class="w-full p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-gray-600 focus:outline-none">
+        <div class="mt-6 mx-auto w-[867px] relative">
+            <select class="w-full p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-gray-600 focus:outline-none appearance-none pr-10">
                 <option>Select Cities</option>
                 <option>Kathmandu</option>
                 <option>Bharatpur</option>
                 <option>Pokhara</option>
             </select>
+            <div class="absolute inset-y-6 right-8  flex items-center pointer-events-none">
+                <img class="w-6 h-6" src="../assets/images/arrow.png" alt="">
+            </div>
         </div>
           
     </section>
