@@ -81,41 +81,46 @@
     </div>
 
 
-    <!-- Find your perfect Packages  -->
-    <div class="relative h-[40vh] -mt-6">
-        <div class="absolute h-[40vh]">
-            <img class="object-cover h-[40vh]" src="../assets/images/Home/bg_c.png" alt="">
-        </div>
-        <div class="absolute flex items-start">
-            <img src="../assets/images/Home/Ellipse 68.png" alt="">
-        </div>
-        <div class="absolute flex items-end h-[40vh]">
-            <img src="../assets/images/Home/Ellipse 69.png" alt="">
-        </div>
-        <div class="absolute flex justify-end w-full -top-16">
-            <img src="../assets/images/Home/camera.png" alt="">
-        </div>
+<!-- Find your perfect Packages -->
+<div class="relative min-h-[40vh] md:h-[40vh] -mt-24 px-4 md:px-0">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+        <img class="object-cover w-full min-h-[40vh] md:h-[40vh]" src="../assets/images/Home/bg_c.png" alt="">
+    </div>
 
-        <div class="flex flex-col h-[35vh] gap-8 w-full justify-center items-center absolute ">
-            <h2 class="font-semibold text-4xl">Find Your Perfect Packages</h2>
-            <div class="font-medium text-base text-center">
-                <p>Start Your Search Today and Capture Moments</p>
-                <p>That Last a Lifetime.</p>
-            </div>
-            <div>
-                <a href="wedding.html">
-                    <button
-                        class="flex flex-row gap-1 items-center justify-center w-96 h-14 hover:scale-105 cursor-pointer rounded-4xl bg-[#FF6F00] text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                            fill="#FFFFFF">
-                            <path
-                                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
-                        </svg>
-                        <p class="text-sm font-medium">Search Packages</p>
-                    </button></a>
-            </div>
+    <!-- Floating Images (Hidden on Small Screens) -->
+    <div class="absolute hidden md:flex items-start">
+        <img src="../assets/images/Home/Ellipse 68.png" alt="">
+    </div>
+    <div class="absolute hidden md:flex items-end h-[40vh]">
+        <img src="../assets/images/Home/Ellipse 69.png" alt="">
+    </div>
+    <div class="absolute hidden md:flex justify-end w-full -top-16">
+        <img src="../assets/images/Home/camera.png" alt="">
+    </div>
+
+    <!-- Content Section -->
+    <div class="flex flex-col min-h-[40vh] gap-6 w-full justify-center items-center absolute text-center px-4">
+        <h2 class="font-semibold text-2xl md:text-4xl">Find Your Perfect Packages</h2>
+        <div class="font-medium text-sm md:text-base">
+            <p>Start Your Search Today and Capture Moments</p>
+            <p>That Last a Lifetime.</p>
+        </div>
+        
+        <!-- Button -->
+        <div>
+            <a href="wedding.html">
+                <button class="flex flex-row gap-2 items-center justify-center w-full md:w-96 h-12 md:h-14 hover:scale-105 cursor-pointer rounded-3xl bg-[#FF6F00] text-white px-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                    </svg>
+                    <p class="text-sm md:text-base font-medium">Search Packages</p>
+                </button>
+            </a>
         </div>
     </div>
+</div>
+
 
 <!-- A perfect-picture photography -->
 <div class="relative px-4 md:px-0">
@@ -149,7 +154,7 @@
 
 
 <!-- Featured Categories Section  -->
-<div style="background-color: rgba(202, 168, 103, 0.28);" class="min-h-screen md:min-h-0 md:h-[80vh] flex flex-col md:flex p-6 sm:p-12 md:p-24 justify-center items-center overflow-hidden">
+<div style="background-color: rgba(202, 168, 103, 0.28);" class="min-h-screen md:min-h-0 flex flex-col md:flex p-6 sm:p-12 md:p-20 justify-center items-center overflow-hidden">
 
     <div class="flex flex-col gap-4 items-center">
         <div class="font-semibold text-2xl sm:text-3xl md:text-4xl text-center">
