@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <nav class="hidden md:flex items-center space-x-8">
           <a href="../pages/index.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Home</a>
           <a href="../pages/about.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">About Us</a>
-          <a href="../pages/wedding.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Packages</a>
+          <a href="../pages/packages.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Packages</a>
           <button class="border-2 border-orange-500 p-2 rounded-full">
             <a href="../pages/contact.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">
               <i class="fa-solid fa-phone-volume" style="color: orange;"></i>
