@@ -155,4 +155,8 @@ body {
   .testimonial-card {
     padding: 1.5rem;
   }
+  .testimonial-slider .splide__slide.is-active {
+    transform: scale(0.9);
+    z-index: 1;
+  }
 }
