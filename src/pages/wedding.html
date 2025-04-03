@@ -18,8 +18,9 @@
             </div>
         </div>
         
-        <div class="bg-[#f6f8f9] grid p-15 gap-10" style="grid-template-columns: 3fr 9fr;">
-            <div class="bg-white text-xl font-medium flex gap-5 flex-col p-5 h-[30vh] rounded-xl sticky top-30">
+        <div class="bg-[#f6f8f9] grid p-15 gap-10" style="grid-template-columns: 4fr 9fr;">
+            <div>
+            <div class="bg-white text-xl font-medium flex gap-5 flex-col p-5 rounded-xl">
                 <a href="#price-plans"><h2 class="hover:bg-orange-200 hover:cursor p-2 rounded-lg">
                     Pricing plans</h2></a>
                     <a href="#ideas"><h2 class="hover:bg-orange-200 hover:cursor p-2 rounded-lg">
@@ -30,6 +31,71 @@
                 <a href="#cities">
                 <h2 class="hover:bg-orange-200 hover:cursor p-2 rounded-lg">Cities</h2>
                 </a>
+            </div>
+            <div class="mt-5 bg-white font-medium text-xl flex flex-col gap-5 p-5 rounded-xl ">
+             <h2 class="text-orange-500">Complete Your Details and Secure Your Booking Today!</h2>
+             <div class="flex flex-col gap-3 mt-5">
+                <label for="name" class="text-xl font-medium">Name:</label>
+                <input
+                  type="text"
+                  placeholder="Enter your Name"
+                  id="name"
+                  class="p-3 text-base border-2 border-orange-200 focus:border-orange-400 focus:outline-none rounded-xl"
+                />
+              </div>
+              <div class="flex flex-col gap-3 mt-5">
+                <label for="email" class="text-xl font-medium">Email:</label>
+                <input
+                  type="text"
+                  placeholder="Enter your Email"
+                  id="email"
+                  class="p-3 text-base border-2 border-orange-200 focus:border-orange-400 focus:outline-none rounded-xl"
+                />
+              </div>
+              <div class="flex flex-col gap-3 mt-5">
+                <label for="mobile" class="text-xl font-medium">Mobile:</label>
+                <input
+                  type="tel"
+                  placeholder="Enter your Mobile"
+                  id="mobile"
+                  class="p-3 text-base border-2 border-orange-200 focus:border-orange-400 focus:outline-none rounded-xl"
+                />
+              </div>
+              <div class="flex flex-col gap-3 mt-5">
+                <label  class="text-xl font-medium">Package:</label>
+                <h3 class="text-gray-400">Wedding Grand Package</h3>
+              </div>
+              <div class="flex flex-col gap-3 mt-5">
+                <label for="mobile" class="text-xl font-medium">Message:</label>
+                <textarea name="message" id="" cols="20" rows="5" class="border-2 border-orange-200 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-400 transition-all duration-200 p-5" placeholder="Tell us about u"></textarea>
+              </div>
+              <div class="flex flex-col gap-3 mt-5">
+                <label for="file-upload" class="text-xl font-medium text-gray-500">Attach the paid transaction here:</label>
+                <div class="relative">
+                  <input 
+                    type="file" 
+                    id="file-upload" 
+                    name="file-upload" 
+                    class="block w-full text-lg text-gray-500
+                           file:mr-4 file:py-2 file:px-4
+                           file:rounded-lg file:border-0
+                           file:text-lg file:font-semibold
+                           file:bg-orange-500 file:text-white
+                           hover:file:bg-orange-600
+                           cursor-pointer"
+                  >
+                </div>
+              </div>
+              <div class="mt-5 text-center">
+              <button class="text-white bg-orange-400 p-2 w-[60%] mx-auto rounded-xl hover:scale-105">Submit</button>
+              </div>
+              <div class="mt-10">
+              <h3 class="text-center">Scan a QR to make transaction</h3>
+              <div class="mt-3">
+              <img src="../assets/images//_package/qr.png" alt="" class="object-cover">
+              </div>
+              </div>
+            </div>
             </div>
             <div id="price-plans">
                 <h2 class="text-3xl font-bold">Pricing Plans<span class="text-orange-500">.</span></h2>
