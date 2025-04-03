@@ -1,804 +1,1103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photographer Sign Up</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../_css/input.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!-- Load SweetAlert without defer -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        /* Form step styling */
-        .form-step {
-            display: none;
-        }
-        .form-step.active {
-            display: block;
-        }
-        .step-indicator.active {
-            color:#FF6F00;
-            border-bottom: 2px solid #FF6F00;
-        }
-        .step-indicator.completed {
-            color: #10b981;
-        }
+      /* Form step styling */
+      .form-step {
+        display: none;
+      }
+      .form-step.active {
+        display: block;
+      }
+      .step-indicator.active {
+        color: #ff6f00;
+        border-bottom: 2px solid #ff6f00;
+      }
+      .step-indicator.completed {
+        color: #0090FF;
+      }
 
-        /* File upload preview styling */
-        #previewContainer {
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        #previewContainer.show {
-            display: grid;
-        }
-        .preview-item {
-            position: relative;
-            height: 150px;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            border: 1px solid #e5e7eb;
-        }
-        .preview-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .remove-btn {
-            position: absolute;
-            top: 0.25rem;
-            right: 0.25rem;
-            background-color: #ef4444;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .preview-item:hover .remove-btn {
-            opacity: 1;
-        }
+      /* File upload preview styling */
+      #previewContainer {
+        display: none;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      #previewContainer.show {
+        display: grid;
+      }
+      .preview-item {
+        position: relative;
+        height: 150px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        border: 1px solid #e5e7eb;
+      }
+      .preview-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .remove-btn {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.25rem;
+        background-color: #ef4444;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .preview-item:hover .remove-btn {
+        opacity: 1;
+      }
 
-        /* Dropzone styling */
-        #dropzone {
-            border: 2px dashed #d1d5db;
-            border-radius: 0.5rem;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        #dropzone:hover {
-            border-color: #3b82f6;
-            background-color: #f8fafc;
-        }
-        #dropzone.dragover {
-            border-color: #3b82f6;
-            background-color: #e0e7ff;
-        }
-        
-        /* Ensure buttons are visible */
-        .next-btn, .prev-btn {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            font-weight: 500;
-            border-radius: 0.375rem;
-            transition: all 0.2s;
-        }
-        
-        .next-btn {
-            background-color: #FF6F00;
-            color: white;
-        }
-        
-        .next-btn:hover {
-            background-color: #2563eb;
-        }
-        
-        .prev-btn {
-            background-color: #d1d5db;
-            color: #374151;
-        }
-        
-        .prev-btn:hover {
-            background-color: #9ca3af;
-        }
+      /* Dropzone styling */
+      #dropzone {
+        border: 2px dashed #d1d5db;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      #dropzone:hover {
+        border-color: #3b82f6;
+        background-color: #f8fafc;
+      }
+      #dropzone.dragover {
+        border-color: #3b82f6;
+        background-color: #e0e7ff;
+      }
 
-        /* Modal styling */
-        #thankYouModal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;    
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        #thankYouModal.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-        }
+      /* Ensure buttons are visible */
+      .next-btn,
+      .prev-btn {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        font-weight: 500;
+        border-radius: 0.375rem;
+        transition: all 0.2s;
+      }
+
+      .next-btn {
+        background-color: #ff6f00;
+        color: white;
+      }
+
+      .next-btn:hover {
+        background-color: #2563eb;
+      }
+
+      .prev-btn {
+        background-color: #d1d5db;
+        color: #374151;
+      }
+
+      .prev-btn:hover {
+        background-color: #9ca3af;
+      }
+
+      /* Modal styling */
+      #thankYouModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      #thankYouModal.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      .modal-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+      }
     </style>
-</head>
-<body class="bg-gray-100">
+  </head>
+  <body class="bg-gray-100">
     <div id="header-container"></div>
-   
-    <main>
-        <!-- Hero Section -->
-        <div class="relative">
-            <img src="../assets/images/photographer.png" alt="Photographer"
-                class="w-full h-48 sm:h-64 md:h-80 lg:h-[500px] object-cover brightness-50" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center text-white px-4 text-center">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#FF6F00]">PHOTOGRAPHER SIGN UP</h2>
-                <p class="mt-2 text-base sm:text-lg md:text-xl max-w-2xl px-4">Join our community of professional photographers</p>
-            </div>
-        </div>
 
+    <main>
+      <!-- Hero Section -->
+      <div class="relative pt-30">
         <!-- Form Container -->
         <div class="container mx-auto px-4 py-8 max-w-4xl">
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-orange-300 p-2">
-                <!-- Progress Steps -->
-                <div class="flex border-b">
-                    <div id="step1-indicator" class="step-indicator active flex-1 py-4 text-center font-medium">
-                        Personal Details
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-orange-300 p-2"
+          >
+            <!-- Progress Steps -->
+            <div class="flex border-b">
+              <div
+                id="step1-indicator"
+                class="step-indicator active flex-1 py-4 text-center font-medium"
+              >
+                Personal Details
+              </div>
+              <div
+                id="step2-indicator"
+                class="step-indicator flex-1 py-4 text-center font-medium text-gray-500"
+              >
+                Skill Details
+              </div>
+              <div
+                id="step3-indicator"
+                class="step-indicator flex-1 py-4 text-center font-medium text-gray-500"
+              >
+                Photo Submission
+              </div>
+            </div>
+
+            <!-- Form Steps -->
+            <div class="p-6 sm:p-8">
+              <!-- Step 1: Personal Details -->
+              <form id="photographer-form" class="space-y-6">
+                <div id="formStep1" class="form-step active">
+                  <h2 class="text-2xl font-bold mb-6 text-[#FF6F00]">
+                    Create Account
+                  </h2>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="fullName"
+                        >Full Name</label
+                      >
+                      <input
+                        type="text"
+                        id="fullName"
+                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        placeholder="Enter Full Name"
+                        required
+                      />
+                      <p
+                        class="text-red-500 text-sm mt-1 hidden"
+                        id="fullName-error"
+                      >
+                        This field is required
+                      </p>
                     </div>
-                    <div id="step2-indicator" class="step-indicator flex-1 py-4 text-center font-medium text-gray-500">
-                        Skill Details
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="country"
+                        >Country you live in</label
+                      >
+                      <input
+                        type="text"
+                        id="country"
+                        class="w-full px-4 py-2 rounded-lg border border-2 border-orange-300 bg-[#FEF4EC]"
+                        value="Nepal"
+                        readonly
+                      />
                     </div>
-                    <div id="step3-indicator" class="step-indicator flex-1 py-4 text-center font-medium text-gray-500">
-                        Photo Submission
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="city"
+                        >City you Live in</label
+                      >
+                      <select
+                        id="city"
+                        class="w-full px-4 py-4 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        required
+                      >
+                        <option value="">Select your City</option>
+                        <option value="kathmandu">Kathmandu</option>
+                        <option value="pokhara">Pokhara</option>
+                        <option value="lalitpur">Lalitpur</option>
+                        <option value="bhaktapur">Bhaktapur</option>
+                      </select>
+                      <p
+                        class="text-red-500 text-sm mt-1 hidden"
+                        id="city-error"
+                      >
+                        Please select a city
+                      </p>
                     </div>
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="mobile"
+                        >Mobile (With Country Code)</label
+                      >
+                      <div class="flex">
+                        <span
+                          class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border border-2 border-orange-300 bg-[#FEF4EC]"
+                          >+977</span
+                        >
+                        <input
+                          type="tel"
+                          id="mobile"
+                          class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-r-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                          placeholder="xxxxxxxxx"
+                          pattern="[0-9]{9,10}"
+                          required
+                        />
+                      </div>
+                      <p class="text-xs text-gray-500 mt-1">
+                        eg: +977xxxxxxxxx, No spaces/symbols
+                      </p>
+                      <p
+                        class="text-red-500 text-sm mt-1 hidden"
+                        id="mobile-error"
+                      >
+                        Please enter a valid 9-10 digit mobile number
+                      </p>
+                    </div>
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="social"
+                        >FB / Insta page</label
+                      >
+                      <input
+                        type="url"
+                        id="social"
+                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        placeholder="FB / Insta page"
+                      />
+                    </div>
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="email"
+                        >Email ID</label
+                      >
+                      <input
+                        type="email"
+                        id="email"
+                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200"
+                        placeholder="Email ID here"
+                        required
+                      />
+                      <p
+                        class="text-red-500 text-sm mt-1 hidden"
+                        id="email-error"
+                      >
+                        Please enter a valid email address
+                      </p>
+                    </div>
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="state"
+                        >State you live in</label
+                      >
+                      <select
+                        id="state"
+                        class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 bg-[#FEF4EC]"
+                        required
+                      >
+                        <option value="">Select your State</option>
+                        <option value="province1">Province 1</option>
+                        <option value="province2">Province 2</option>
+                        <option value="bagmati">Bagmati</option>
+                        <option value="gandaki">Gandaki</option>
+                        <option value="lumbini">Lumbini</option>
+                        <option value="karnali">Karnali</option>
+                        <option value="sudurpaschim">Sudurpaschim</option>
+                      </select>
+                      <p
+                        class="text-red-500 text-sm mt-1 hidden"
+                        id="state-error"
+                      >
+                        Please select a state
+                      </p>
+                    </div>
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="nearbyCities"
+                        >Nearby Cities you can Travel</label
+                      >
+                      <input
+                        type="text"
+                        id="nearbyCities"
+                        class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 bg-[#FEF4EC]"
+                        placeholder="Enter Nearby Cities you can Travel"
+                      />
+                    </div>
+
+                    <div class="md:col-span-2">
+                      <label class="block text-gray-700 mb-2" for="portfolio"
+                        >Portfolio/Any Other Link</label
+                      >
+                      <input
+                        type="url"
+                        id="portfolio"
+                        class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 bg-[#FEF4EC]"
+                        placeholder="Eg: Flickr or Website"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mt-8 flex justify-end">
+                    <button
+                      type="button"
+                      id="step1-next"
+                      class="next-btn bg-[#FF6F00] text-white px-6 py-2 hover:bg-blue-700 transition rounded-full"
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
 
-                <!-- Form Steps -->
-                <div class="p-6 sm:p-8">
-                    <!-- Step 1: Personal Details -->
-                    <form id="photographer-form" class="space-y-6">
-                        <div id="formStep1" class="form-step active">
-                            <h2 class="text-2xl font-bold mb-6 text-[#FF6F00]">Create Account</h2>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="fullName">Full Name</label>
-                                    <input type="text" id="fullName" class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"  placeholder="Enter Full Name" required>
-                                    <p class="text-red-500 text-sm mt-1 hidden" id="fullName-error">This field is required</p>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="country">Country you live in</label>
-                                    <input type="text" id="country" class="w-full px-4 py-2 rounded-lg border border-2 border-orange-300 bg-[#FEF4EC]" value="Nepal" readonly>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="city">City you Live in</label>
-                                    <select id="city" class="w-full px-4 py-4 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required>
-                                        <option value="">Select your City</option>
-                                        <option value="kathmandu">Kathmandu</option>
-                                        <option value="pokhara">Pokhara</option>
-                                        <option value="lalitpur">Lalitpur</option>
-                                        <option value="bhaktapur">Bhaktapur</option>
-                                    </select>
-                                    <p class="text-red-500 text-sm mt-1 hidden" id="city-error">Please select a city</p>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="mobile">Mobile (With Country Code)</label>
-                                    <div class="flex">
-                                        <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border border-2 border-orange-300  bg-[#FEF4EC]">+977</span>
-                                        <input type="tel" id="mobile" class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-r-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="xxxxxxxxx" pattern="[0-9]{9,10}" required>
-                                    </div>
-                                    <p class="text-xs text-gray-500 mt-1">eg: +977xxxxxxxxx, No spaces/symbols</p>
-                                    <p class="text-red-500 text-sm mt-1 hidden" id="mobile-error">Please enter a valid 9-10 digit mobile number</p>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="social">FB / Insta page</label>
-                                    <input type="url" id="social" class="w-full px-4 py-2 border border-2 border-orange-300  bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="FB / Insta page">
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="email">Email ID</label>
-                                    <input type="email" id="email" class="w-full px-4 py-2 border border-2 border-orange-300  bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200" placeholder="Email ID here" required>
-                                    <p class="text-red-500 text-sm mt-1 hidden" id="email-error">Please enter a valid email address</p>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="state">State you live in</label>
-                                    <select id="state" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 bg-[#FEF4EC]" required>
-                                        <option value="">Select your State</option>
-                                        <option value="province1">Province 1</option>
-                                        <option value="province2">Province 2</option>
-                                        <option value="bagmati">Bagmati</option>
-                                        <option value="gandaki">Gandaki</option>
-                                        <option value="lumbini">Lumbini</option>
-                                        <option value="karnali">Karnali</option>
-                                        <option value="sudurpaschim">Sudurpaschim</option>
-                                    </select>
-                                    <p class="text-red-500 text-sm mt-1 hidden" id="state-error">Please select a state</p>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="nearbyCities">Nearby Cities you can Travel</label>
-                                    <input type="text" id="nearbyCities" class="w-full px-4 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 bg-[#FEF4EC]" placeholder="Enter Nearby Cities you can Travel">
-                                </div>
-                                
-                                <div class="md:col-span-2">
-                                    <label class="block text-gray-700 mb-2" for="portfolio">Portfolio/Any Other Link</label>
-                                    <input type="url" id="portfolio" class="w-full px-4 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300  bg-[#FEF4EC]" placeholder="Eg: Flickr or Website">
-                                </div>
-                            </div>
-                            
-                            <div class="mt-8 flex justify-end">
-                                <button type="button" id="step1-next" class="next-btn bg-[#FF6F00] text-white px-6 py-2 hover:bg-blue-700 transition rounded-full">Next</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 2: Skill Details -->
-                        <div id="formStep2" class="form-step">
-                            <h2 class="text-2xl font-bold mb-6">Skill Details</h2>
-                            
-                            <div class="mb-6">
-                                <label class="block text-gray-700 mb-3">Photography Skills</label>
-                                <p class="text-red-500 text-sm mb-2 hidden" id="skills-error">Please select at least one photography skill</p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                    <div class="flex items-center">
-                                        <input type="checkbox" id="candid" name="skills" value="candid" class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                                        <label for="candid">Candid</label>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <input type="checkbox" id="food" name="skills" value="food" class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                                        <label for="food">Food</label>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <input type="checkbox" id="landscape" name="skills" value="landscape" class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                                        <label for="landscape">Landscape</label>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <input type="checkbox" id="fashion" name="skills" value="fashion" class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                                        <label for="fashion">Fashion</label>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <input type="checkbox" id="wedding" name="skills" value="wedding" class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                                        <label for="wedding">Wedding</label>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <input type="checkbox" id="portrait" name="skills" value="portrait" class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                                        <label for="portrait">Portfolio</label>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <input type="checkbox" id="wildlife" name="skills" value="wildlife" class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                                        <label for="wildlife">Wildlife</label>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <input type="checkbox" id="corporate" name="skills" value="corporate" class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                                        <label for="corporate">Corporate</label>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-[] mb-2" for="skillLevel">Skill Level</label>
-                                    <select id="skillLevel" class="w-full px-4 py-2 border border-2 border-orange-300  bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required>
-                                        <option value="">Select your Skill Level</option>
-                                        <option value="beginner">Beginner</option>
-                                        <option value="intermediate">Intermediate</option>
-                                        <option value="advanced">Advanced</option>
-                                        <option value="professional">Professional</option>
-                                    </select>
-                                    <p class="text-red-500 text-sm mt-1 hidden" id="skillLevel-error">Please select your skill level</p>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="experience">Experience</label>
-                                    <select id="experience" class="w-full px-4 py-2 border border-2 border-orange-300  bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required>
-                                        <option value="">Select years of Experience</option>
-                                        <option value="0-1">0-1 years</option>
-                                        <option value="1-3">1-3 years</option>
-                                        <option value="3-5">3-5 years</option>
-                                        <option value="5+">5+ years</option>
-                                    </select>
-                                    <p class="text-red-500 text-sm mt-1 hidden" id="experience-error">Please select your experience</p>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="camera">Camera & Lenses Used</label>
-                                    <input type="text" id="camera" class="w-full px-4 py-2 border border-2 border-orange-300  bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Enter Comma Separated Names">
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-gray-700 mb-2" for="equipment">Tools/Equipment Used</label>
-                                    <input type="text" id="equipment" class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Eg: Editing Software, Tripod, Lighting">
-                                </div>
-                            </div>
-                            
-                            <div class="mt-8 flex justify-between">
-                                <button type="button" id="step2-prev" class="prev-btn bg-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-400 transition">Previous</button>
-                                <button type="button" id="step2-next" class="next-btn bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Next</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 3: Photo Submission -->
-                        <div id="formStep3" class="form-step">
-                            <h2 class="text-2xl font-bold mb-6 text-[#FF6F00]">Photo Submission</h2>
-                            
-                            <div class="mb-6">
-                                <label class="block text-gray-700 mb-3">Upload Your Photos</label>
-                                <p class="text-red-500 text-sm mb-2 hidden" id="photos-error">Please upload at least 3 photos</p>
-                                <div id="dropzone" class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer transition">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                        </svg>
-                                        <p class="mt-2 text-sm text-gray-600">Drag and drop your photos here, or click to browse</p>
-                                        <button type="button" id="uploadBtn" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">Select Files</button>
-                                        <input type="file" id="fileInput" class="hidden" multiple accept="image/*">
-                                    </div>
-                                </div>
-                                <div id="previewContainer" class="mt-4">
-                                    <!-- Preview images will be added here -->
-                                </div>
-                                <p class="mt-2 text-sm text-gray-500">Upload at least 3 photos showcasing your work</p>
-                            </div>
-                            
-                            <div class="mt-8 flex justify-between">
-                                <button type="button" id="step3-prev" class="prev-btn bg-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-400 transition">Previous</button>
-                                <button type="button" id="submit-btn" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">Submit</button>
-                            </div>
-                        </div>
-                    </form>
+                <!-- Step 2: Skill Details -->
+                <div id="formStep2" class="form-step">
+                  <h2 class="text-2xl font-bold mb-6">Skill Details</h2>
+
+                  <div class="mb-6">
+                    <label class="block text-gray-700 mb-3"
+                      >Photography Skills</label
+                    >
+                    <p
+                      class="text-red-500 text-sm mb-2 hidden"
+                      id="skills-error"
+                    >
+                      Please select at least one photography skill
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div class="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="candid"
+                          name="skills"
+                          value="candid"
+                          class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <label for="candid">Candid</label>
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="food"
+                          name="skills"
+                          value="food"
+                          class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <label for="food">Food</label>
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="landscape"
+                          name="skills"
+                          value="landscape"
+                          class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <label for="landscape">Landscape</label>
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="fashion"
+                          name="skills"
+                          value="fashion"
+                          class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <label for="fashion">Fashion</label>
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="wedding"
+                          name="skills"
+                          value="wedding"
+                          class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <label for="wedding">Wedding</label>
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="portrait"
+                          name="skills"
+                          value="portrait"
+                          class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <label for="portrait">Portfolio</label>
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="wildlife"
+                          name="skills"
+                          value="wildlife"
+                          class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <label for="wildlife">Wildlife</label>
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="corporate"
+                          name="skills"
+                          value="corporate"
+                          class="mr-2 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <label for="corporate">Corporate</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-[] mb-2" for="skillLevel"
+                        >Skill Level</label
+                      >
+                      <select
+                        id="skillLevel"
+                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        required
+                      >
+                        <option value="">Select your Skill Level</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                        <option value="professional">Professional</option>
+                      </select>
+                      <p
+                        class="text-red-500 text-sm mt-1 hidden"
+                        id="skillLevel-error"
+                      >
+                        Please select your skill level
+                      </p>
+                    </div>
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="experience"
+                        >Experience</label
+                      >
+                      <select
+                        id="experience"
+                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        required
+                      >
+                        <option value="">Select years of Experience</option>
+                        <option value="0-1">0-1 years</option>
+                        <option value="1-3">1-3 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="5+">5+ years</option>
+                      </select>
+                      <p
+                        class="text-red-500 text-sm mt-1 hidden"
+                        id="experience-error"
+                      >
+                        Please select your experience
+                      </p>
+                    </div>
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="camera"
+                        >Camera & Lenses Used</label
+                      >
+                      <input
+                        type="text"
+                        id="camera"
+                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        placeholder="Enter Comma Separated Names"
+                      />
+                    </div>
+
+                    <div>
+                      <label class="block text-gray-700 mb-2" for="equipment"
+                        >Tools/Equipment Used</label
+                      >
+                      <input
+                        type="text"
+                        id="equipment"
+                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        placeholder="Eg: Editing Software, Tripod, Lighting"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mt-8 flex justify-between">
+                    <button
+                      type="button"
+                      id="step2-prev"
+                      class="prev-btn bg-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-400 transition"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      type="button"
+                      id="step2-next"
+                      class="next-btn bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
+
+                <!-- Step 3: Photo Submission -->
+                <div id="formStep3" class="form-step">
+                  <h2 class="text-2xl font-bold mb-6 text-[#FF6F00]">
+                    Photo Submission
+                  </h2>
+
+                  <div class="mb-6">
+                    <label class="block text-gray-700 mb-3"
+                      >Upload Your Photos</label
+                    >
+                    <p
+                      class="text-red-500 text-sm mb-2 hidden"
+                      id="photos-error"
+                    >
+                      Please upload at least 3 photos
+                    </p>
+                    <div
+                      id="dropzone"
+                      class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer transition"
+                    >
+                      <div class="flex flex-col items-center justify-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-12 w-12 text-gray-400"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                          />
+                        </svg>
+                        <p class="mt-2 text-sm text-gray-600">
+                          Drag and drop your photos here, or click to browse
+                        </p>
+                        <button
+                          type="button"
+                          id="uploadBtn"
+                          class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
+                        >
+                          Select Files
+                        </button>
+                        <input
+                          type="file"
+                          id="fileInput"
+                          class="hidden"
+                          multiple
+                          accept="image/*"
+                        />
+                      </div>
+                    </div>
+                    <div id="previewContainer" class="mt-4">
+                      <!-- Preview images will be added here -->
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">
+                      Upload at least 3 photos showcasing your work
+                    </p>
+                  </div>
+
+                  <div class="mt-8 flex justify-between">
+                    <button
+                      type="button"
+                      id="step3-prev"
+                      class="prev-btn bg-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-400 transition"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      type="button"
+                      id="submit-btn"
+                      class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
-        
+      </div>
     </main>
     <div id="footer-container"></div>
-     <script>
-        // Form navigation
-        let currentStep = 1;
-        const totalSteps = 3;
-        
-        // Store uploaded files
-        let uploadedFiles = [];
-        
-        // Function to update step indicator
-        function updateStepIndicator() {
-            // Update step indicators
-            for (let i = 1; i <= totalSteps; i++) {
-                const indicator = document.getElementById(`step${i}-indicator`);
-                if (!indicator) continue;
-                
-                if (i === currentStep) {
-                    indicator.classList.add('active');
-                    indicator.classList.remove('completed', 'text-gray-500', 'text-green-600');
-                } else if (i < currentStep) {
-                    indicator.classList.add('completed', 'text-green-600');
-                    indicator.classList.remove('active', 'text-gray-500');
-                } else {
-                    indicator.classList.add('text-gray-500');
-                    indicator.classList.remove('active', 'completed', 'text-green-600');
-                }
-            }
-            
-            // Show/hide form steps
-            document.querySelectorAll('.form-step').forEach((step, index) => {
-                if (index + 1 === currentStep) {
-                    step.classList.add('active');
-                } else {
-                    step.classList.remove('active');
-                }
-            });
+    <script>
+      // Form navigation
+      let currentStep = 1;
+      const totalSteps = 3;
+
+      // Store uploaded files
+      let uploadedFiles = [];
+
+      // Function to update step indicator
+      function updateStepIndicator() {
+        // Update step indicators
+        for (let i = 1; i <= totalSteps; i++) {
+          const indicator = document.getElementById(`step${i}-indicator`);
+          if (!indicator) continue;
+
+          if (i === currentStep) {
+            indicator.classList.add("active");
+            indicator.classList.remove(
+              "completed",
+              "text-gray-500",
+              "text-green-600"
+            );
+          } else if (i < currentStep) {
+            indicator.classList.add("completed", "text-green-600");
+            indicator.classList.remove("active", "text-gray-500");
+          } else {
+            indicator.classList.add("text-gray-500");
+            indicator.classList.remove("active", "completed", "text-green-600");
+          }
         }
-        
-        // Function to show error messages
-        function showError(fieldId, message) {
-            const field = document.getElementById(fieldId);
-            const errorElement = document.getElementById(`${fieldId}-error`);
-            
-            if (field) {
-                field.classList.add('border-red-500');
-            }
-            
-            if (errorElement) {
-                errorElement.textContent = message;
-                errorElement.classList.remove('hidden');
-            }
-        }
-        
-        // Function to hide error messages
-        function hideError(fieldId) {
-            const field = document.getElementById(fieldId);
-            const errorElement = document.getElementById(`${fieldId}-error`);
-            
-            if (field) {
-                field.classList.remove('border-red-500');
-            }
-            
-            if (errorElement) {
-                errorElement.classList.add('hidden');
-            }
-        }
-        
-        // Function to validate current step
-        function validateStep(step) {
-            let isValid = true;
-            
-            if (step === 1) {
-                // Validate personal details
-                const requiredFields = ['fullName', 'city', 'mobile', 'email', 'state'];
-                requiredFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (!field || !field.value.trim()) {
-                        showError(fieldId, 'This field is required');
-                        isValid = false;
-                    } else {
-                        hideError(fieldId);
-                    }
-                });
-                
-                // Validate email format
-                const email = document.getElementById('email');
-                if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-                    showError('email', 'Please enter a valid email address');
-                    isValid = false;
-                }
-                
-                // Validate mobile number
-                const mobile = document.getElementById('mobile');
-                if (mobile && mobile.value && !/^\d{9,10}$/.test(mobile.value)) {
-                    showError('mobile', 'Please enter a valid 9-10 digit mobile number');
-                    isValid = false;
-                }
-            } else if (step === 2) {
-                // Validate skill details
-                const requiredFields = ['skillLevel', 'experience'];
-                requiredFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (!field || !field.value) {
-                        showError(fieldId, `Please select your ${fieldId === 'skillLevel' ? 'skill level' : 'experience'}`);
-                        isValid = false;
-                    } else {
-                        hideError(fieldId);
-                    }
-                });
-                
-                // Validate at least one skill is selected
-                const skills = document.querySelectorAll('input[name="skills"]:checked');
-                if (skills.length === 0) {
-                    document.getElementById('skills-error').classList.remove('hidden');
-                    isValid = false;
-                } else {
-                    document.getElementById('skills-error').classList.add('hidden');
-                }
-            }
-            
-            return isValid;
-        }
-        
-        // Function to handle file uploads
-        function handleFiles(files) {
-            if (!files || files.length === 0) return;
-            
-            // Process each file
-            Array.from(files).forEach((file) => {
-                // Only accept image files
-                if (!file.type.startsWith('image/')) {
-                    console.log(`Skipping non-image file: ${file.name}`);
-                    return;
-                }
-                
-                // Add to uploaded files array
-                uploadedFiles.push(file);
-                
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    // Show the preview container
-                    const previewContainer = document.getElementById('previewContainer');
-                    if (previewContainer) {
-                        previewContainer.classList.add('show');
-                    }
-                    
-                    // Create preview container
-                    const previewItem = document.createElement('div');
-                    previewItem.className = 'preview-item';
-                    
-                    // Create image element
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.alt = `Preview ${file.name}`;
-                    
-                    // Create remove button
-                    const removeBtn = document.createElement('button');
-                    removeBtn.className = 'remove-btn';
-                    removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                    removeBtn.onclick = function(evt) {
-                        evt.stopPropagation(); // Prevent event bubbling
-                        
-                        // Find index of file to remove
-                        const index = uploadedFiles.indexOf(file);
-                        if (index > -1) {
-                            uploadedFiles.splice(index, 1);
-                        }
-                        
-                        previewItem.remove();
-                        if (previewContainer && previewContainer.children.length === 0) {
-                            previewContainer.classList.remove('show');
-                        }
-                        
-                        // Hide error if it was shown
-                        if (uploadedFiles.length >= 3) {
-                            hideError('photos');
-                        }
-                    };
-                    
-                    // Append elements
-                    previewItem.appendChild(img);
-                    previewItem.appendChild(removeBtn);
-                    if (previewContainer) {
-                        previewContainer.appendChild(previewItem);
-                    }
-                };
-                
-                reader.onerror = function(error) {
-                    console.error(`Error reading file ${file.name}:`, error);
-                };
-                
-                // Start reading the file
-                reader.readAsDataURL(file);
-            });
-        }
-        
-        // Function to reset the form
-        function resetForm() {
-            const form = document.getElementById('photographer-form');
-            if (form) {
-                form.reset();
-                
-                // Reset the current step
-                currentStep = 1;
-                updateStepIndicator();
-                
-                // Clear uploaded files
-                uploadedFiles = [];
-                const previewContainer = document.getElementById('previewContainer');
-                if (previewContainer) {
-                    previewContainer.innerHTML = '';
-                    previewContainer.classList.remove('show');
-                }
-                
-                // Clear all error messages
-                document.querySelectorAll('[id$="-error"]').forEach(el => {
-                    el.classList.add('hidden');
-                });
-                
-                // Clear all error borders
-                document.querySelectorAll('.border-red-500').forEach(el => {
-                    el.classList.remove('border-red-500');
-                });
-            }
-        }
-        
-        // Function to show success message
-        function showSuccessMessage() {
-            console.log("Showing success message with SweetAlert");
-            
-            // Ensure SweetAlert is available
-            if (typeof Swal !== 'undefined') {
-                Swal.fire({
-                    title: 'Thank You!',
-                    text: 'Your photographer registration has been submitted successfully. We will review your details and get back to you soon.',
-                    icon: 'success',
-                    confirmButtonColor: '#FF6F00',
-                    confirmButtonText: 'OK'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        resetForm();
-                    }
-                });
-            } else {
-                // Fallback if SweetAlert is still not available
-                alert('Your photographer registration has been submitted successfully. We will review your details and get back to you soon.');
-                resetForm();
-            }
-        }
-        
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get form elements
-            const form = document.getElementById('photographer-form');
-            const dropzone = document.getElementById('dropzone');
-            const fileInput = document.getElementById('fileInput');
-            const uploadBtn = document.getElementById('uploadBtn');
-            const previewContainer = document.getElementById('previewContainer');
-            
-            // Get navigation buttons
-            const step1NextBtn = document.getElementById('step1-next');
-            const step2PrevBtn = document.getElementById('step2-prev');
-            const step2NextBtn = document.getElementById('step2-next');
-            const step3PrevBtn = document.getElementById('step3-prev');
-            const submitBtn = document.getElementById('submit-btn');
-            
-            // Add event listeners to navigation buttons
-            if (step1NextBtn) step1NextBtn.addEventListener('click', () => nextStep());
-            if (step2PrevBtn) step2PrevBtn.addEventListener('click', () => prevStep());
-            if (step2NextBtn) step2NextBtn.addEventListener('click', () => nextStep());
-            if (step3PrevBtn) step3PrevBtn.addEventListener('click', () => prevStep());
-            
-            // Initialize the form
-            updateStepIndicator();
-            
-            function nextStep() {
-                // Validate current step before proceeding
-                if (validateStep(currentStep)) {
-                    if (currentStep < totalSteps) {
-                        currentStep++;
-                        updateStepIndicator();
-                        // Scroll to top of form
-                        const activeStep = document.querySelector('.form-step.active');
-                        if (activeStep) {
-                            activeStep.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }
-                }
-            }
-            
-            function prevStep() {
-                if (currentStep > 1) {
-                    currentStep--;
-                    updateStepIndicator();
-                    // Scroll to top of form
-                    const activeStep = document.querySelector('.form-step.active');
-                    if (activeStep) {
-                        activeStep.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            }
-            
-            // Click on dropzone or button to open file dialog
-            if (dropzone) {
-                dropzone.addEventListener('click', function() {
-                    if (fileInput) fileInput.click();
-                });
-            }
-            
-            if (uploadBtn) {
-                uploadBtn.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Prevent event bubbling to dropzone
-                    if (fileInput) fileInput.click();
-                });
-            }
-            
-            // Handle file selection
-            if (fileInput) {
-                fileInput.addEventListener('change', function(e) {
-                    if (e.target.files && e.target.files.length > 0) {
-                        handleFiles(e.target.files);
-                    }
-                });
-            }
-            
-            // Drag and drop functionality
-            if (dropzone) {
-                dropzone.addEventListener('dragover', function(e) {
-                    e.preventDefault();
-                    dropzone.classList.add('dragover');
-                });
-                
-                dropzone.addEventListener('dragleave', function() {
-                    dropzone.classList.remove('dragover');
-                });
-                
-                dropzone.addEventListener('drop', function(e) {
-                    e.preventDefault();
-                    dropzone.classList.remove('dragover');
-                    if (e.dataTransfer && e.dataTransfer.files.length > 0) {
-                        handleFiles(e.dataTransfer.files);
-                    }
-                });
-            }
-            
-            // Form submission handler - FIXED CODE HERE
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    console.log("Form submitted");
-                    
-                    // Validate photo submission
-                    if (uploadedFiles.length < 3) {
-                        showError('photos', 'Please upload at least 3 photos');
-                        return;
-                    } else {
-                        hideError('photos');
-                    }
-                    
-                    // Show success message
-                    showSuccessMessage();
-                });
-            }
-            
-            // Add a direct click handler to the submit button
-            if (submitBtn) {
-                submitBtn.addEventListener('click', function(e) {
-                    console.log("Submit button clicked directly");
-                    
-                    // Only proceed if we're on the final step
-                    if (currentStep !== 3) return;
-                    
-                    e.preventDefault();
-                    
-                    // Validate photo submission
-                    if (uploadedFiles.length < 3) {
-                        showError('photos', 'Please upload at least 3 photos');
-                        return;
-                    } else {
-                        hideError('photos');
-                    }
-                    
-                    // Show success message
-                    showSuccessMessage();
-                });
-            }
-            
-            // Add event listeners to clear errors when fields are edited
-            document.querySelectorAll('input, select').forEach(element => {
-                element.addEventListener('input', function() {
-                    if (this.id) {
-                        hideError(this.id);
-                    }
-                });
-                
-                element.addEventListener('change', function() {
-                    if (this.id) {
-                        hideError(this.id);
-                    }
-                    
-                    // For checkboxes (skills), clear the group error when any is checked
-                    if (this.name === 'skills' && this.checked) {
-                        const skillsError = document.getElementById('skills-error');
-                        if (skillsError) {
-                            skillsError.classList.add('hidden');
-                        }
-                    }
-                });
-            });
-            
-            // Check if SweetAlert is available, if not, load it
-            if (typeof Swal === 'undefined') {
-                console.log("SweetAlert not found, loading it dynamically");
-                const sweetAlertScript = document.createElement('script');
-                sweetAlertScript.src = "https://cdn.jsdelivr.net/npm/sweetalert2@11";
-                sweetAlertScript.onload = function() {
-                    console.log("SweetAlert loaded successfully");
-                };
-                document.head.appendChild(sweetAlertScript);
-            }
+
+        // Show/hide form steps
+        document.querySelectorAll(".form-step").forEach((step, index) => {
+          if (index + 1 === currentStep) {
+            step.classList.add("active");
+          } else {
+            step.classList.remove("active");
+          }
         });
+      }
+
+      // Function to show error messages
+      function showError(fieldId, message) {
+        const field = document.getElementById(fieldId);
+        const errorElement = document.getElementById(`${fieldId}-error`);
+
+        if (field) {
+          field.classList.add("border-red-500");
+        }
+
+        if (errorElement) {
+          errorElement.textContent = message;
+          errorElement.classList.remove("hidden");
+        }
+      }
+
+      // Function to hide error messages
+      function hideError(fieldId) {
+        const field = document.getElementById(fieldId);
+        const errorElement = document.getElementById(`${fieldId}-error`);
+
+        if (field) {
+          field.classList.remove("border-red-500");
+        }
+
+        if (errorElement) {
+          errorElement.classList.add("hidden");
+        }
+      }
+
+      // Function to validate current step
+      function validateStep(step) {
+        let isValid = true;
+
+        if (step === 1) {
+          // Validate personal details
+          const requiredFields = [
+            "fullName",
+            "city",
+            "mobile",
+            "email",
+            "state",
+          ];
+          requiredFields.forEach((fieldId) => {
+            const field = document.getElementById(fieldId);
+            if (!field || !field.value.trim()) {
+              showError(fieldId, "This field is required");
+              isValid = false;
+            } else {
+              hideError(fieldId);
+            }
+          });
+
+          // Validate email format
+          const email = document.getElementById("email");
+          if (
+            email &&
+            email.value &&
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
+          ) {
+            showError("email", "Please enter a valid email address");
+            isValid = false;
+          }
+
+          // Validate mobile number
+          const mobile = document.getElementById("mobile");
+          if (mobile && mobile.value && !/^\d{9,10}$/.test(mobile.value)) {
+            showError(
+              "mobile",
+              "Please enter a valid 9-10 digit mobile number"
+            );
+            isValid = false;
+          }
+        } else if (step === 2) {
+          // Validate skill details
+          const requiredFields = ["skillLevel", "experience"];
+          requiredFields.forEach((fieldId) => {
+            const field = document.getElementById(fieldId);
+            if (!field || !field.value) {
+              showError(
+                fieldId,
+                `Please select your ${
+                  fieldId === "skillLevel" ? "skill level" : "experience"
+                }`
+              );
+              isValid = false;
+            } else {
+              hideError(fieldId);
+            }
+          });
+
+          // Validate at least one skill is selected
+          const skills = document.querySelectorAll(
+            'input[name="skills"]:checked'
+          );
+          if (skills.length === 0) {
+            document.getElementById("skills-error").classList.remove("hidden");
+            isValid = false;
+          } else {
+            document.getElementById("skills-error").classList.add("hidden");
+          }
+        }
+
+        return isValid;
+      }
+
+      // Function to handle file uploads
+      function handleFiles(files) {
+        if (!files || files.length === 0) return;
+
+        // Process each file
+        Array.from(files).forEach((file) => {
+          // Only accept image files
+          if (!file.type.startsWith("image/")) {
+            console.log(`Skipping non-image file: ${file.name}`);
+            return;
+          }
+
+          // Add to uploaded files array
+          uploadedFiles.push(file);
+
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            // Show the preview container
+            const previewContainer =
+              document.getElementById("previewContainer");
+            if (previewContainer) {
+              previewContainer.classList.add("show");
+            }
+
+            // Create preview container
+            const previewItem = document.createElement("div");
+            previewItem.className = "preview-item";
+
+            // Create image element
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.alt = `Preview ${file.name}`;
+
+            // Create remove button
+            const removeBtn = document.createElement("button");
+            removeBtn.className = "remove-btn";
+            removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+            removeBtn.onclick = function (evt) {
+              evt.stopPropagation(); // Prevent event bubbling
+
+              // Find index of file to remove
+              const index = uploadedFiles.indexOf(file);
+              if (index > -1) {
+                uploadedFiles.splice(index, 1);
+              }
+
+              previewItem.remove();
+              if (previewContainer && previewContainer.children.length === 0) {
+                previewContainer.classList.remove("show");
+              }
+
+              // Hide error if it was shown
+              if (uploadedFiles.length >= 3) {
+                hideError("photos");
+              }
+            };
+
+            // Append elements
+            previewItem.appendChild(img);
+            previewItem.appendChild(removeBtn);
+            if (previewContainer) {
+              previewContainer.appendChild(previewItem);
+            }
+          };
+
+          reader.onerror = function (error) {
+            console.error(`Error reading file ${file.name}:`, error);
+          };
+
+          // Start reading the file
+          reader.readAsDataURL(file);
+        });
+      }
+
+      // Function to reset the form
+      function resetForm() {
+        const form = document.getElementById("photographer-form");
+        if (form) {
+          form.reset();
+
+          // Reset the current step
+          currentStep = 1;
+          updateStepIndicator();
+
+          // Clear uploaded files
+          uploadedFiles = [];
+          const previewContainer = document.getElementById("previewContainer");
+          if (previewContainer) {
+            previewContainer.innerHTML = "";
+            previewContainer.classList.remove("show");
+          }
+
+          // Clear all error messages
+          document.querySelectorAll('[id$="-error"]').forEach((el) => {
+            el.classList.add("hidden");
+          });
+
+          // Clear all error borders
+          document.querySelectorAll(".border-red-500").forEach((el) => {
+            el.classList.remove("border-red-500");
+          });
+        }
+      }
+
+      // Function to show success message
+      function showSuccessMessage() {
+        console.log("Showing success message with SweetAlert");
+
+        // Ensure SweetAlert is available
+        if (typeof Swal !== "undefined") {
+          Swal.fire({
+            title: "Thank You!",
+            text: "Your photographer registration has been submitted successfully. We will review your details and get back to you soon.",
+            icon: "success",
+            confirmButtonColor: "#FF6F00",
+            confirmButtonText: "OK",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              resetForm();
+            }
+          });
+        } else {
+          // Fallback if SweetAlert is still not available
+          alert(
+            "Your photographer registration has been submitted successfully. We will review your details and get back to you soon."
+          );
+          resetForm();
+        }
+      }
+
+      // Wait for DOM to be fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get form elements
+        const form = document.getElementById("photographer-form");
+        const dropzone = document.getElementById("dropzone");
+        const fileInput = document.getElementById("fileInput");
+        const uploadBtn = document.getElementById("uploadBtn");
+        const previewContainer = document.getElementById("previewContainer");
+
+        // Get navigation buttons
+        const step1NextBtn = document.getElementById("step1-next");
+        const step2PrevBtn = document.getElementById("step2-prev");
+        const step2NextBtn = document.getElementById("step2-next");
+        const step3PrevBtn = document.getElementById("step3-prev");
+        const submitBtn = document.getElementById("submit-btn");
+
+        // Add event listeners to navigation buttons
+        if (step1NextBtn)
+          step1NextBtn.addEventListener("click", () => nextStep());
+        if (step2PrevBtn)
+          step2PrevBtn.addEventListener("click", () => prevStep());
+        if (step2NextBtn)
+          step2NextBtn.addEventListener("click", () => nextStep());
+        if (step3PrevBtn)
+          step3PrevBtn.addEventListener("click", () => prevStep());
+
+        // Initialize the form
+        updateStepIndicator();
+
+        function nextStep() {
+          // Validate current step before proceeding
+          if (validateStep(currentStep)) {
+            if (currentStep < totalSteps) {
+              currentStep++;
+              updateStepIndicator();
+              // Scroll to top of form
+              const activeStep = document.querySelector(".form-step.active");
+              if (activeStep) {
+                activeStep.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }
+          }
+        }
+
+        function prevStep() {
+          if (currentStep > 1) {
+            currentStep--;
+            updateStepIndicator();
+            // Scroll to top of form
+            const activeStep = document.querySelector(".form-step.active");
+            if (activeStep) {
+              activeStep.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }
+        }
+
+        // Click on dropzone or button to open file dialog
+        if (dropzone) {
+          dropzone.addEventListener("click", function () {
+            if (fileInput) fileInput.click();
+          });
+        }
+
+        if (uploadBtn) {
+          uploadBtn.addEventListener("click", function (e) {
+            e.stopPropagation(); // Prevent event bubbling to dropzone
+            if (fileInput) fileInput.click();
+          });
+        }
+
+        // Handle file selection
+        if (fileInput) {
+          fileInput.addEventListener("change", function (e) {
+            if (e.target.files && e.target.files.length > 0) {
+              handleFiles(e.target.files);
+            }
+          });
+        }
+
+        // Drag and drop functionality
+        if (dropzone) {
+          dropzone.addEventListener("dragover", function (e) {
+            e.preventDefault();
+            dropzone.classList.add("dragover");
+          });
+
+          dropzone.addEventListener("dragleave", function () {
+            dropzone.classList.remove("dragover");
+          });
+
+          dropzone.addEventListener("drop", function (e) {
+            e.preventDefault();
+            dropzone.classList.remove("dragover");
+            if (e.dataTransfer && e.dataTransfer.files.length > 0) {
+              handleFiles(e.dataTransfer.files);
+            }
+          });
+        }
+
+        // Form submission handler - FIXED CODE HERE
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            console.log("Form submitted");
+
+            // Validate photo submission
+            if (uploadedFiles.length < 3) {
+              showError("photos", "Please upload at least 3 photos");
+              return;
+            } else {
+              hideError("photos");
+            }
+
+            // Show success message
+            showSuccessMessage();
+          });
+        }
+
+        // Add a direct click handler to the submit button
+        if (submitBtn) {
+          submitBtn.addEventListener("click", function (e) {
+            console.log("Submit button clicked directly");
+
+            // Only proceed if we're on the final step
+            if (currentStep !== 3) return;
+
+            e.preventDefault();
+
+            // Validate photo submission
+            if (uploadedFiles.length < 3) {
+              showError("photos", "Please upload at least 3 photos");
+              return;
+            } else {
+              hideError("photos");
+            }
+
+            // Show success message
+            showSuccessMessage();
+          });
+        }
+
+        // Add event listeners to clear errors when fields are edited
+        document.querySelectorAll("input, select").forEach((element) => {
+          element.addEventListener("input", function () {
+            if (this.id) {
+              hideError(this.id);
+            }
+          });
+
+          element.addEventListener("change", function () {
+            if (this.id) {
+              hideError(this.id);
+            }
+
+            // For checkboxes (skills), clear the group error when any is checked
+            if (this.name === "skills" && this.checked) {
+              const skillsError = document.getElementById("skills-error");
+              if (skillsError) {
+                skillsError.classList.add("hidden");
+              }
+            }
+          });
+        });
+
+        // Check if SweetAlert is available, if not, load it
+        if (typeof Swal === "undefined") {
+          console.log("SweetAlert not found, loading it dynamically");
+          const sweetAlertScript = document.createElement("script");
+          sweetAlertScript.src = "https://cdn.jsdelivr.net/npm/sweetalert2@11";
+          sweetAlertScript.onload = function () {
+            console.log("SweetAlert loaded successfully");
+          };
+          document.head.appendChild(sweetAlertScript);
+        }
+      });
     </script>
     <script src="../_js/header.js" defer></script>
     <script src="../_js/footer.js" defer></script>
-</body>
+  </body>
 </html>
