@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Photography</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../_css/input.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Smooth expand/collapse animation for all packages */
+        .package-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: 
+                max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.6s ease-in-out 0.2s;
+        }
+        
+        .package-content.show {
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        /* Custom styles */
+        .package-toggle {
+            transition: transform 0.3s;
+        }
+        .package-toggle:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <div id="header-container"></div>
+    <main>
+        <div class="relative w-full mb-5 pt-30">
+            <div class="p-20">
+                <h1 class="text-5xl text-center font-bold">Our Packages<span class="text-orange-500">.</span></h1>
+                <p class="mt-4 text-center font-semibold max-w-[60vw] mx-auto">Capture your special moments with our tailored photography packages. Choose the perfect plan for weddings, portraits, events, and more—creating memories that last forever! 📸✨</p>
+            </div>  
+        </div>
+        <div class="bg-[#f6f8f9] grid p-15 gap-10">
+          <h2 class="text-center text-3xl font-semibold">Plans & Packages</h2>
+          <div class="flex justify-center gap-10">
+              <p id="individual-link" class="text-xl relative inline-block cursor-pointer">
+                  Individual
+                  <span id="individual-underline" class="absolute bottom-0 left-0 w-1/2 h-1 bg-gradient-to-r from-[#0090FF] to-[#0090FF]"></span>
+              </p>
+              <p id="cooperate-link" class="text-xl relative inline-block cursor-pointer">
+                  Corporate
+                  <span id="cooperate-underline" class="absolute bottom-0 left-0 w-1/2 h-1 bg-gradient-to-r from-[#0090FF] to-[#0090FF]"></span>
+              </p>
+          </div>
+          <hr class="border-t-1 border-gray-800">
+
+
+          <div id="card-container" class="w-[80%] mx-auto grid grid-cols-3 gap-10">
+
+          </div>
+      </div>
+           
+        </div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    const individualLink = document.getElementById('individual-link');
+    const cooperateLink = document.getElementById('cooperate-link');
+    const individualUnderline = document.getElementById('individual-underline');
+    const cooperateUnderline = document.getElementById('cooperate-underline');
+
+    individualLink.addEventListener('click', () => {
+        individualUnderline.style.display = 'block';
+        cooperateUnderline.style.display = 'none';
+    });
+
+    cooperateLink.addEventListener('click', () => {
+        cooperateUnderline.style.display = 'block';
+        individualUnderline.style.display = 'none';
+    });
+
+    // Optionally set Individual underline visible by default.
+    individualUnderline.style.display = 'block';
+    cooperateUnderline.style.display = 'none';
+
+  
+});
+
+
+    </script>
+        <script src="../_js/header.js" defer></script>
+        <script src="../_js/footer.js" defer></script>
+        <script src="../_js/packages.js" defer></script>
+</body>
+</html>

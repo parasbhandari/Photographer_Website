@@ -1,60 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Page</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="../_css/input.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="../_js/script.js"></script>
+
+    <style>
+                /* .card-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0) 100%);
+        } */
+        .swiper-pagination-bullet-active {
+            background-color: #FF6F00 !important;
+            width: 20px !important;
+            border-radius: 5px !important;
+        }
+    </style>
+
 </head>
+
 <body>
-    <div id="header-container"></div>
+    <div class="fixed top-0 z-50" id="header-container"></div>
 
     <!-- Hero Section  -->
-     <div class="relative h-[90vh] mt-28 z-40">
-         <div class="h-[80vh] relative">
-            <img id="photo0" class="w-full h-[80vh] object-cover object-center absolute opacity-0 transition-opacity ease-in-out duration-[2000ms]" src="../assets/images/Home/photography0.png" alt="">
-            <img id="photo1" class="w-full h-[80vh] object-cover object-center absolute opacity-0 transition-opacity ease-in-out duration-[2000ms]" src="../assets/images/Home/photography1.png" alt="">
-            <img id="photo2" class="w-full h-[80vh] absolute object-cover object-top opacity-0 transition-opacity ease-in-out duration-[2000ms]" src="../assets/images/Home/photography2.png" alt="">
-            <img id="photo3" class="w-full h-[80vh] absolute object-cover object-bottom opacity-0 transition-opacity ease-in-out duration-[2000ms]" src="../assets/images/Home/photography3.png" alt="">
-            <img id="photo4" class="w-full h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]" src="../assets/images/Home/photography4.jpg" alt="">
-            <img id="photo5" class="w-full h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]" src="../assets/images/Home/photography5.jpg" alt="">
+    <div class="relative h-[90vh] mt-28 z-40">
+        <div class="h-[80vh] relative">
+            <img id="photo0"
+                class="w-full h-[80vh] object-cover object-center absolute opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+                src="../assets/images/Home/photography0.png" alt="">
+            <img id="photo1"
+                class="w-full h-[80vh] object-cover object-center absolute opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+                src="../assets/images/Home/photography1.png" alt="">
+            <img id="photo2"
+                class="w-full h-[80vh] absolute object-cover object-top opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+                src="../assets/images/Home/photography2.png" alt="">
+            <img id="photo3"
+                class="w-full h-[80vh] absolute object-cover object-bottom opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+                src="../assets/images/Home/photography3.png" alt="">
+            <img id="photo4"
+                class="w-full h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+                src="../assets/images/Home/photography4.jpg" alt="">
+            <img id="photo5"
+                class="w-full h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+                src="../assets/images/Home/photography5.jpg" alt="">
 
-         </div>
+        </div>
 
 
-        
-         <div class="absolute bottom-14 z-50">
+
+        <div class="absolute bottom-14 z-50">
             <div class="flex flex-col gap-1 justify-center h-[80vh]">
-                <button id="btn-phone" onmouseenter="showPhone()" onmouseleave="hidePhone()" class="bg-[#FF6F00] h-12 w-18  cursor-pointer rounded-3xl flex justify-center items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>
+                <button id="btn-phone" onmouseenter="showPhone()" onmouseleave="hidePhone()"
+                    class="bg-[#FF6F00] h-12 w-18  cursor-pointer rounded-3xl flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#FFFFFF">
+                        <path
+                            d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z" />
+                    </svg>
                 </button>
-                <button id="btn-whatsapp" onmouseenter="showWhatsApp()" onmouseleave="hideWhatsApp()" class="bg-[#FF6F00] cursor-pointer h-12 w-18 rounded-3xl flex justify-center items-center">
+                <button id="btn-whatsapp" onmouseenter="showWhatsApp()" onmouseleave="hideWhatsApp()"
+                    class="bg-[#FF6F00] cursor-pointer h-12 w-18 rounded-3xl flex justify-center items-center">
                     <i class="fa-brands fa-whatsapp text-white fa-xl"></i>
                 </button>
-                <button id="btn-viber" onmouseenter="showViber()" onmouseleave="hideViber()" class="bg-[#FF6F00] cursor-pointer h-12 w-18 rounded-3xl flex justify-center items-center">
+                <button id="btn-viber" onmouseenter="showViber()" onmouseleave="hideViber()"
+                    class="bg-[#FF6F00] cursor-pointer h-12 w-18 rounded-3xl flex justify-center items-center">
                     <i class="fa-brands fa-viber fa-xl " style="color: white;"></i>
                 </button>
-                
+
             </div>
-         </div>
-
-         <!-- Six photos icons here -->
-         <div class="flex gap-3 justify-center mt-8">
-            <button id="btn0" class="w-3 h-3 bg-[#FF6F00] transition-colors ease-in-out duration-[2000ms] rounded-full"></button>
-            <button id="btn1" class="w-3 h-3 bg-orange-200 transition-colors ease-in-out duration-[2000ms] rounded-full"></button>
-            <button id="btn2" class="w-3 h-3 bg-orange-200 transition-colors ease-in-out duration-[2000ms] rounded-full"></button>
-            <button id="btn3" class="w-3 h-3 bg-orange-200 transition-colors ease-in-out duration-[2000ms] rounded-full"></button>
-            <button id="btn4" class="w-3 h-3 bg-orange-200 transition-colors ease-in-out duration-[2000ms] rounded-full"></button>
-            <button id="btn5" class="w-3 h-3 bg-orange-200 transition-colors ease-in-out duration-[2000ms] rounded-full"></button>
-         </div>
-     </div>
+        </div>
+    </div>
 
 
-     <!-- Find your perfect Packages  -->
-      <div class="relative h-[40vh] ">
+    <!-- Find your perfect Packages  -->
+    <div class="relative h-[40vh] -mt-6">
         <div class="absolute h-[40vh]">
             <img class="object-cover h-[40vh]" src="../assets/images/Home/bg_c.png" alt="">
         </div>
@@ -68,31 +96,36 @@
             <img src="../assets/images/Home/camera.png" alt="">
         </div>
 
-          <div class="flex flex-col h-[35vh] gap-8 w-full justify-center items-center absolute ">
+        <div class="flex flex-col h-[35vh] gap-8 w-full justify-center items-center absolute ">
             <h2 class="font-semibold text-4xl">Find Your Perfect Packages</h2>
             <div class="font-medium text-base text-center">
                 <p>Start Your Search Today and Capture Moments</p>
                 <p>That Last a Lifetime.</p>
             </div>
             <div>
-                <button class="flex flex-row gap-1 items-center justify-center w-80 h-10 rounded-3xl bg-[#FF6F00] text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+                <a href="wedding.html">
+                <button
+                    class="flex flex-row gap-1 items-center justify-center w-80 h-10 hover:scale-105 cursor-pointer rounded-3xl bg-[#FF6F00] text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
                     <p class="text-sm font-medium">Search Packages</p>
-                </button>
+                </button></a>
             </div>
-          </div>
-      </div>
+        </div>
+    </div>
 
-      <!-- A perfect-picture photography  -->
-       <div class="relative">
+    <!-- A perfect-picture photography  -->
+    <div class="relative">
 
         <div class="flex py-16 justify-around">
             <div>
                 <img src="../assets/images/Home/Frame 9.png" alt="">
             </div>
             <div class="flex flex-col mr-24 justify-center gap-4 w-[40vw]">
-                <h2 class="text-4xl font-medium ">A picture-perfect photography booking app</h2>
-                <p class="font-medium text-base ">Capture life's most unforgettable moments with ease using our picture-perfect photography booking app! Designed for seamless convenience, our app connects you with professional photographers tailored to your needs, whether it's a wedding, family portrait, corporate event, or a spontaneous photoshoot. </p>
+                <h2 class="text-4xl font-semibold">A picture-perfect photography booking app</h2>
+                <p class="font-medium text-base ">Capture life's most unforgettable moments with ease using our
+                    picture-perfect photography booking app! Designed for seamless convenience, our app connects you
+                    with professional photographers tailored to your needs, whether it's a wedding, family portrait,
+                    corporate event, or a spontaneous photoshoot. </p>
             </div>
         </div>
 
@@ -100,206 +133,398 @@
             <img src="../assets/images/Home/Ellipse 67.png" alt="">
         </div>
         <div class="absolute right-0 bottom-0">
-            
+
             <img src="../assets/images/Home/manCamera.png" alt="">
         </div>
-       </div>
+    </div>
 
-       <!-- Featured Categories Section  -->
-       <div style="background-color: rgba(202, 168, 103, 0.28);" class=" h-[75vh] flex  p-24 justify-center items-center">
+    <!-- Featured Categories Section  -->
+    <div style="background-color: rgba(202, 168, 103, 0.28);" class=" h-[75vh] flex  p-24 justify-center items-center">
 
-       <div class="flex flex-col gap-4 items-center">
-        <div class="font-semibold text-4xl">
-            <span>Featured </span><span class="text-[#FF6F00]">Categories</span>
-        </div>
-        <div class="font-medium text-base w-[40vw] text-center">
-            Capturing the Magic of Your Big Day, From the First Glance to the Last Dance—Every Smile, Tear, and Joyful Moment Preserved Forever.
-        </div>
-        <div class="flex mt-14 mb-12 -gap-x-12 items-center relative">
-            <!-- Three images  -->
-            <div onmouseover="updateImage0()" class="z-10 relative transition-all duration-500 ease-in-out" onmouseleave="updateImageDown()" id="image0">
-                <img src="../assets/images/aboutus/chaurasi.png" alt="">
-                <div class="absolute bottom-0 text-white p-6 flex flex-col gap-3"> 
-                    <h2 class="font-semibold text-2xl">Chaurasi</h2>
-                    <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
-
-                </div>
+        <div class="flex flex-col gap-4 items-center">
+            <div class="font-semibold text-4xl">
+                <span>Featured </span><span class="text-[#FF6F00]">Categories</span>
             </div>
-
-            <div onmouseenter="updateImage1()" class="z-20 scale-110 relative transition-all duration-500 ease-in-out" onmouseleave="updateImageDown()" id="image1">
-                <img class="" src="../assets/images/aboutus/events.png" alt="">
-                <div class="absolute bottom-0 text-white p-6 flex flex-col gap-3">
-                    <h2 class="font-semibold text-2xl">Events</h2>
-                    <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
-                </div>
+            <div class="font-medium text-base w-[40vw] text-center">
+                Capturing the Magic of Your Big Day, From the First Glance to the Last Dance—Every Smile, Tear, and
+                Joyful Moment Preserved Forever.
             </div>
-            <div onmouseover="updateImage2()" id="image2" class="scale-120 z-30 relative transition-all duration-500 ease-in-out">
-                <img class="w-[250px] h-[418px]" src="../assets/images/aboutus/wedding.png" alt="">
-                <div class="absolute bottom-0 text-white flex flex-col p-6 gap-3">
-                    <h2 class="font-semibold text-2xl">Weddings</h2>
-                    <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
-                    <div>
-                        <button class="w-28 h-8 text-white bg-black rounded-3xl">Book Now</button>
+            <div class="flex mt-14 mb-12 -gap-x-12 items-center relative">
+                <!-- Three images  -->
+                <div onmouseover="updateImage0()" class="z-10 relative transition-all duration-500 ease-in-out"
+                    onmouseleave="updateImageDown()" id="image0">
+                    <div style="background-image: linear-gradient(to bottom, rgba(255,111,0,0), rgba(255,111,0,1));" class="hidden grad0 grad absolute w-full h-full"></div>
+                    <img src="../assets/images/aboutus/chaurasi.png" alt="">
+                    <div class="absolute bottom-0 text-white p-6 flex flex-col gap-3">
+                        <h2 class="font-semibold text-2xl">Chaurasi</h2>
+                        <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
+
                     </div>
                 </div>
-            </div>
-            <div onmouseover="updateImage3()" class="z-20 relative scale-110 transition-all duration-500 ease-in-out" onmouseleave="updateImageDown()" id="image3">
-                <img src="../assets/images/aboutus/chaurasi.png" alt="">
-                <div class="absolute bottom-0 text-white p-8 flex flex-col gap-3"> 
-                    <h2 class="font-semibold text-2xl">Chaurasi</h2>
-                    <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
 
+                <div onmouseenter="updateImage1()"
+                    class="z-20 scale-110 relative transition-all duration-500 ease-in-out"
+                    onmouseleave="updateImageDown()" id="image1">
+                    <div style="background-image: linear-gradient(to bottom, rgba(255,111,0,0), rgba(255,111,0,1));" class="hidden grad1 grad absolute w-full h-full"></div>
+                    <img class="" src="../assets/images/aboutus/events.png" alt="">
+                    <div class="absolute bottom-0 text-white p-6 flex flex-col gap-3">
+                        <h2 class="font-semibold text-2xl">Events</h2>
+                        <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
+                    </div>
                 </div>
-            </div>
-
-
-            <div onmouseenter="updateImage4()" class="z-10 relative transition-all duration-500 ease-in-out" onmouseleave="updateImageDown()" id="image4">
-                <img class="" src="../assets/images/aboutus/events.png" alt="">
-                <div class="absolute bottom-0 text-white p-6 flex flex-col gap-3">
-                    <h2 class="font-semibold text-2xl">Events</h2>
-                    <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
+                <div onmouseover="updateImage2()" onmouseleave="updateImageDown()" id="image2"
+                    class="scale-120 z-30 relative transition-all duration-500 ease-in-out">
+                    <div style="background-image: linear-gradient(to bottom, rgba(255,111,0,0), rgba(255,111,0,1));" class="hidden grad2 grad absolute w-full h-full"></div>
+                    <img class="w-[250px] h-[418px]" src="../assets/images/Home/photography0.jpeg" alt="">
+                    <div class="absolute bottom-0 text-white flex flex-col p-6 gap-3">
+                        <h2 class="font-semibold text-2xl">Weddings</h2>
+                        <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
+                        <div>
+                            <button class="w-28 h-8 text-white bg-black rounded-3xl">Book Now</button>
+                        </div>
+                    </div>
                 </div>
+                <div onmouseover="updateImage3()"
+                    class="z-20 relative scale-110 transition-all duration-500 ease-in-out"
+                    onmouseleave="updateImageDown()" id="image3">
+                    <div style="background-image: linear-gradient(to bottom, rgba(255,111,0,0), rgba(255,111,0,1));" class="hidden grad3 grad absolute w-full h-full"></div>
+                    <img src="../assets/images/aboutus/chaurasi.png" alt="">
+                    <div class="absolute bottom-0 text-white p-8 flex flex-col gap-3">
+                        <h2 class="font-semibold text-2xl">Chaurasi</h2>
+                        <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
+
+                    </div>
+                </div>
+
+
+                <div onmouseenter="updateImage4()" class="z-10 relative transition-all duration-500 ease-in-out"
+                    onmouseleave="updateImageDown()" id="image4">
+                    <div style="background-image: linear-gradient(to bottom, rgba(255,111,0,0), rgba(255,111,0,1));" class="hidden grad4 grad absolute w-full h-full"></div>
+                    <img class="" src="../assets/images/aboutus/events.png" alt="">
+                    <div class="absolute bottom-0 text-white p-6 flex flex-col gap-3">
+                        <h2 class="font-semibold text-2xl">Events</h2>
+                        <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
+                    </div>
+                </div>
+
             </div>
-            
         </div>
-    </div>
     </div>
 
     <!-- Business Offering Section  -->
-     <div class="h-[75vh] overflow-hidden">
-        <img class="w-full" src="../assets/images/Home/Rectangle 660.png" alt="">
-     </div>
+    <div class=" px-4 mx-auto relative pb-12">
+        <div class="w-[95%] mx-auto">
+            <div class="flex flex-col justify-center items-center py-12 gap-8">
+                <div class="relative z-30 flex flex-col gap-4 items-center">
+                    <h2 class="font-semibold text-4xl">Business <span class="text-[#FF6F00]">Offerings</span></h2>
+                    <p class="font-medium text-base">Transform Your Platform with Stunning Product Displays!</p>
+                </div>
+                <div class="w-full h-full">
+                    <!-- Swiper -->
+                    <div style="height: 50vh;" class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Product Shoot -->
+                            <div class="swiper-slide">
+                                <div class="relative h-full rounded-lg overflow-hidden shadow-lg">
+                                    <img src="../assets/images/Home/business1.jpg" alt="Product Shoot" class="w-full h-full object-cover">
+                                    <div class="card-overlay absolute bottom-0 flex flex-col justify-end p-6 text-white !bg-[rgba(0,0,0,0.5)] w-full">
+                                        <h3 class="text-2xl font-bold mb-1">Product Shoot</h3>
+                                        <p class="text-sm opacity-90">Showcase products with stunning visuals!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Events -->
+                            <div class="swiper-slide">
+                                <div class="relative h-full rounded-lg overflow-hidden shadow-lg">
+                                    <img src="../assets/images/Home/business2.png" alt="Events" class="w-full h-full object-cover">
+                                    <div class="card-overlay absolute bottom-0 flex flex-col justify-end p-6 text-white !bg-[rgba(0,0,0,0.5)] w-full">
+                                        <h3 class="text-2xl font-bold mb-1">Events</h3>
+                                        <p class="text-sm opacity-90">Unforgettable moments, seamlessly executed!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Interior -->
+                            <div class="swiper-slide">
+                                <div class="relative h-full rounded-lg overflow-hidden shadow-lg">
+                                    <img src="../assets/images/Home/business3.png" alt="Interior" class="w-full h-full object-cover">
+                                    <div class="card-overlay absolute bottom-0 flex flex-col justify-end p-6 text-white !bg-[rgba(0,0,0,0.5)] w-full">
+                                        <h3 class="text-2xl font-bold mb-1">Interior</h3>
+                                        <p class="text-sm opacity-90">Designed for elegance, crafted for comfort!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Foods -->
+                            <div class="swiper-slide">
+                                <div class="relative h-full rounded-lg overflow-hidden shadow-lg">
+                                    <img src="../assets/images/Home/business4.jpeg" alt="Foods" class="w-full h-full object-cover">
+                                    <div class="card-overlay absolute bottom-0 flex flex-col justify-end p-6 text-white !bg-[rgba(0,0,0,0.5)] w-full">
+                                        <h3 class="text-2xl font-bold mb-1">Foods</h3>
+                                        <p class="text-sm opacity-90">Flavors that delight, presentation that captivates!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Brand Video -->
+                            <div class="swiper-slide">
+                                <div class="relative h-full rounded-lg overflow-hidden shadow-lg">
+                                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071" alt="Brand Video" class="w-full h-full object-cover">
+                                    <div class="card-overlay absolute bottom-0 flex flex-col justify-end p-6 text-white !bg-[rgba(0,0,0,0.5)] w-full">
+                                        <h3 class="text-2xl font-bold mb-1">Brand Video</h3>
+                                        <p class="text-sm opacity-90">Our story, your identity—brought to life!</p>
+                                    </div>
+                                </div>
+                            </div>
 
-         <!-- Why Choose us Section  -->
-    <div class=" relative h-[70vh] mt-10">
-        <div class="flex justify-around items-center overflow-hidden absolute z-10 p-24 h-[70vh]">
-            <div class="w-[70vw]  opacity-5 overflow-hidden">
-                <img class="h-full w-full object-cover" src="../assets/images/aboutus/bg-camera.png" alt="">
-            </div>
-            <div class="">
-                <img src="../assets/images/aboutus/6.png" alt="">
+                                                       <!-- Foods -->
+                                                       <div class="swiper-slide">
+                                                        <div class="relative h-full rounded-lg overflow-hidden ">
+                                                            <img src="../assets/images/Home/business5.png" alt="Foods" class="w-full h-full object-cover">
+                                                            <div class="card-overlay absolute bottom-0 w-full flex flex-col justify-end p-6 text-white !bg-[rgba(0,0,0,0.5)]">
+                        
+                                                                <h3 class="text-2xl font-bold mb-1">Foods</h3>
+                                                                <p class="text-sm opacity-90">Flavors that delight, presentation that captivates!</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                                               <!-- Foods -->
+                            <div class="swiper-slide">
+                                <div class="relative h-full rounded-lg overflow-hidden">
+                                    <img src="../assets/images/Home/business2.jpg" alt="Foods" class="w-full h-full object-cover">
+                                    <div class="card-overlay absolute bottom-0 w-full flex flex-col justify-end p-6 text-white !bg-[rgba(0,0,0,0.5)]">
+                                        <h3 class="text-2xl font-bold mb-1">Foods</h3>
+                                        <p class="text-sm opacity-90">Flavors that delight, presentation that captivates!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="color: #FF6F00;" class="swiper-button-next"></div>
+                        <div style="color: #FF6F00;" class="swiper-button-prev"></div>
+                    </div>
+                    <div class="swiper-pagination mb-8"></div>
+                </div>
             </div>
         </div>
 
-        <div class="flex absolute z-20 px-12 ml-64 ">
-
-            <!-- Cards here  -->
-            <div class="flex gap-x-20">
-
-                <!-- Three cards here  -->
-                <div class="flex flex-col gap-y-8">
-
-                    <!-- First Card  -->
-                    <div class="w-44 h-44 rounded-2xl p-3 bg-gray-200 flex justify-end font-medium text-base flex-col">
-                        <p>Top</p>
-                        <p>Photographers</p>
-                    </div>
-
-                    <div
-                        class="w-44 h-44 text-white rounded-2xl p-3 bg-[#FF6F00] flex justify-end font-medium text-base flex-col">
-                        <p>Transparent</p>
-                        <p>Pricing and</p>
-                        <p>Packages</p>
-                    </div>
-
-                    <div
-                        class="w-44 h-44 text-white rounded-2xl p-3 bg-black flex justify-end font-medium text-base flex-col">
-                        <p>Hassie-Free</p>
-                        <p>Booking</p>
-                    </div>
-
-                </div>
-
-                <!-- Two cards here  -->
-                <div class="flex flex-col justify-center gap-y-16">
-                    <!-- First cards  -->
-                    <div
-                        class="w-44 h-44 text-white rounded-2xl p-3 bg-black flex justify-end font-medium text-base flex-col">
-                        <p>Personalized</p>
-                        <p>Matches</p>
-                    </div>
-
-                    <div
-                        class="w-44 h-44 text-black border border-[#FF6F00] rounded-2xl p-3 bg-gray-200 flex justify-end font-medium text-base flex-col">
-                        <p>Secure</p>
-                        <p>and Reliable</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="flex flex-col gap-y-8 w-[32vw] ml-80 justify-center">
-                <h2 class="font-semibold text-4xl"><span>Why</span><span class="text-[#FF6F00]"> Choose Us.</span></h2>
-                <p class="font-medium text-base">We connect you with handpicked, professional photographers tailored to your needs. Enjoy transparent pricing, hassle-free booking, and trusted reviews—all in one place. Whether you're capturing a wedding, event, or portrait, we make it simple and secure. Your moments deserve perfection, and we’re here to deliver it.</p>
-            </div>
+        <div class="absolute inset-0 overflow-hidden">
+            <img class="w-full" src="../assets/images/Home/Rectangle 660.png" alt="">
         </div>
-
     </div>
 
-    <!-- Offering for All Section  -->
-     <div class="h-[60vh] relative  overflow-hidden">
-        <div class="brightness-30 absolute w-full h-[70vh]">
-            <img class="object-cover w-full h-[70vh] object-center" src="../assets/images/Home/camerabg.png" alt="">
-        </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-        <div class="flex flex-col justify-center gap-2 items-center absolute z-20 w-full h-full">
-            <h2 class="font-semibold text-white text-4xl">Offering For <span class="text-[#FF6F00]">All.</span></h2>
-            <p class="font-medium text-base text-[#FF6F00]">We Bleed Photographs</p>
+    <!-- Why Choose us Section  -->
+<!-- Icons: Using FontAwesome (or you can use Lucide icons) -->
+<script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
 
-            <!-- Four Cards Here  -->
-            <div class="flex justify-around w-[80%] mt-3">
-
-                <div class="h-80 w-64 rounded-2xl bg-white p-6 flex flex-col gap-y-4">
-                    <div>
-                        <img src="../assets/images/Home/Offering1.png" alt="">
-                    </div>
-                    <p class="font-semibold text-lg">Corporate</p>
-                    <p class="text-sm font-medium">Capturing your business moments with precision and ease.</p>
-                    <div>
-                        <button class="w-28 hover:scale-105 cursor-pointer h-8 text-white bg-[#FF6F00] rounded-3xl">Talk to us</button>
-                    </div>
+<div class="h-[75vh] flex items-center">
+    <div class="flex absolute z-20 px-12 ml-64">
+        <div class="flex gap-x-20">
+            <!-- Left column (3 cards) -->
+            <div class="flex flex-col gap-y-8">
+                <!-- First Card -->
+                <div class="w-44 h-44 rounded-2xl p-3 bg-gray-200 flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-lg bg-cover bg-center" style="background-image: url('your-image-url1.jpg');">
+                    <i class="fas fa-camera text-3xl text-black"></i>
+                    <p>Top</p>
+                    <p>Photographers</p>
                 </div>
-
-                <div class="h-80 w-64 rounded-2xl bg-white p-6 flex flex-col gap-y-4">
-                    <div>
-                        <img src="../assets/images/Home/Offering2.png" alt="">
-                    </div>
-                    <p class="font-semibold text-lg">Photographer.</p>
-                    <p class="text-sm font-medium">Click, connect, and grow—start your photography journey with us!</p>
-                    <div>
-                        <button class="w-28 h-8 hover:scale-105 cursor-pointer text-white bg-[#FF6F00] rounded-3xl">Join Us</button>
-                    </div>
+    
+                <!-- Second Card -->
+                <div class="w-44 h-44 text-white rounded-2xl p-3 bg-[#FF6F00] flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-lg bg-cover bg-center" style="background-image: url('your-image-url2.jpg');">
+                    <i class="fas fa-tags text-3xl text-white"></i>
+                    <p>Transparent</p>
+                    <p>Pricing and</p>
+                    <p>Packages</p>
                 </div>
-
-                <div class="h-80 w-64 rounded-2xl bg-white p-6 flex flex-col gap-y-4">
-                    <div>
-                        <img src="../assets/images/Home/Offering3.png" alt="">
-                    </div>
-                    <p class="font-bold text-lg">Travel Agents.</p>
-                    <p class="text-sm font-medium">Sell smarter, travel better—partner with us for premium packages.</p>
-                    <div>
-                        <button class="w-28 h-8 hover:scale-105 cursor-pointer text-white bg-[#FF6F00] rounded-3xl">Sell with us</button>
-                    </div>
+    
+                <!-- Third Card -->
+                <div class="w-44 h-44 text-white rounded-2xl p-3 bg-black flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-lg bg-cover bg-center" style="background-image: url('your-image-url3.jpg');">
+                    <i class="fas fa-calendar-check text-3xl text-white"></i>
+                    <p>Hassle-Free</p>
+                    <p>Booking</p>
                 </div>
-
-                <div class="h-80 w-64 rounded-2xl bg-white p-6 flex flex-col gap-y-4">
-                    <div>
-                        <img src="../assets/images/Home/Offering4.png" alt="">
-                    </div>
-                    <p class="font-bold text-lg">Attractions & Hostels.</p>
-                    <p class="text-sm font-medium">Hotels & Attractions Redefined. Where fun meets comfort.</p>
-                    <div>
-                        <button class="w-28 h-8 hover:scale-105 cursor-pointer text-white bg-[#FF6F00] rounded-3xl">Lets Plan</button>
-                    </div>
+            </div>
+    
+            <!-- Right column (2 cards) -->
+            <div class="flex flex-col justify-center gap-y-16">
+                <!-- First Card -->
+                <div class="w-44 h-44 text-white rounded-2xl p-3 bg-black flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-lg bg-cover bg-center" style="background-image: url('your-image-url4.jpg');">
+                    <i class="fas fa-user-check text-3xl text-white"></i>
+                    <p>Personalized</p>
+                    <p>Matches</p>
                 </div>
-
+    
+                <!-- Second Card -->
+                <div class="w-44 h-44 text-black border border-[#FF6F00] rounded-2xl p-3 bg-gray-200 flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-lg bg-cover bg-center" style="background-image: url('your-image-url5.jpg');">
+                    <i class="fas fa-shield-alt text-3xl text-black"></i>
+                    <p>Secure</p>
+                    <p>and Reliable</p>
+                </div>
             </div>
         </div>
+    
+        <!-- Text section -->
+        <div class="flex flex-col gap-y-8 w-[32vw] ml-80 justify-center">
+            <h2 class="font-semibold text-4xl"><span>Why</span><span class="text-[#FF6F00]"> Choose Us.</span></h2>
+            <p class="font-medium text-base">We connect you with handpicked, professional photographers tailored to your needs. Enjoy transparent pricing, hassle-free booking, and trusted reviews—all in one place. Whether you're capturing a wedding, event, or portrait, we make it simple and secure. Your moments deserve perfection, and we’re here to deliver it.</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Testimonial Section -->
+ <div class="w-full grad flex items-center justify-center h-[65vh]">
+     <div class="w-[90%] mx-auto">
+         <div class="header">
+             <h2 class="font-semibold text-4xl text-[#FF6F00] flex flex-col gap-4">
+               <div class="flex items-center justify-center"><hr class="w-32 text-white"> Testimonial <hr class="w-32 text-white"></div>
+               <div><span class="text-white">What Our Clients </span>Say</div>
+             </h2>
+           </div>
+       
+           <div class="splide testimonial-slider">
+             <div class="splide__track">
+               <ul class="splide__list">
+                 <li class="splide__slide">
+                   <div class="testimonial-card">
+                     <div class="user-info">
+                       <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=150&h=150&fit=crop" alt="User" class="user-image">
+                       <div class="user-details">
+                         <h3 class="user-name font-medium text-base">Himal Thakuri</h3>
+                         <p class="user-position font-normal text-xs  ">Chairperson of Kathmandu</p>
+                       </div>
+                     </div>
+                     <p class="review-text !text-black text-sm font-normal">Absolutely amazing experience! The photos were stunning, natural, and full of emotion. Professional, friendly, and captured every moment perfectly. Highly recommend!</p>
+                     <div class="review-footer">
+                       <div class="star-rating" data-rating="5"></div>
+                       <div class="google-review">
+                         <img src="../assets/images/Home/google.png" alt="Google Review" class="google-icon">
+                         <span>Google Review</span>
+                       </div>
+                     </div>
+                   </div>
+                 </li>
+                 <li class="splide__slide">
+                   <div class="testimonial-card">
+                     <div class="user-info">
+                       <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=150&h=150&fit=crop" alt="User" class="user-image">
+                       <div class="user-details">
+                         <h3 class="user-name font-medium text-base ">Keshav Koirala</h3>
+                         <p class="user-position font-normal text-xs">Chairperson of Kathmandu</p>
+                       </div>
+                     </div>
+                     <p class="review-text  !text-black text-sm font-normal">An incredible experience! The photos were breathtaking, authentic, and full of life. Professional, warm, and captured every detail beautifully. Highly recommend!</p>
+                     <div class="review-footer">
+                       <div class="star-rating" data-rating="4"></div>
+                       <div class="google-review">
+                         <img src="../assets/images/Home/google.png" alt="Google Review" class="google-icon">
+                         <span>Google Review</span>
+                       </div>
+                     </div>
+                   </div>
+                 </li>
+                 <li class="splide__slide">
+                    <div class="testimonial-card">
+                      <div class="user-info">
+                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=150&h=150&fit=crop" alt="User" class="user-image">
+                        <div class="user-details">
+                          <h3 class="user-name font-medium text-base ">Ujjwal Kadel</h3>
+                          <p class="user-position font-normal text-xs">Chairperson of Kathmandu</p>
+                        </div>
+                      </div>
+                      <p class="review-text  !text-black text-sm font-normal">Absolutely fantastic! The photos were crisp, natural, and beautifully captured every emotion. Professional, friendly, and a joy to work with. Highly recommend!</p>
+                      <div class="review-footer">
+                        <div class="star-rating" data-rating="5"></div>
+                        <div class="google-review">
+                          <img src="../assets/images/Home/google.png" alt="Google Review" class="google-icon">
+                          <span>Google Review</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                 <li class="splide__slide">
+                   <div class="testimonial-card">
+                     <div class="user-info">
+                       <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=150&h=150&fit=crop" alt="User" class="user-image">
+                       <div class="user-details">
+                         <h3 class="user-name  font-medium text-base ">Paras Bhandari</h3>
+                         <p class="user-position  font-normal text-xs">Chairperson of Kathmandu</p>
+                       </div>
+                     </div>
+                     <p class="review-text  !text-black text-sm font-normal">Truly outstanding! The photos were vibrant, natural, and filled with emotion. Professional, attentive, and captured every special moment flawlessly.</p>
+                     <div class="review-footer">
+                       <div class="star-rating" data-rating="4"></div>
+                       <div class="google-review">
+                         <img src="../assets/images/Home/google.png" alt="Google Review" class="google-icon">
+                         <span>Google Review</span>
+                       </div>
+                     </div>
+                   </div>
+                 </li>
+               </ul>
+             </div>
+           </div>
      </div>
 
-     
+ </div>
 
-     <div id="footer-container"></div>
-    
+<!-- Offering for All Section  -->
+<!-- Offering for All Section  -->
+<div class="min-h-[60vh] sm:min-h-auto py-10 relative overflow-hidden bg-gray-100 flex flex-col items-center">
+    <!-- <p class="text-white">here</p>
+    <div class="brightness-40 absolute top-0 w-full h-full">
+        <img class="object-cover w-full h-full object-center" src="../assets/images/Home/camerabg1.jpg" alt="">
+    </div> -->
+
+    <div class="relative flex flex-col justify-center gap-4 items-center z-20 w-full h-full px-4">
+        <h2 class="font-semibold text-black text-3xl md:text-4xl text-center">Offering For <span class="text-[#FF6F00]">All.</span></h2>
+        <p class="font-medium text-base text-[#FF6F00] text-center">We Bleed Photographs</p>
+
+        <!-- Responsive Cards Section -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 w-full max-w-8xl px-12 mt-6">
+            <!-- Card 1 -->
+            <div class="w-full bg-white rounded-2xl p-10 flex flex-col items-start gap-y-5 hover:shadow-2xl transition-all duration-200 hover:shadow-gray-500">
+                <img src="../assets/images/Home/Offering1.png" alt="">
+                <p class="font-semibold text-lg">Corporate</p>
+                <p class="text-sm font-medium">Capturing your business moments with precision and ease.</p>
+                <a href="wedding.html"><button class="w-28 h-8 hover:scale-105 cursor-pointer text-white bg-[#FF6F00] rounded-3xl">Talk to us</button></a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="w-full bg-white rounded-2xl p-8 flex flex-col items-start gap-y-5 hover:shadow-2xl transition-all duration-200 hover:shadow-gray-500">
+                <img src="../assets/images/Home/Offering2.png" alt="">
+                <p class="font-semibold text-lg">Photographer</p>
+                <p class="text-sm font-medium text-start">Click, connect, and grow—start your photography journey with us!</p>
+                <a href="contact.html"><button class="w-28 h-8 hover:scale-105 cursor-pointer text-white bg-[#FF6F00] rounded-3xl">Join Us</button></a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="w-full bg-white rounded-2xl p-8 flex flex-col items-start gap-y-5 hover:shadow-2xl transition-all duration-200 hover:shadow-gray-500">
+                <img src="../assets/images/Home/Offering3.png" alt="">
+                <p class="font-bold text-lg">Travel Agents</p>
+                <p class="text-sm font-medium text-start">Sell smarter, travel better—partner with us for premium packages.</p>
+                <a href="wedding.html"><button class="w-28 h-8 hover:scale-105 cursor-pointer text-white bg-[#FF6F00] rounded-3xl">Sell with us</button></a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="w-full bg-white rounded-2xl p-8 flex flex-col items-start gap-y-5 hover:shadow-2xl transition-all duration-200 hover:shadow-gray-500">
+                <img src="../assets/images/Home/Offering4.png" alt="">
+                <p class="font-bold text-lg">Attractions & Hostels</p>
+                <p class="text-sm font-medium text-start">Hotels & Attractions Redefined. Where fun meets comfort.</p>
+                <a href="wedding.html"></a><button class="w-28 h-8 hover:scale-105 cursor-pointer text-white bg-[#FF6F00] rounded-3xl">Let's Plan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <div id="footer-container"></div>
+
     <script src="../_js/header.js" defer></script>
     <script src="../_js/footer.js" defer></script>
 
@@ -326,7 +551,7 @@
             currentImageIndex = (currentImageIndex + 1) % 6;
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(`photo${currentImageIndex}`).classList.add('opacity-100');
             setInterval(updateImages, 4000);
         })
@@ -335,46 +560,63 @@
             document.getElementById("image0").style.scale = 1.1
             document.getElementById("image1").style.scale = 1
             document.getElementById("image0").style.zIndex = 40
+            document.getElementsByClassName("grad0")[0].style.display = "block"
         }
 
         function updateImage1() {
-        document.getElementById("image1").style.scale = 1.2
-        document.getElementById("image2").style.scale = 1.1
-        document.getElementById("image1").style.zIndex = 40
-    }
+            document.getElementById("image1").style.scale = 1.2
+            document.getElementById("image2").style.scale = 1.1
+            document.getElementById("image1").style.zIndex = 40
+            document.getElementsByClassName("grad1")[0].style.display = "block"
 
-    function updateImage3() {
-        document.getElementById("image3").style.scale = 1.2
-        document.getElementById("image2").style.scale = 1.1
-        document.getElementById("image3").style.zIndex = 40
-    }
+        }
 
-    function updateImage4() {
-        document.getElementById("image4").style.scale = 1.1
-        document.getElementById("image3").style.scale = 1
-        document.getElementById("image4").style.zIndex = 40
-    }
+        function updateImage2() {
+            document.getElementsByClassName("grad2")[0].style.display = "block"
 
-    function updateImageDown() {
-        document.getElementById("image0").style.scale = 1
-        document.getElementById("image1").style.scale = 1.1
-        document.getElementById("image2").style.scale = 1.2
-        document.getElementById("image3").style.scale = 1.1
-        document.getElementById("image4").style.scale = 1
-        document.getElementById("image0").style.zIndex = 10
-        document.getElementById("image1").style.zIndex = 20
-        document.getElementById("image2").style.zIndex = 30
-        document.getElementById("image3").style.zIndex = 20
-        document.getElementById("image4").style.zIndex = 10
-    } 
-    
-    showPhone = () =>{
-        document.getElementById("phone").classList.remove("hidden")
-        document.getElementById("phone").classList.add("flex")
-    }
+        }
+
+        function updateImage3() {
+            document.getElementById("image3").style.scale = 1.2
+            document.getElementById("image2").style.scale = 1.1
+            document.getElementById("image3").style.zIndex = 40
+            document.getElementsByClassName("grad3")[0].style.display = "block"
+
+        }
+
+        function updateImage4() {
+            document.getElementById("image4").style.scale = 1.1
+            document.getElementById("image3").style.scale = 1
+            document.getElementById("image4").style.zIndex = 40
+            document.getElementsByClassName("grad4")[0].style.display = "block"
+
+        }
+
+        function updateImageDown() {
+            document.getElementById("image0").style.scale = 1
+            document.getElementById("image1").style.scale = 1.1
+            document.getElementById("image2").style.scale = 1.2
+            document.getElementById("image3").style.scale = 1.1
+            document.getElementById("image4").style.scale = 1
+            document.getElementById("image0").style.zIndex = 10
+            document.getElementById("image1").style.zIndex = 20
+            document.getElementById("image2").style.zIndex = 30
+            document.getElementById("image3").style.zIndex = 20
+            document.getElementById("image4").style.zIndex = 10
+            let a = document.getElementsByClassName("grad")
+            for (let i = 0; i < a.length; i++) {
+                a[i].style.display = "none"
+            }
+        }
+        
+        showPhone = () => {
+            document.getElementById("phone").classList.remove("hidden")
+            document.getElementById("phone").classList.add("flex")
+        }
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     </script>
 </body>
+
 </html>
