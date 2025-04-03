@@ -60,13 +60,15 @@ document.addEventListener('DOMContentLoaded', function() {
     focus: 'center',
     autoplay: true,
     interval: 3000,
-    gap: '2rem',
-    pagination: true,
+    gap: '1rem',
+    pagination: false,
+    trimSpace: false,
+    padding: "5%", // Ensures centering of cards
     arrows: true,
     breakpoints: {
       1024: {
         perPage: 2,
-        gap: '1rem',
+        gap: '2rem',
       },
       640: {
         perPage: 1,
