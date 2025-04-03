@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <i class="fas fa-bars text-2xl"></i>
         </button>
       </div>
-      <div class="md:hidden fixed inset-0 bg-orange-300 text-bold bg-opacity-95 z-40 transition-all duration-300 ease-in-out opacity-0 invisible" id="mobile-menu">
+      <div class="lg:hidden fixed inset-0 bg-orange-300 text-bold bg-opacity-95 z-40 transition-all duration-300 ease-in-out opacity-0 invisible" id="mobile-menu">
         <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl text-white relative">
           <button class="absolute top-6 right-6 p-2 focus:outline-none" id="mobile-menu-close">
             <i class="fas fa-times text-3xl text-white"></i>
