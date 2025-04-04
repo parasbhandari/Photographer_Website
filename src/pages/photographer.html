@@ -21,8 +21,8 @@
         display: block;
       }
       .step-indicator.active {
-        color: #ff6f00;
-        border-bottom: 2px solid #ff6f00;
+        color: black;
+        border-bottom: 2px solid gray;
       }
       .step-indicator.completed {
         color: #0090FF;
@@ -152,11 +152,15 @@
 
     <main>
       <!-- Hero Section -->
-      <div class="relative pt-30">
+      <div class="relative w-full mb-5 pt-30">
+        <div class="p-20">
+            <h1 class="text-5xl text-center font-bold">Join As Photographer<span class="text-orange-500">.</span></h1>
+        </div>
+    </div>
         <!-- Form Container -->
-        <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="bg-[#f6f8f9] p-15 ">
           <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-orange-300 p-2"
+            class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-gray-300 p-2 w-[70%] mx-auto"
           >
             <!-- Progress Steps -->
             <div class="flex border-b">
@@ -191,13 +195,13 @@
 
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label class="block text-gray-700 mb-2" for="fullName"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="fullName"
                         >Full Name</label
                       >
                       <input
                         type="text"
                         id="fullName"
-                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         placeholder="Enter Full Name"
                         required
                       />
@@ -210,25 +214,25 @@
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="country"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="country"
                         >Country you live in</label
                       >
                       <input
                         type="text"
                         id="country"
-                        class="w-full px-4 py-2 rounded-lg border border-2 border-orange-300 bg-[#FEF4EC]"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         value="Nepal"
                         readonly
                       />
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="city"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="city"
                         >City you Live in</label
                       >
                       <select
                         id="city"
-                        class="w-full px-4 py-4 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         required
                       >
                         <option value="">Select your City</option>
@@ -246,18 +250,18 @@
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="mobile"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="mobile"
                         >Mobile (With Country Code)</label
                       >
                       <div class="flex">
                         <span
-                          class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border border-2 border-orange-300 bg-[#FEF4EC]"
+                          class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border border-2 border-gray-300"
                           >+977</span
                         >
                         <input
                           type="tel"
                           id="mobile"
-                          class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-r-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                          class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                           placeholder="xxxxxxxxx"
                           pattern="[0-9]{9,10}"
                           required
@@ -275,25 +279,25 @@
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="social"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="social"
                         >FB / Insta page</label
                       >
                       <input
                         type="url"
                         id="social"
-                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         placeholder="FB / Insta page"
                       />
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="email"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="email"
                         >Email ID</label
                       >
                       <input
                         type="email"
                         id="email"
-                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         placeholder="Email ID here"
                         required
                       />
@@ -306,12 +310,12 @@
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="state"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="state"
                         >State you live in</label
                       >
                       <select
                         id="state"
-                        class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 bg-[#FEF4EC]"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         required
                       >
                         <option value="">Select your State</option>
@@ -332,25 +336,25 @@
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="nearbyCities"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="nearbyCities"
                         >Nearby Cities you can Travel</label
                       >
                       <input
                         type="text"
                         id="nearbyCities"
-                        class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 bg-[#FEF4EC]"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         placeholder="Enter Nearby Cities you can Travel"
                       />
                     </div>
 
                     <div class="md:col-span-2">
-                      <label class="block text-gray-700 mb-2" for="portfolio"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="portfolio"
                         >Portfolio/Any Other Link</label
                       >
                       <input
                         type="url"
                         id="portfolio"
-                        class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border border-2 border-orange-300 bg-[#FEF4EC]"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         placeholder="Eg: Flickr or Website"
                       />
                     </div>
@@ -360,7 +364,7 @@
                     <button
                       type="button"
                       id="step1-next"
-                      class="next-btn bg-[#FF6F00] text-white px-6 py-2 hover:bg-blue-700 transition rounded-full"
+                      class="next-btn bg-orange-400 text-white px-6 py-2 hover:bg-blue-700 transition rounded-full"
                     >
                       Next
                     </button>
@@ -369,10 +373,10 @@
 
                 <!-- Step 2: Skill Details -->
                 <div id="formStep2" class="form-step">
-                  <h2 class="text-2xl font-bold mb-6">Skill Details</h2>
+                  <h2 class="text-2xl font-bold mb-6 text-orange-500">Skill Details</h2>
 
                   <div class="mb-6">
-                    <label class="block text-gray-700 mb-3"
+                    <label class="block text-gray-700 mb-2 font-medium text-xl"
                       >Photography Skills</label
                     >
                     <p
@@ -467,12 +471,12 @@
 
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label class="block text-[] mb-2" for="skillLevel"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="skillLevel"
                         >Skill Level</label
                       >
                       <select
                         id="skillLevel"
-                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500
                         required
                       >
                         <option value="">Select your Skill Level</option>
@@ -490,12 +494,12 @@
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="experience"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="experience"
                         >Experience</label
                       >
                       <select
                         id="experience"
-                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         required
                       >
                         <option value="">Select years of Experience</option>
@@ -513,25 +517,25 @@
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="camera"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="camera"
                         >Camera & Lenses Used</label
                       >
                       <input
                         type="text"
                         id="camera"
-                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         placeholder="Enter Comma Separated Names"
                       />
                     </div>
 
                     <div>
-                      <label class="block text-gray-700 mb-2" for="equipment"
+                      <label class="block text-gray-700 mb-2 font-medium text-xl" for="equipment"
                         >Tools/Equipment Used</label
                       >
                       <input
                         type="text"
                         id="equipment"
-                        class="w-full px-4 py-2 border border-2 border-orange-300 bg-[#FEF4EC] rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        class="w-full px-4 py-2 border border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
                         placeholder="Eg: Editing Software, Tripod, Lighting"
                       />
                     </div>
