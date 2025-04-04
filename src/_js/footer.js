@@ -12,7 +12,7 @@ class FooterComponent {
             <div class="flex-grow flex flex-col items-center justify-center py-2 px-4 mx-auto max-w-7xl">
               <div class="mb-8 w-full flex justify-center">
                 <div class="logo-container">
-                  <img src="../assets/images/footerlogo.png" alt="footer_logo" class="w-full h-auto max-w-full object-contain"/>
+                  <img src="../assets/images/footerlogo.png" alt="footer_logo" class=" h-15 w-20 lg:w-full lg:h-auto lg:max-w-full object-contain"/>
                 </div>
               </div>
 

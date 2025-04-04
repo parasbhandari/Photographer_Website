@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <header class="bg-white text-black py-4 px-6 fixed w-full z-50 shadow-md">
       <div class="max-w-7xl mx-auto flex justify-between items-center">
         <div class="flex items-center">
-          <img src="../assets/images/headerlogo.png" alt="Little Sweet Photography Logo" class="h-20 w-auto">
+          <img src="../assets/images/headerlogo.png" alt="Little Sweet Photography Logo" class="h-15 w-20 lg:h-20 lg:w-auto">
         </div>
         <nav class="hidden md:flex items-center space-x-8">
           <a href="../pages/index.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">Home</a>
