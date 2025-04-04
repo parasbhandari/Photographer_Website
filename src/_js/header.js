@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </button>
           <a href="../pages/index.html" class="hover:text-[#FF6F00] transition-colors duration-300 py-2 px-4">Home</a>
           <a href="../pages/about.html" class="hover:text-[#FF6F00] transition-colors duration-300 py-2 px-4">About Us</a>
-          <a href="../pages/wedding.html" class="hover:text-[#FF6F00] transition-colors duration-300 py-2 px-4">Packages</a>
+          <a href="../pages/packages.html" class="hover:text-[#FF6F00] transition-colors duration-300 py-2 px-4">Packages</a>
           <button class="border-2 border-orange-500 p-2 rounded-full bg-orange-500">
             <a href="../pages/contact.html" class="hover:text-[#FF6F00] transition-colors duration-300 font-medium">
               <i class="fa-solid fa-phone-volume" style="color: orange;"></i>

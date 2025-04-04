@@ -31,91 +31,128 @@
 <body>
     <div class="fixed top-0 z-50" id="header-container"></div>
 
-    <!-- Hero Section  -->
-    <div class="relative h-[90vh] mt-28 z-40">
-        <div class="h-[80vh] relative">
-            <img id="photo0"
-                class="w-full h-[80vh] object-cover object-center absolute opacity-0 transition-opacity ease-in-out duration-[2000ms]"
-                src="../assets/images/Home/photography0.png" alt="">
-            <img id="photo1"
-                class="w-full h-[80vh] object-cover object-center absolute opacity-0 transition-opacity ease-in-out duration-[2000ms]"
-                src="../assets/images/Home/photography1.png" alt="">
-            <img id="photo2"
-                class="w-full h-[80vh] absolute object-cover object-top opacity-0 transition-opacity ease-in-out duration-[2000ms]"
-                src="../assets/images/Home/photography2.png" alt="">
-            <img id="photo3"
-                class="w-full h-[80vh] absolute object-cover object-bottom opacity-0 transition-opacity ease-in-out duration-[2000ms]"
-                src="../assets/images/Home/photography3.png" alt="">
-            <img id="photo4"
-                class="w-full h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]"
-                src="../assets/images/Home/photography4.jpg" alt="">
-            <img id="photo5"
-                class="w-full h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]"
-                src="../assets/images/Home/photography5.jpg" alt="">
-
-        </div>
-
-
-
-        <div class="absolute bottom-14 z-50">
-            <div class="flex flex-col gap-1 justify-center h-[80vh]">
-                <button id="btn-phone" onmouseenter="showPhone()" onmouseleave="hidePhone()"
-                    class="bg-[#FF6F00] h-12 w-18  cursor-pointer rounded-3xl flex justify-center items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#FFFFFF">
-                        <path
-                            d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z" />
+<!-- Hero Section  -->
+<div class="relative h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[80vh] mt-16 sm:mt-20 md:mt-24 lg:mt-28 z-40">
+    <div class="h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] relative">
+        <img id="photo0"
+            class="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] object-cover object-center absolute opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+            src="../assets/images/Home/photography0.png" alt="">
+        <img id="photo1"
+            class="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] object-cover object-center absolute opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+            src="https://plus.unsplash.com/premium_photo-1681841695231-d674aa32f65b?q=80&w=2043&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <img id="photo2"
+            class="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+            src="https://plus.unsplash.com/premium_photo-1673448391321-ee9160646bae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <img id="photo3"
+            class="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+            src="https://plus.unsplash.com/premium_photo-1683120761946-f45c32e90577?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <img id="photo4"
+            class="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+            src="https://images.unsplash.com/photo-1621621667797-e06afc217fb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <img id="photo5"
+            class="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] absolute object-cover object-center opacity-0 transition-opacity ease-in-out duration-[2000ms]"
+            src="https://plus.unsplash.com/premium_photo-1690574562246-43522f632a06?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dg" alt="">
+    </div>
+    <div class="md:fixed absolute bottom-8 sm:bottom-10 md:bottom-72 lg:bottom-72 z-50 left-2 sm:left-6 md:left-8 lg:left-auto">
+        <div class="flex flex-col gap-2">
+            <!-- Phone Button -->
+            <div class="relative group">
+                <button id="btn-phone" 
+                    onmouseenter="showPhone()" onmouseleave="hidePhone()" 
+                    onclick="togglePhone()"
+                    class="bg-[#FF6F00] h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 cursor-pointer rounded-full flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
+                        <path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/>
                     </svg>
                 </button>
-                <button id="btn-whatsapp" onmouseenter="showWhatsApp()" onmouseleave="hideWhatsApp()"
-                    class="bg-[#FF6F00] cursor-pointer h-12 w-18 rounded-3xl flex justify-center items-center">
-                    <i class="fa-brands fa-whatsapp text-white fa-xl"></i>
+                <span id="phone-number" class="hidden absolute left-14 top-1/2 -translate-y-1/2 bg-black text-white text-sm px-2 py-1 rounded-md">
+                    +977 9812345678
+                </span>
+            </div>
+    
+            <!-- WhatsApp Button -->
+            <div class="relative group">
+                <button id="btn-whatsapp"
+                    onmouseenter="showWhatsApp()" onmouseleave="hideWhatsApp()" 
+                    onclick="toggleWhatsApp()"
+                    class="bg-[#25D366] h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 cursor-pointer rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-whatsapp text-white text-2xl"></i>
                 </button>
-                <button id="btn-viber" onmouseenter="showViber()" onmouseleave="hideViber()"
-                    class="bg-[#FF6F00] cursor-pointer h-12 w-18 rounded-3xl flex justify-center items-center">
-                    <i class="fa-brands fa-viber fa-xl " style="color: white;"></i>
+                <span id="whatsapp-number" class="hidden absolute left-14 top-1/2 -translate-y-1/2 bg-black text-white text-sm px-2 py-1 rounded-md">
+                    +977 9812345678
+                </span>
+            </div>
+    
+            <!-- Viber Button -->
+            <div class="relative group">
+                <button id="btn-viber" 
+                    onmouseenter="showViber()" onmouseleave="hideViber()" 
+                    onclick="toggleViber()"
+                    class="bg-[#7360F2] h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 cursor-pointer rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-viber text-white text-2xl"></i>
                 </button>
-
+                <span id="viber-number" class="hidden absolute left-14 top-1/2 -translate-y-1/2 bg-black text-white text-sm px-2 py-1 rounded-md">
+                    +977 9812345678
+                </span>
             </div>
         </div>
     </div>
+    
+</div>
 
 
-    <!-- Find your perfect Packages  -->
-    <div class="relative h-[40vh] -mt-6">
-        <div class="absolute h-[40vh]">
-            <img class="object-cover h-[40vh]" src="../assets/images/Home/bg_c.png" alt="">
-        </div>
-        <div class="absolute flex items-start">
-            <img src="../assets/images/Home/Ellipse 68.png" alt="">
-        </div>
-        <div class="absolute flex items-end h-[40vh]">
-            <img src="../assets/images/Home/Ellipse 69.png" alt="">
-        </div>
-        <div class="absolute flex justify-end w-full -top-16">
-            <img src="../assets/images/Home/camera.png" alt="">
-        </div>
-
-        <div class="flex flex-col h-[35vh] gap-8 w-full justify-center items-center absolute ">
-            <h2 class="font-semibold text-4xl">Find Your Perfect Packages</h2>
-            <div class="font-medium text-base text-center">
-                <p>Start Your Search Today and Capture Moments</p>
-                <p>That Last a Lifetime.</p>
-            </div>
-            <div>
-                <a href="wedding.html">
-                    <button
-                        class="flex flex-row gap-1 items-center justify-center w-96 h-14 hover:scale-105 cursor-pointer rounded-4xl bg-[#FF6F00] text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                            fill="#FFFFFF">
-                            <path
-                                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
-                        </svg>
-                        <p class="text-sm font-medium">Search Packages</p>
-                    </button></a>
-            </div>
-        </div>
+<!-- Find your perfect Packages -->
+<div class="relative min-h-[40vh] md:h-[40vh] px-4 md:px-0">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+        <img class="object-cover w-full min-h-[40vh] md:h-[40vh]" src="../assets/images/Home/bg_c.png" alt="">
     </div>
+
+    <!-- Floating Images (Hidden on Small Screens) -->
+    <div class="absolute hidden md:flex items-start">
+        <img src="../assets/images/Home/Ellipse 68.png" alt="">
+    </div>
+    <div class="absolute hidden md:flex items-end h-[40vh]">
+        <img src="../assets/images/Home/Ellipse 69.png" alt="">
+    </div>
+    <div class="absolute hidden md:flex justify-end w-full -top-16">
+        <img src="../assets/images/Home/camera.png" alt="">
+    </div>
+
+    <!-- Content Section -->
+    <div class="flex flex-col min-h-[40vh] gap-6 w-full justify-center -ml-4 items-center absolute text-center px-4">
+        <h2 class="font-semibold text-2xl md:text-4xl">Find Your Perfect Packages</h2>
+        <div class="font-medium text-sm md:text-base">
+            <p>Start Your Search Today and Capture Moments</p>
+            <p>That Last a Lifetime.</p>
+        </div>
+        
+        <!-- Button -->
+        <div>
+            <form action="/search" method="GET" 
+            class="flex w-full xs:w-full sm:w-[80vw] md:w-[60vw] lg:w-[40vw] bg-white h-12 sm:h-14 lg:h-16 border border-gray-300 rounded-3xl sm:rounded-4xl overflow-hidden">
+            
+            <svg class="m-auto ml-3 sm:ml-4 w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#9E9E9E">
+                <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+            </svg>
+        
+            <input type="text" name="query" placeholder="Search..." 
+                class="w-full px-2 sm:px-3 lg:px-4 outline-none text-gray-700 text-sm sm:text-base">
+        
+            <button type="submit" 
+                class="bg-[#FF6F00] my-auto mr-3 sm:mr-4 lg:mr-6 hover:scale-105 cursor-pointer hover:text-black text-white px-4 sm:px-6 lg:px-8 h-8 sm:h-10 lg:h-12 text-sm sm:text-base rounded-2xl sm:rounded-3xl">
+                Search
+            </button>
+        
+        </form>
+    </div>
+    <div class="text-lg sm:text-base text-gray-700 px-4 sm:px-2 text-center sm:text-left">
+        <span class="font-semibold">Popular Searches:</span> 
+        <span>Wedding Packages, Party Packages</span>
+    </div>
+    </div>
+</div>
+
 
 <!-- A perfect-picture photography -->
 <div class="relative px-4 md:px-0">
@@ -126,7 +163,7 @@
         </div>
         
         <!-- Text Section -->
-        <div class="flex flex-col justify-center gap-4 w-full md:w-[40vw] text-center md:text-left md:mr-24">
+        <div class="flex flex-col justify-center gap-6 w-full md:w-[40vw] text-start md:text-left md:mr-24">
             <h2 class="text-3xl md:text-4xl font-medium">
                 A picture-perfect photography booking app
             </h2>
@@ -149,7 +186,7 @@
 
 
 <!-- Featured Categories Section  -->
-<div style="background-color: rgba(202, 168, 103, 0.28);" class="min-h-screen md:min-h-0 md:h-[80vh] flex flex-col md:flex p-6 sm:p-12 md:p-24 justify-center items-center overflow-hidden">
+<div style="background-color: rgba(202, 168, 103, 0.28);" class="min-h-screen md:min-h-0 flex flex-col md:flex p-6 sm:p-12 md:p-20 justify-center items-center overflow-hidden">
 
     <div class="flex flex-col gap-4 items-center">
         <div class="font-semibold text-2xl sm:text-3xl md:text-4xl text-center">
@@ -163,16 +200,18 @@
         <!-- Mobile version (visible only on small screens) -->
         <div class="flex flex-col gap-6 mt-8 mb-8 md:hidden">
             <!-- Image 2 (Weddings - center image in desktop) -->
-            <div class="relative rounded-2xl">
-                <img class="w-full rounded-2xl" src="../assets/images/Home/photography0.jpeg" alt="Weddings">
-                <div class="absolute bottom-0 text-white flex flex-col p-6 gap-3">
-                    <h2 class="font-semibold text-2xl">Weddings</h2>
-                    <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
-                    <div>
-                        <button class="w-28 h-8 text-white bg-black rounded-3xl">Book Now</button>
-                    </div>
-                </div>
-            </div>
+             <div>
+                 <div class="relative rounded-2xl h-[60vh] overflow-hidden">
+                     <img class="w-full rounded-2xl" src="../assets/images/Home/photography0.jpeg" alt="Weddings">
+                     <div class="absolute bottom-0 text-white flex flex-col p-6 gap-3">
+                         <h2 class="font-semibold text-2xl">Weddings</h2>
+                         <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
+                         <div>
+                             <button class="w-28 h-8 text-white bg-black rounded-3xl">Book Now</button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
             
             <!-- Grid for other images -->
             <div class="grid grid-cols-2 gap-4">
@@ -281,7 +320,7 @@
 </div>
 
     <!-- Business Offering Section  -->
-    <div class=" px-4 mx-auto relative pb-12">
+    <div class=" px-4 mx-auto relative pb-12 h-auto bus-grad">
         <div class="w-[95%] mx-auto">
             <div class="flex flex-col justify-center items-center py-12 gap-8">
                 <div class="relative z-30 flex flex-col gap-4 items-center">
@@ -294,8 +333,8 @@
                         <div class="swiper-wrapper">
                             <!-- Product Shoot -->
                             <div class="swiper-slide">
-                                <div class="relative h-full rounded-xl overflow-hidden shadow-lg">
-                                    <img src="../assets/images/Home/business1.jpg" alt="Product Shoot"
+                                <div class="relative h-full rounded-3xl overflow-hidden shadow-lg">
+                                    <img src="../assets/images/Home/business1.png" alt="Product Shoot"
                                         class="w-full h-full object-cover">
                                     <div
                                         class="card-overlay absolute bottom-0 flex flex-col justify-end p-6 text-white !bg-[rgba(0,0,0,0.5)] w-full">
@@ -307,7 +346,7 @@
 
                             <!-- Events -->
                             <div class="swiper-slide">
-                                <div class="relative h-full rounded-xl overflow-hidden shadow-lg">
+                                <div class="relative h-full rounded-3xl overflow-hidden shadow-lg">
                                     <img src="../assets/images/Home/business2.png" alt="Events"
                                         class="w-full h-full object-cover">
                                     <div
@@ -320,7 +359,7 @@
 
                             <!-- Interior -->
                             <div class="swiper-slide">
-                                <div class="relative h-full rounded-xl overflow-hidden shadow-lg">
+                                <div class="relative h-full rounded-3xl overflow-hidden shadow-lg">
                                     <img src="../assets/images/Home/business3.png" alt="Interior"
                                         class="w-full h-full object-cover">
                                     <div
@@ -333,7 +372,7 @@
 
                             <!-- Foods -->
                             <div class="swiper-slide">
-                                <div class="relative h-full rounded-xl overflow-hidden shadow-lg">
+                                <div class="relative h-full rounded-3xl overflow-hidden shadow-lg">
                                     <img src="../assets/images/Home/business4.jpeg" alt="Foods"
                                         class="w-full h-full object-cover">
                                     <div
@@ -347,7 +386,7 @@
 
                             <!-- Brand Video -->
                             <div class="swiper-slide">
-                                <div class="relative h-full rounded-xl overflow-hidden shadow-lg">
+                                <div class="relative h-full rounded-3xl overflow-hidden shadow-lg">
                                     <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071"
                                         alt="Brand Video" class="w-full h-full object-cover">
                                     <div
@@ -360,7 +399,7 @@
 
                             <!-- Foods -->
                             <div class="swiper-slide">
-                                <div class="relative h-full rounded-xl overflow-hidden ">
+                                <div class="relative h-full rounded-3xl overflow-hidden ">
                                     <img src="../assets/images/Home/business5.png" alt="Foods"
                                         class="w-full h-full object-cover">
                                     <div
@@ -375,8 +414,8 @@
 
                             <!-- Foods -->
                             <div class="swiper-slide">
-                                <div class="relative h-full rounded-xl overflow-hidden">
-                                    <img src="../assets/images/Home/business2.jpg" alt="Foods"
+                                <div class="relative h-full rounded-3xl overflow-hidden">
+                                    <img src="../assets/images/Home/business2.png" alt="Foods"
                                         class="w-full h-full object-cover">
                                     <div
                                         class="card-overlay absolute bottom-0 w-full flex flex-col justify-end p-6 text-white !bg-[rgba(0,0,0,0.5)]">
@@ -395,9 +434,6 @@
             </div>
         </div>
 
-        <div class="absolute inset-0 overflow-hidden">
-            <img class="w-full" src="../assets/images/Home/Rectangle 660.png" alt="">
-        </div>
     </div>
 
     <!-- Swiper JS -->
@@ -407,7 +443,7 @@
     <!-- Icons: Using FontAwesome (or you can use Lucide icons) -->
     <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
 <div class="h-auto py-10 flex items-center relative">
-    <div class="relative z-20 px-6 md:px-12 w-full flex gap-12 flex-col flex-col-reverse justify-around items-center md:flex-row items-center md:items-start">
+    <div class="relative z-20 px-6 md:px-12 my-12 w-full flex gap-12 flex-col flex-col-reverse justify-around items-center md:flex-row items-center md:items-start">
         <div class="flex flex-col md:flex-row gap-10 md:ml-64">
             <!-- Left column (3 cards) -->
             <div class="flex flex-col gap-y-8">
@@ -418,16 +454,16 @@
                     <p>Photographers</p>
                 </div>
 
-                <div class="w-64 md:w-44 h-44 text-white rounded-2xl p-3 bg-[#FF6F00] flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-xl hover:shadow-gray-500 bg-cover bg-center"
-                    style="background-image: url('your-image-url2.jpg');">
-                    <i class="fas fa-tags text-3xl text-white"></i>
+                <div class="w-64 md:w-44 h-44 text-white rounded-2xl p-3 flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-xl hover:shadow-gray-500 bg-cover bg-center"
+                style="background-image: linear-gradient(to bottom, rgba(255,111,0,0.5), rgba(255,111,0,1));">
+                <i class="fas fa-tags text-3xl text-white"></i>
                     <p>Transparent</p>
                     <p>Pricing and</p>
                     <p>Packages</p>
                 </div>
 
-                <div class="w-64 md:w-44 h-44 text-white rounded-2xl p-3 bg-black flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-xl hover:shadow-gray-500 bg-cover bg-center"
-                    style="background-image: url('your-image-url3.jpg');">
+                <div class="w-64 md:w-44 h-44 text-white rounded-2xl p-3 flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-xl hover:shadow-gray-500 bg-cover bg-center"
+                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.9));">
                     <i class="fas fa-calendar-check text-3xl text-white"></i>
                     <p>Hassle-Free</p>
                     <p>Booking</p>
@@ -436,15 +472,15 @@
 
             <!-- Right column (2 cards) -->
             <div class="flex flex-col justify-center gap-y-16">
-                <div class=" w-64 md:w-44 h-44 text-white rounded-2xl p-3 bg-black flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-xl hover:shadow-gray-500 bg-cover bg-center"
-                    style="background-image: url('your-image-url4.jpg');">
+                <div class=" w-64 md:w-44 h-44 text-white rounded-2xl p-3 flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-xl hover:shadow-gray-500 bg-cover bg-center"
+                    style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,1));">
                     <i class="fas fa-user-check text-3xl text-white"></i>
                     <p>Personalized</p>
                     <p>Matches</p>
                 </div>
 
                 <div class="w-64 md:w-44 h-44 text-black border border-[#FF6F00] rounded-2xl p-3 bg-gray-200 flex flex-col justify-end font-medium text-base transition-transform transform hover:scale-105 hover:shadow-xl hover:shadow-gray-500 bg-cover bg-center"
-                    style="background-image: url('your-image-url5.jpg');">
+                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(229,231,235,1));">
                     <i class="fas fa-shield-alt text-3xl text-black"></i>
                     <p>Secure</p>
                     <p>and Reliable</p>
@@ -453,11 +489,11 @@
         </div>
 
         <!-- Text section -->
-        <div class="flex flex-col gap-y-6 md:w-[32vw] md:h-[64vh] -mt-12 md:mt-0  text-center justify-center md:text-left">
-            <h2 class="font-semibold text-3xl md:text-4xl">
+        <div class="flex flex-col gap-y-6 md:w-[32vw] md:h-[64vh] -mt-12 md:mt-0 text-start md:text-center justify-center md:text-left">
+            <h2 class="font-semibold ml-4 md:ml-0 text-3xl md:text-4xl">
                 <span>Why</span><span class="text-[#FF6F00]"> Choose Us.</span>
             </h2>
-            <p class="font-medium text-base text-gray-700 px-4 md:px-0">
+            <p class="font-medium text-base text-start text-black px-4 md:px-0">
                 We connect you with handpicked, professional photographers tailored to your needs. Enjoy transparent pricing, hassle-free booking, and trusted reviews—all in one place. Whether you're capturing a wedding, event, or portrait, we make it simple and secure. Your moments deserve perfection, and we’re here to deliver it.
             </p>
         </div>
@@ -467,10 +503,10 @@
 
     <!-- Testimonial Section -->
     <div
-        class="w-full bg-gradient-to-b from-[#1a1a1a] to-[#333] flex items-center justify-center min-h-[50vh] md:min-h-[60vh] lg:min-h-[65vh] py-12 md:py-16">
+        class="w-full bg-gradient-to-b from-[#1a1a1a] to-[#333] flex items-center justify-center min-h-[50vh] md:min-h-[60vh] lg:min-h-[65vh] py-8 md:py-16">
         <div class="w-[90%] md:w-[85%] lg:w-[80%] mx-auto">
             <div class="header mb-8 md:mb-12">
-                <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl text-[#FF6F00] flex flex-col gap-2 md:gap-4">
+                <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl text-[#FF6F00] flex flex-col gap-4 md:gap-4">
                     <div class="flex items-center justify-center">
                         <hr class="w-16 md:w-24 lg:w-32 border-white">
                         <span class="mx-3 md:mx-4">Testimonial</span>
@@ -672,17 +708,17 @@
         function updateImages() {
             for (let i = 0; i < 6; i++) {
                 const img = document.getElementById(`photo${i}`);
-                const btn = document.getElementById(`btn${i}`);
+                // const btn = document.getElementById(`btn${i}`);
                 if (i === currentImageIndex) {
                     img.classList.remove('opacity-0');
                     img.classList.add('opacity-100');
-                    btn.classList.add('bg-[#FF6F00]');
-                    btn.classList.remove('bg-orange-200');
+                    // btn.classList.add('bg-[#FF6F00]');
+                    // btn.classList.remove('bg-orange-200');
                 } else {
                     img.classList.remove('opacity-100');
                     img.classList.add('opacity-0');
-                    btn.classList.remove('bg-[#FF6F00]');
-                    btn.classList.add('bg-orange-200');
+                    // btn.classList.remove('bg-[#FF6F00]');
+                    // btn.classList.add('bg-orange-200');
                 }
             }
 
@@ -747,10 +783,45 @@
             }
         }
 
-        showPhone = () => {
-            document.getElementById("phone").classList.remove("hidden")
-            document.getElementById("phone").classList.add("flex")
-        }
+        function showPhone() {
+    document.getElementById("phone-number").classList.remove("hidden");
+}
+
+function hidePhone() {
+    document.getElementById("phone-number").classList.add("hidden");
+}
+
+function togglePhone() {
+    let phoneNumber = document.getElementById("phone-number");
+    phoneNumber.classList.toggle("hidden");
+}
+
+function showWhatsApp() {
+    document.getElementById("whatsapp-number").classList.remove("hidden");
+}
+
+function hideWhatsApp() {
+    document.getElementById("whatsapp-number").classList.add("hidden");
+}
+
+function toggleWhatsApp() {
+    let whatsappNumber = document.getElementById("whatsapp-number");
+    whatsappNumber.classList.toggle("hidden");
+}
+
+function showViber() {
+    document.getElementById("viber-number").classList.remove("hidden");
+}
+
+function hideViber() {
+    document.getElementById("viber-number").classList.add("hidden");
+}
+
+function toggleViber() {
+    let viberNumber = document.getElementById("viber-number");
+    viberNumber.classList.toggle("hidden");
+}
+
 
     </script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script> -->
