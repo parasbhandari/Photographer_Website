@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Page</title>
     <link rel="stylesheet" href="../_css/input.css" />
-    <!-- Include Tailwind CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Include Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Include Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Include AOS for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -16,45 +21,424 @@
     <script src="../_js/footer.js" defer></script>
   </head>
 
+  <style>
+     
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    h2, h3, .serif-font {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .story-card {
+      transition: all 0.3s ease;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+    }
+    
+    .image-hover {
+      overflow: hidden;
+    }
+    
+    .image-hover img {
+      transition: transform 0.8s ease;
+    }
+    
+    .image-hover:hover img {
+      transform: scale(1.05);
+    }
+    
+    .bg-gradient-dark {
+      background: linear-gradient(135deg, #121212 0%, #2d2d2d 100%);
+    }
+    
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .floating-slow {
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    .floating-fast {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .rotating {
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .bg-clip-text {
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .polaroid {
+      background: white;
+      padding: 15px 15px 50px;
+      transform: rotate(0deg);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .polaroid:hover {
+      transform: rotate(-3deg);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+  </style>
+  
   <body>
     <!-- Header -->
     <div id="header-container"></div>
 
     <!-- Our Story Section  -->
    
-   
-    <div class="relative pb-34">
-      <div class="bg-black h-[80vh]"></div>
-      <div class="absolute top-60 right-32">
-          <img class="h-[75vh]" src="../assets/images/aboutus/Ellipse 70.png" alt="">
-      </div>
-      <div class="absolute right-[106px] top-[220px]">
-          <img class="h-[80vh]" src="../assets/images/aboutus/Round Animation.png" alt="">
-      </div>
-      <div class="absolute right-[86px] top-[194px]">
-          <img class="h-[85vh]" src="../assets/images/aboutus/Round Animation.png" alt="">
-      </div>
 
-      <div class="absolute p-12 shadow-lg rounded-lg left-24 w-[48vw] top-72 h-auto bg-white pb-34">
-          <div class="flex flex-col items-center">
-              <h2 class="font-semibold text-4xl"><span>Our</span><span class="text-[#FF6F00]"> Story</span></h2>
-              <div class="mt-8 font-medium text-base text-justify">
-                At  LSP, photography isn't just a profession; it’s our passion, our vision, and our way of telling stories that transcend time. What started as a shared love for capturing the world through the lens has blossomed into a creative journey where every click of the camera reflects a deeper connection with the moments we cherish. Our team is made up of talented individuals—freelancers and studio photographers—each with a unique perspective, driven by the desire to immortalize the beauty, emotion, and essence of ife.We believe in the power of light, shadows, and perspectives to create photographs that are not just seen, but felt. Your About LSP section is well-crafted, evoking a strong emotional connection while maintaining a professional and artistic tone. The introduction immediately draws the reader in by positioning photography as more than just a profession—it's a passion, a vision, and a means of storytelling. This sets the stage for an engaging narrative that speaks to the heart of your brand. The way you describe photography as capturing more than just images but emotions and memories adds a deep and meaningful layer to your message, making it resonate with potential clients. The transition from the origins of LSP to its evolution into a team of talented freelancers and studio photographers is smooth and effectively conveys growth and diversity. By emphasizing the individuality of each photographer and their unique perspective, you reinforce the idea that your work is not just about taking pictures but about creating art that tells a story.
-Additionally, the focus on light, shadows, and composition highlights the technical and artistic mastery of your team, giving credibility to your work while maintaining an evocative and poetic tone. Phrases like “not just seen, but felt” and “a moment, a memory, a feeling frozen in time” make the description more immersive and emotionally charged, which helps potential clients connect with your vision on a deeper level. The closing line, “Let’s create something unforgettable together,” serves as a warm and inviting call to action, subtly encouraging engagement without feeling overly promotional.
-While the overall flow is strong, slight refinements could improve readability and impact. Some sentences could be streamlined for a smoother reading experience without losing the poetic essence. For example, instead of “Every frame we capture isn’t just an image; it’s a moment, a memory, a feeling frozen in time,” a more concise version like “Every frame we capture is more than an image—it’s a memory, a feeling, a moment frozen in time” retains the meaning while improving clarity. Additionally, briefly mentioning the types of photography LSP specializes in—whether portraits, events, commercial, or editorial—could add clarity for visitors looking for specific services.
-Overall, this section is an emotionally compelling and beautifully written piece that effectively conveys the passion, artistry, and expertise of LSP. With minor refinements for conciseness and a touch more specificity, it would be even stronger, ensuring it remains engaging while also being clear and informative.
-                 </div>
-          </div>
+
+
+
+
+    <div class="relative h-[500px] bg-black flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 opacity-40 bg-cover bg-center parallax" style="background-image: url('https://i.pinimg.com/736x/b5/98/f7/b598f70541a0db007840786fe6d6e2af.jpg')"></div>
         
+        <div class="relative text-center text-white z-10 px-4 py-30">
+            <h1 data-aos="fade-up" class="text-2xl md:text-5xl font-bold mt-[36px] text-shadow serif-font">Our <span style="color:  #FF6F00;"> Journey Through</span> The Lens</h1>
+            <p data-aos="fade-up" data-aos-delay="200" class="text-base md:text-2xl max-w-3xl mx-auto mt-[36px]">
+              Every photograph tells a story. Ours began with a passion for capturing moments that last forever.
+            </p>
+            <a href="#story" class="mt-8 inline-block">
+              <i class="fa fa-chevron-down text-white text-3xl animate-bounce"></i>
+            </a>
+          </div>
+          
+        
+        <!-- Floating elements -->
+        <div class="absolute right-10 top-2/4 opacity-60 floating-slow hidden md:block">
+          <img class="h-32 rounded-full" src="https://i.pinimg.com/736x/5a/05/82/5a0582b9afc8471a2aef6682a80a54c9.jpg" alt="Circle element">
+        </div>
+        <div class="absolute left-10 bottom-1/4 opacity-60 floating hidden md:block">
+          <img class="h-32 rounded-full" src="https://i.pinimg.com/736x/e6/38/98/e638982ff79b48da864ce45787b52637.jpg" alt="Circle element">
+        </div>
+       
+      </div>
 
-          <div class="w-[120px] left-4 bottom-4 mt-3 absolute">
-            <img class="w-full h-auto" src="https://s3-alpha-sig.figma.com/img/fdaa/f7c8/ee19bd02e96b8a7f173a41550c021d84?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=KuklmtKi0OvIv2zUzA~8xvW1FZ9nncBars7Q6CCAwCuKzfzkxLBiwCQMsBmIg6xvLNPHq6pxBmHMwk892GFv0DXds3FMSAFgP2koIPBcp-FqqfgRzVrU74cPuPryCaVyJX3lZr0EtM0tKWFGEfPqT2z0j1cXBntK5jv6SNHz9SDc9eJNNVfTJkGR-IsHeMpAtKVqLTfdDvTBlFtCTFpnC-eoHDwa~V4PYvj2fi8nTJGagP9BHfSRHCYhwxforTndVpebU~hb1xQ8QulJOPCxvxGvrmdFc3J5lTziEZPpaGK-bWrxS~BFqrwtdotPvXKrnJoy0LSrBP2bkY6lUGshsA__" alt="">
+
+
+
+
+
+      <div id="story" class="relative py-24 bg-gray-50">
+        <!-- Background Elements -->
+        <div class="absolute right-0 top-0 opacity-70 hidden lg:block">
+          <div class="bg-gradient-to-br from-orange-100 to-orange-200 h-96 w-96 rounded-full blur-3xl"></div>
+        </div>
+        <div class="absolute left-0 bottom-0 opacity-50 hidden lg:block">
+          <div class="bg-gradient-to-tr from-gray-200 to-gray-300 h-80 w-80 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <h2 data-aos="fade-up" class="inline-block text-4xl md:text-5xl font-bold relative">
+              <span>Our</span>
+              <span class="text-orange-500"> Story</span>
+              <div class="absolute -bottom-4 left-0 right-0 h-1 bg-orange-500 transform scale-x-50 transition-transform duration-300 hover:scale-x-100"></div>
+            </h2>
+            <p data-aos="fade-up" data-aos-delay="100" class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">
+              A visual journey that began with passion and evolved into artistry
+            </p>
+          </div>
+          
+          <!-- Main Content -->
+          <div class="flex flex-col lg:flex-row gap-12 items-center">
+            <!-- Left Content -->
+            <div class="w-full lg:w-1/2" data-aos="fade-right">
+              <div class="bg-white p-8 rounded-xl shadow-xl relative story-card">
+                <div class="absolute -top-6 -left-6 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white">
+                  <i class="fas fa-camera text-xl"></i>
+                </div>
+                
+                <h3 class="text-3xl font-semibold mb-6 text-gray-800">The Vision Behind LSP</h3>
+                
+                <div class="prose prose-lg">
+                  <p class="mb-4">
+                    At LSP, photography isn't just a profession; it's our passion, our vision, and our way of telling stories that transcend time. What started as a shared love for capturing the world through the lens has blossomed into a creative journey where every click of the camera reflects a deeper connection with the moments we cherish.
+                  </p>
+                  <p class="mb-4">
+                    Our team is made up of talented individuals—freelancers and studio photographers—each with a unique perspective, driven by the desire to immortalize the beauty, emotion, and essence of life. We believe in the power of light, shadows, and perspectives to create photographs that are not just seen, but felt.
+                  </p>
+                  <p>
+                    Every frame we capture is more than an image—it's a memory, a feeling, a moment frozen in time. Through our lenses, we strive to reveal the extraordinary in the ordinary, the profound in the simple, and the timeless in the fleeting.
+                  </p>
+                </div>
+                
+                <div class="mt-8 flex flex-wrap gap-3">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-orange-100 transition-colors cursor-default">Portrait</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-orange-100 transition-colors cursor-default">Wedding</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-orange-100 transition-colors cursor-default">Commercial</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-orange-100 transition-colors cursor-default">Fine Art</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-orange-100 transition-colors cursor-default">Documentary</span>
+                </div>
+                
+                <div class="absolute -bottom-4 -right-4">
+                  <img class="w-20 opacity-80 rounded-full" src="https://i.pinimg.com/736x/62/da/9f/62da9f574530b571eb5d3ca29fc31249.jpg" alt="Logo mark">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right Content - Photo Gallery -->
+            <div class="w-full lg:w-1/2">
+              <div class="grid grid-cols-2 gap-4">
+                <!-- Top Image -->
+                <div data-aos="zoom-in" data-aos-delay="100" class="col-span-2 polaroid image-hover">
+                  <img class="w-full h-64 object-cover rounded" src="https://i.pinimg.com/736x/b0/04/af/b004af1a65f7d65cacd3075c6c09bcef.jpg" alt="Photography team">
+                  <p class="mt-2 text-center text-gray-700 font-medium">The founding team, 2019</p>
+                </div>
+                
+                <!-- Bottom Images -->
+                <div data-aos="zoom-in" data-aos-delay="200" class="image-hover">
+                  <img class="w-full h-48 object-cover rounded" src="https://i.pinimg.com/736x/c0/aa/ce/c0aacee36f8eb02c2dd82fc62bcbcc81.jpg" alt="Camera equipment">
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="300" class="image-hover">
+                  <img class="w-full h-48 object-cover rounded" src="https://i.pinimg.com/736x/6c/33/56/6c33569f8ad9b93d19599559a9fdca41.jpg" alt="Photography session">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Quote Section -->
+          <div class="my-20 text-center" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto p-8 bg-gradient-dark rounded-xl text-white relative">
+              <i class="fas fa-quote-left text-4xl text-orange-500 opacity-50 absolute top-4 left-4"></i>
+              <p class="text-2xl md:text-3xl italic serif-font">
+                "Photography is the story I fail to put into words."
+              </p>
+              <p class="mt-4 text-orange-300">— Destin Sparks</p>
+              <i class="fas fa-quote-right text-4xl text-orange-500 opacity-50 absolute bottom-4 right-4"></i>
+            </div>
+          </div>
+          
+          <!-- Our Journey Timeline -->
+          <div class="mt-24">
+            <h3 data-aos="fade-up" class="text-center text-3xl font-bold mb-12">Our Journey Through The Years</h3>
+            
+            <div class="relative">
+              <!-- Timeline Line -->
+              <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-orange-200"></div>
+              
+              <!-- Timeline Items -->
+              <div class="flex flex-col gap-12 relative z-10">
+                <!-- 2018 -->
+                <div class="flex flex-col md:flex-row items-center">
+                  <div data-aos="fade-right" class="w-full md:w-1/2 md:pr-12 text-right order-2 md:order-1">
+                    <div class="story-card bg-white p-6 rounded-lg shadow-lg">
+                      <h4 class="text-xl font-bold text-orange-500 mb-2">The Beginning</h4>
+                      <p class="text-gray-700">LSP was founded with a simple mission: to capture authenticity in every frame. Starting with just two photographers and a shared vision.</p>
+                    </div>
+                  </div>
+                  <div class="relative order-1 md:order-2 mb-4 md:mb-0">
+                    <div data-aos="zoom-in" class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">2018</div>
+                  </div>
+                  <div class="w-full md:w-1/2 order-3"></div>
+                </div>
+                
+                <!-- 2020 -->
+                <div class="flex flex-col md:flex-row items-center">
+                  <div class="w-full md:w-1/2 order-3 md:order-1"></div>
+                  <div class="relative order-1 md:order-2 mb-4 md:mb-0">
+                    <div data-aos="zoom-in" class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">2020</div>
+                  </div>
+                  <div data-aos="fade-left" class="w-full md:w-1/2 md:pl-12 text-left order-2 md:order-3">
+                    <div class="story-card bg-white p-6 rounded-lg shadow-lg">
+                      <h4 class="text-xl font-bold text-orange-500 mb-2">Expanding Horizons</h4>
+                      <p class="text-gray-700">We welcomed talented freelancers into our family, each bringing unique perspectives and specialties to our growing studio.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- 2022 -->
+                <div class="flex flex-col md:flex-row items-center">
+                  <div data-aos="fade-right" class="w-full md:w-1/2 md:pr-12 text-right order-2 md:order-1">
+                    <div class="story-card bg-white p-6 rounded-lg shadow-lg">
+                      <h4 class="text-xl font-bold text-orange-500 mb-2">Award Recognition</h4>
+                      <p class="text-gray-700">Our dedication to the craft was recognized with several industry awards, marking our commitment to excellence in visual storytelling.</p>
+                    </div>
+                  </div>
+                  <div class="relative order-1 md:order-2 mb-4 md:mb-0">
+                    <div data-aos="zoom-in" class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">2022</div>
+                  </div>
+                  <div class="w-full md:w-1/2 order-3"></div>
+                </div>
+                
+                <!-- Today -->
+                <div class="flex flex-col md:flex-row items-center">
+                  <div class="w-full md:w-1/2 order-3 md:order-1"></div>
+                  <div class="relative order-1 md:order-2 mb-4 md:mb-0">
+                    <div data-aos="zoom-in" class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">Now</div>
+                  </div>
+                  <div data-aos="fade-left" class="w-full md:w-1/2 md:pl-12 text-left order-2 md:order-3">
+                    <div class="story-card bg-white p-6 rounded-lg shadow-lg">
+                      <h4 class="text-xl font-bold text-orange-500 mb-2">The Present & Future</h4>
+                      <p class="text-gray-700">Today, we continue to grow and evolve, embracing new technologies while staying true to our core vision: creating photographs that aren't just seen, but felt.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meet Our Photographers -->
+          <div class="mt-32">
+            <h3 data-aos="fade-up" class="text-center text-3xl font-bold mb-2">Meet Our Photographers</h3>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+              <!-- Add any additional text or content here -->
+            </p>
+          
+            <!-- Wrapper div added here -->
+            <div class="photographers-wrapper">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Photographer 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="story-card bg-white rounded-xl overflow-hidden shadow-lg">
+                  <div class="image-hover">
+                    <img class="w-full h-70 object-fit" src="https://i.pinimg.com/736x/c0/45/f6/c045f66252411eda5b7d130e2108c6a6.jpg" alt="Photographer Alex">
+                  </div>
+                  <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2">Alex Morgan</h4>
+                    <p class="text-orange-500 mb-3">Lead Photographer</p>
+                    <p class="text-gray-600 mb-4">Specializes in portrait and wedding photography with a distinct cinematic style.</p>
+                    <div class="flex gap-3">
+                      <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">
+                        <i class="fab fa-instagram text-lg"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">
+                        <i class="fab fa-behance text-lg"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">
+                        <i class="fa fa-globe text-lg"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Photographer 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="story-card bg-white rounded-xl overflow-hidden shadow-lg">
+                  <div class="image-hover">
+                    <img class="w-full h-70 object-fit" src="https://i.pinimg.com/736x/c0/45/f6/c045f66252411eda5b7d130e2108c6a6.jpg" alt="Photographer Alex">
+
+                </div>
+                  <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2">Jamie Chen</h4>
+                    <p class="text-orange-500 mb-3">Creative Director</p>
+                    <p class="text-gray-600 mb-4">An eye for composition and light with over a decade of experience in commercial photography.</p>
+                    <div class="flex gap-3">
+                      <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">
+                        <i class="fab fa-instagram text-lg"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">
+                        <i class="fab fa-linkedin text-lg"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">
+                        <i class="fa fa-globe text-lg"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Photographer 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="story-card bg-white rounded-xl overflow-hidden shadow-lg">
+                  <div class="image-hover">
+                    <img class="w-full h-70 object-fit" src="https://i.pinimg.com/736x/c0/45/f6/c045f66252411eda5b7d130e2108c6a6.jpg" alt="Photographer Alex">
+
+                  </div>
+                  <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2">Taylor Reed</h4>
+                    <p class="text-orange-500 mb-3">Documentary Specialist</p>
+                    <p class="text-gray-600 mb-4">Captures authentic moments with a journalistic approach that tells compelling stories.</p>
+                    <div class="flex gap-3">
+                      <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">
+                        <i class="fab fa-instagram text-lg"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">
+                        <i class="fab fa-twitter text-lg"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">
+                        <i class="fa fa-globe text-lg"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- Wrapper div ends here -->
+          </div>
+          
+          
+          <!-- Call to Action -->
+          <div class="mt-24 text-center" data-aos="fade-up">
+            <div class="max-w-3xl mx-auto bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-10 text-white relative overflow-hidden shadow-xl">
+              <div class="absolute inset-0 bg-black opacity-20"></div>
+              <div class="relative z-10">
+                <h3 class="text-3xl font-bold mb-4">Let's Create Something Unforgettable Together</h3>
+                <p class="mb-8 text-lg">Ready to turn your moments into memories that last forever?</p>
+                <a href="#" class="inline-block bg-white text-orange-500 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors shadow-lg transform hover:-translate-y-1 hover:shadow-xl duration-300">
+                  Book a Session
+                </a>
+              </div>
+              <!-- Decorative elements -->
+              <div class="absolute -top-12 -right-12 w-40 h-40 bg-white opacity-10 rounded-full"></div>
+              <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-white opacity-10 rounded-full"></div>
+            </div>
+          </div>
         </div>
       </div>
-  </div>
-  <!-- Delete -->
-  <div class="my-[55vh]"></div>
+
+
+ 
     <!-- Footer -->
-    <<div id="footer-container"></div>
+    <div id="footer-container"></div>
+
+
+
+
+    <script>
+        // Initialize AOS
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    });
+    </script>
   </body>
 </html>
