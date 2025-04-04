@@ -18,9 +18,9 @@
             </div>
         </div>
         
-        <div class="bg-[#f6f8f9] grid p-15 gap-10" style="grid-template-columns: 4fr 9fr;">
-            <div>
-            <div class="bg-white text-xl font-medium flex gap-5 flex-col p-5 rounded-xl">
+        <div class="bg-[#f6f8f9] p-15 grid grid-cols-1 lg:grid-cols-[3fr_9fr]  gap-4" >
+            <div class="order-last lg:order-first">
+            <div class="hidden lg:block bg-white text-xl font-medium flex gap-5 flex-col p-5 rounded-xl">
                 <a href="#price-plans"><h2 class="hover:bg-orange-200 hover:cursor p-2 rounded-lg">
                     Pricing plans</h2></a>
                     <a href="#ideas"><h2 class="hover:bg-orange-200 hover:cursor p-2 rounded-lg">
@@ -97,7 +97,7 @@
               </div>
             </div>
             </div>
-            <div id="price-plans">
+            <div id="price-plans" class="order-first lg:order-last">
                 <h2 class="text-3xl font-bold">Pricing Plans<span class="text-orange-500">.</span></h2>
                 <p class="mt-2">Plans at a bargain 🤑 price, no need of a second opinion. 100% refunds on cancellation within 48 hrs of booking*.</p>
 
