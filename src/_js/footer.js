@@ -34,19 +34,19 @@ class FooterComponent {
                 <div class="text-center md:text-left">
                   <h3 class="text-xl font-semibold mb-6">Quick Links</h3>
                   <ul class="space-y-4">
-                    <li><a href="#" class="hover:text-[#FF6F00] transition-colors duration-300">About</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F00] transition-colors duration-300">Contact</a></li>
+                    <li><a href="./about.html" class="hover:text-[#FF6F00] transition-colors duration-300">About</a></li>
+                    <li><a href="./contact.html" class="hover:text-[#FF6F00] transition-colors duration-300">Contact</a></li>
                     <li><a href="#" class="hover:text-[#FF6F00] transition-colors duration-300">Services</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F00] transition-colors duration-300">Terms & Privacy</a></li>
+                    <li><a href="./term.html" class="hover:text-[#FF6F00] transition-colors duration-300">Terms & Privacy</a></li>
                   </ul>
                 </div>
                 <div class="text-center">
                   <h3 class="text-xl font-semibold mb-6">Occasions</h3>
                   <ul class="space-y-4">
-                    <li><a href="#" class="hover:text-[#FF6F00] transition-colors duration-300">Weddings</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F00] transition-colors duration-300">Events</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F00] transition-colors duration-300">Product Events</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F00] transition-colors duration-300">Shoot</a></li>
+                    <li><a href="./packages.html" class="hover:text-[#FF6F00] transition-colors duration-300">Weddings</a></li>
+                    <li><a href="./packages.html" class="hover:text-[#FF6F00] transition-colors duration-300">Events</a></li>
+                    <li><a href="./packages.html" class="hover:text-[#FF6F00] transition-colors duration-300">Product Events</a></li>
+                    <li><a href="./packages.html" class="hover:text-[#FF6F00] transition-colors duration-300">Shoot</a></li>
                   </ul>
                 </div>
                 <div class="text-center md:text-left lg:text-right">
