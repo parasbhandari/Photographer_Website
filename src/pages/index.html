@@ -32,7 +32,7 @@
     <div class="fixed top-0 z-50" id="header-container"></div>
 
 <!-- Hero Section  -->
-<div class="relative h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[80vh] mt-16 sm:mt-20 md:mt-24 lg:mt-28 z-40">
+<div class="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] mt-16 sm:mt-20 md:mt-24 lg:mt-28 z-40">
     <div class="h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] relative">
         <img id="photo0"
             class="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] object-cover object-center absolute opacity-0 transition-opacity ease-in-out duration-[2000ms]"
@@ -56,44 +56,47 @@
     <div class="md:fixed absolute bottom-8 sm:bottom-10 md:bottom-72 lg:bottom-72 z-50 left-2 sm:left-6 md:left-8 lg:left-auto">
         <div class="flex flex-col gap-2">
             <!-- Phone Button -->
-            <div class="relative group">
-                <button id="btn-phone" 
-                    onmouseenter="showPhone()" onmouseleave="hidePhone()" 
-                    onclick="togglePhone()"
-                    class="bg-[#FF6F00] h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 cursor-pointer rounded-full flex justify-center items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
-                        <path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/>
-                    </svg>
+            <div class="relative">
+                <button 
+                    class="group bg-[#FF6F00] h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 rounded-full flex items-center overflow-hidden transition-all duration-300 hover:w-58 hover:rounded-full hover:pr-4"
+                    aria-label="Call us">
+                    <div class="flex items-center justify-center min-w-[3rem] md:min-w-[3.5rem] lg:min-w-[4rem] h-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
+                            <path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/>
+                        </svg>
+                    </div>
+                    <span class="text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                        +977 9812345678
+                    </span>
                 </button>
-                <span id="phone-number" class="hidden absolute left-14 top-1/2 -translate-y-1/2 bg-black text-white text-sm px-2 py-1 rounded-md">
-                    +977 9812345678
-                </span>
             </div>
     
             <!-- WhatsApp Button -->
-            <div class="relative group">
-                <button id="btn-whatsapp"
-                    onmouseenter="showWhatsApp()" onmouseleave="hideWhatsApp()" 
-                    onclick="toggleWhatsApp()"
-                    class="bg-[#25D366] h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 cursor-pointer rounded-full flex justify-center items-center">
-                    <i class="fa-brands fa-whatsapp text-white text-2xl"></i>
+            <div class="relative">
+                <button
+                    class="group bg-[#25D366] h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 rounded-full flex items-center overflow-hidden transition-all duration-300 hover:w-58 hover:rounded-full hover:pr-4"
+                    aria-label="WhatsApp us">
+                    <div class="flex items-center justify-center min-w-[3rem] md:min-w-[3.5rem] lg:min-w-[4rem] h-full">
+                        <i class="fa-brands fa-whatsapp text-white text-2xl"></i>
+                    </div>
+                    <span class="text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                        +977 9812345678
+                    </span>
                 </button>
-                <span id="whatsapp-number" class="hidden absolute left-14 top-1/2 -translate-y-1/2 bg-black text-white text-sm px-2 py-1 rounded-md">
-                    +977 9812345678
-                </span>
             </div>
     
             <!-- Viber Button -->
-            <div class="relative group">
-                <button id="btn-viber" 
-                    onmouseenter="showViber()" onmouseleave="hideViber()" 
-                    onclick="toggleViber()"
-                    class="bg-[#7360F2] h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 cursor-pointer rounded-full flex justify-center items-center">
-                    <i class="fa-brands fa-viber text-white text-2xl"></i>
+            <div class="relative">
+                <button
+                    class="group bg-[#7360F2] h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 rounded-full flex items-center overflow-hidden transition-all duration-300 hover:w-58 hover:rounded-full hover:pr-4"
+                    aria-label="Viber us">
+                    <div class="flex items-center justify-center min-w-[3rem] md:min-w-[3.5rem] lg:min-w-[4rem] h-full">
+                        <i class="fa-brands fa-viber text-white text-2xl"></i>
+                    </div>
+                    <span class="text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                        +977 9812345678
+                    </span>
                 </button>
-                <span id="viber-number" class="hidden absolute left-14 top-1/2 -translate-y-1/2 bg-black text-white text-sm px-2 py-1 rounded-md">
-                    +977 9812345678
-                </span>
             </div>
         </div>
     </div>
@@ -104,7 +107,7 @@
 <!-- Find your perfect Packages -->
 <div class="relative min-h-[40vh] md:h-[40vh] px-4 md:px-0">
     <!-- Background Image -->
-    <div class="absolute inset-0">
+    <div class="absolute inset-0 ">
         <img class="object-cover w-full min-h-[40vh] md:h-[40vh]" src="../assets/images/Home/bg_c.png" alt="">
     </div>
 
@@ -155,19 +158,19 @@
 
 
 <!-- A perfect-picture photography -->
-<div class="relative px-4 md:px-0">
-    <div class="flex flex-col md:flex-row flex-col-reverse py-16 gap-10 md:justify-around items-center">
+<div class="relative px-4 sm:px-6 md:px-8 lg:px-0">
+    <div class="flex flex-col md:flex-row flex-col-reverse py-8 sm:py-12 md:py-14 lg:py-16 gap-6 sm:gap-8 md:gap-10 md:justify-around items-center">
         <!-- Image Section -->
-        <div class="w-full md:w-auto  flex justify-center">
-            <img src="../assets/images/Home/Frame 9.png" alt="" class="w-[90%] md:w-auto">
+        <div class="w-full md:w-[45%] lg:w-auto flex justify-center">
+            <img src="../assets/images/Home/Frame 9.png" alt="" class="w-[90%] sm:w-[80%] md:w-[95%] lg:w-auto max-w-full">
         </div>
         
         <!-- Text Section -->
-        <div class="flex flex-col justify-center gap-6 w-full md:w-[40vw] text-start md:text-left md:mr-24">
-            <h2 class="text-3xl md:text-4xl font-medium">
+        <div class="flex flex-col justify-center gap-4 sm:gap-5 md:gap-6 w-full sm:w-[90%] md:w-[50%] lg:w-[40vw] text-start md:text-left md:mr-6 lg:mr-24">
+            <h2 class="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-medium">
                 A picture-perfect photography booking app
             </h2>
-            <p class="font-medium text-sm md:text-base">
+            <p class="font-medium text-sm sm:text-base">
                 Capture life's most unforgettable moments with ease using our picture-perfect photography booking app! 
                 Designed for seamless convenience, our app connects you with professional photographers tailored to your 
                 needs, whether it's a wedding, family portrait, corporate event, or a spontaneous photoshoot.
@@ -175,34 +178,33 @@
         </div>
     </div>
 
-    <!-- Floating Images (Hidden on Mobile) -->
+    <!-- Floating Images (Responsive) -->
     <div class="absolute right-0 top-0 hidden md:block">
-        <img src="../assets/images/Home/Ellipse 67.png" alt="">
+        <img src="../assets/images/Home/Ellipse 67.png" alt="" class="md:w-[90%] lg:w-full md:max-w-full">
     </div>
     <div class="absolute right-0 bottom-0 hidden md:block">
-        <img src="../assets/images/Home/manCamera.png" alt="">
+        <img src="../assets/images/Home/manCamera.png" alt="" class="md:w-[90%] lg:w-full md:max-w-full">
     </div>
 </div>
 
-
 <!-- Featured Categories Section  -->
-<div style="background-color: rgba(202, 168, 103, 0.28);" class="min-h-screen md:min-h-0 flex flex-col md:flex p-6 sm:p-12 md:p-20 justify-center items-center overflow-hidden">
+<div style="background-color: rgba(202, 168, 103, 0.28);" class="min-h-screen md:min-h-0 flex flex-col p-6 sm:p-10 md:p-12 lg:p-20 justify-center items-center overflow-hidden">
 
     <div class="flex flex-col gap-4 items-center">
-        <div class="font-semibold text-2xl sm:text-3xl md:text-4xl text-center">
+        <div class="font-semibold text-2xl sm:text-3xl md:text-3xl lg:text-4xl text-center">
             <span>Featured </span><span class="text-[#FF6F00]">Categories</span>
         </div>
-        <div class="font-medium text-sm sm:text-base w-full sm:w-[80vw] md:w-[40vw] text-center">
+        <div class="font-medium text-sm sm:text-base w-full sm:w-[80vw] md:w-[60vw] lg:w-[40vw] text-center">
             Capturing the Magic of Your Big Day, From the First Glance to the Last Dance—Every Smile, Tear, and
             Joyful Moment Preserved Forever.
         </div>
         
         <!-- Mobile version (visible only on small screens) -->
-        <div class="flex flex-col gap-6 mt-8 mb-8 md:hidden">
+        <div class="flex flex-col gap-6 mt-8 mb-8 sm:block md:hidden">
             <!-- Image 2 (Weddings - center image in desktop) -->
              <div>
-                 <div class="relative rounded-2xl h-[60vh] overflow-hidden">
-                     <img class="w-full rounded-2xl" src="../assets/images/Home/photography0.jpeg" alt="Weddings">
+                 <div class="relative rounded-2xl h-[60vh] sm:h-[50vh] overflow-hidden">
+                     <img class="w-full h-full object-cover rounded-2xl" src="../assets/images/Home/photography0.jpeg" alt="Weddings">
                      <div class="absolute bottom-0 text-white flex flex-col p-6 gap-3">
                          <h2 class="font-semibold text-2xl">Weddings</h2>
                          <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
@@ -214,7 +216,7 @@
              </div>
             
             <!-- Grid for other images -->
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-4 mt-6">
                 <!-- Image 0 -->
                 <div class="relative rounded-2xl">
                     <img class="w-full rounded-2xl" src="../assets/images/aboutus/chaurasi.png" alt="Chaurasi">
@@ -253,8 +255,62 @@
             </div>
         </div>
         
-        <!-- Desktop version (hidden on mobile) -->
-        <div class="hidden md:flex mt-14 mb-12 -gap-x-12 items-center relative">
+        <!-- Medium screen version (visible only on medium screens) -->
+        <div class="hidden md:flex lg:hidden mt-10 mb-10 flex-wrap justify-center gap-4">
+            <!-- Main featured image (Weddings) -->
+            <div class="relative rounded-2xl w-full max-w-md mx-auto mb-4">
+                <img class="w-full h-[350px] object-cover rounded-2xl" src="../assets/images/Home/photography0.jpeg" alt="Weddings">
+                <div class="absolute bottom-0 text-white flex flex-col p-6 gap-3">
+                    <h2 class="font-semibold text-2xl">Weddings</h2>
+                    <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
+                    <div>
+                        <a href="wedding.html"><button class="w-28 h-8 text-white bg-black rounded-3xl hover:scale-105 cursor-pointer hover:text-[#FF6F00]">Book Now</button></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grid of 4 smaller images -->
+            <div class="grid grid-cols-2 gap-4 w-full max-w-3xl">
+                <!-- Image 0 -->
+                <div class="relative rounded-2xl">
+                    <img class="w-full h-[200px] object-cover rounded-2xl" src="../assets/images/aboutus/chaurasi.png" alt="Chaurasi">
+                    <div class="absolute bottom-0 text-white p-4 flex flex-col gap-1">
+                        <h2 class="font-semibold text-xl">Chaurasi</h2>
+                        <p class="font-normal text-sm">Capture the magic of your special day</p>
+                    </div>
+                </div>
+                
+                <!-- Image 1 -->
+                <div class="relative rounded-2xl">
+                    <img class="w-full h-[200px] object-cover rounded-2xl" src="../assets/images/aboutus/events.png" alt="Events">
+                    <div class="absolute bottom-0 text-white p-4 flex flex-col gap-1">
+                        <h2 class="font-semibold text-xl">Events</h2>
+                        <p class="font-normal text-sm">Capture the magic of your special day</p>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="relative rounded-2xl">
+                    <img class="w-full h-[200px] object-cover rounded-2xl" src="../assets/images/aboutus/chaurasi.png" alt="Chaurasi">
+                    <div class="absolute bottom-0 text-white p-4 flex flex-col gap-1">
+                        <h2 class="font-semibold text-xl">Chaurasi</h2>
+                        <p class="font-normal text-sm">Capture the magic of your special day</p>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="relative rounded-2xl">
+                    <img class="w-full h-[200px] object-cover rounded-2xl" src="../assets/images/aboutus/events.png" alt="Events">
+                    <div class="absolute bottom-0 text-white p-4 flex flex-col gap-1">
+                        <h2 class="font-semibold text-xl">Events</h2>
+                        <p class="font-normal text-sm">Capture the magic of your special day</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Desktop version (hidden on mobile and medium) -->
+        <div class="hidden lg:flex mt-14 mb-12 -gap-x-12 items-center relative">
             <!-- Three images  -->
             <div onmouseover="updateImage0()"
                 class="z-10 relative transition-all duration-500 ease-in-out rounded-2xl"
@@ -288,7 +344,7 @@
                     <h2 class="font-semibold text-2xl">Weddings</h2>
                     <p class="font-normal text-sm">Capture the magic of your special day with timeless memories</p>
                     <div>
-                        <a href="wedding.html"><button class="w-28 h-8 text-white bg-black rounded-3xl hover:scale-105 cursor-pointer hover:text-[#FF6F00]">Book Now</button></a>
+                        <a href="wedding.html"><button class="w-28 h-8 text-white bg-black rounded-3xl hover:scale-105 cursor-pointer">Book Now</button></a>
                     </div>
                 </div>
             </div>
@@ -687,9 +743,9 @@
                     <p class="font-bold text-lg">Attractions & Hostels</p>
                     <p class="text-sm font-medium text-start">Hotels & Attractions Redefined. Where fun meets comfort.
                     </p>
-                    <a href="wedding.html"></a><button
+                    <a href="wedding.html"><button
                         class="w-28 h-8 hover:scale-105 cursor-pointer text-white bg-[#FF6F00] rounded-3xl">Let's
-                        Plan</button>
+                        Plan</button></a>
                 </div>
             </div>
         </div>
@@ -783,44 +839,24 @@
             }
         }
 
-        function showPhone() {
-    document.getElementById("phone-number").classList.remove("hidden");
-}
+           // Optional JavaScript for additional functionality
+    // For example, if you want to add click functionality to open phone/messaging apps
+    
+    document.querySelector('button[aria-label="Call us"]').addEventListener('click', function() {
+        window.location.href = 'tel:+9779812345678';
+    });
+    
+    document.querySelector('button[aria-label="WhatsApp us"]').addEventListener('click', function() {
+        window.location.href = 'https://wa.me/9779812345678';
+    });
+    
+    document.querySelector('button[aria-label="Viber us"]').addEventListener('click', function() {
+        // Viber doesn't have a standard URL scheme that works across all devices
+        // You might need to use a different approach for Viber
+        alert('Contact us on Viber: +977 9812345678');
+    });
 
-function hidePhone() {
-    document.getElementById("phone-number").classList.add("hidden");
-}
-
-function togglePhone() {
-    let phoneNumber = document.getElementById("phone-number");
-    phoneNumber.classList.toggle("hidden");
-}
-
-function showWhatsApp() {
-    document.getElementById("whatsapp-number").classList.remove("hidden");
-}
-
-function hideWhatsApp() {
-    document.getElementById("whatsapp-number").classList.add("hidden");
-}
-
-function toggleWhatsApp() {
-    let whatsappNumber = document.getElementById("whatsapp-number");
-    whatsappNumber.classList.toggle("hidden");
-}
-
-function showViber() {
-    document.getElementById("viber-number").classList.remove("hidden");
-}
-
-function hideViber() {
-    document.getElementById("viber-number").classList.add("hidden");
-}
-
-function toggleViber() {
-    let viberNumber = document.getElementById("viber-number");
-    viberNumber.classList.toggle("hidden");
-}
+ 
 
 
     </script>
