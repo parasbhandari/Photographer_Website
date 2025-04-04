@@ -63,7 +63,11 @@
               </div>
               <div class="flex flex-col gap-3 mt-5">
                 <label  class="text-xl font-medium">Package:</label>
-                <h3 class="text-gray-400 text-xs ">Wedding Grand Package</h3>
+                <select class="border-2 border-orange-200">
+                    <option value="Grand Wedding">Grand Wedding</option>
+                    <option value="Grand Wedding">Luxury Wedding</option>
+                    <option value="Grand Wedding">Celebrity Wedding</option>
+                </select>
               </div>
               <div class="flex flex-col gap-3 mt-5">
                 <label for="mobile" class="text-xl font-medium">Message:</label>
@@ -105,14 +109,60 @@
 
                     <!-- Grand Package -->
                     <div class="flex justify-between items-center cursor-pointer">
-                        <a class="text-xs sm:text-xl font-bold text-[#0090FF]">Grand Package <span class="text-orange-500">.</span></a>
+                        <a class="text-xs sm:text-xl font-bold text-[#0090FF]">Grand Package <span class="text-orange-500" onclick="togglePackageContent('grand-package')"><i class="fa-solid fa-caret-down"></i></span></a>
                         <div class="flex gap-5 items-center">
                             <p class="text-gray-400 text-xs sm:text-xl line-through">95000</p>
                             <h3 class="text-xs sm:text-2xl font-bold">90000</h3>
                         </div>
                     </div>
 
-                    <div class="mt-2 sm:mt-5">
+                    <div class="package-content mt-2 sm:mt-5 "  id="grand-package">
+                        <p class="text-xs sm:text-xl font-medium">Photography+Video+Drone</p>
+                        <ul class="list-disc pl-0 sm:pl-6 mt-3 space-y-2 text-xs sm:text-xl">
+                            <li>Full Frame Cameras, Prime and Wide Lenses, Gimbal, and Lights</li>
+                            <li class="mt-2">4-members team - 1 Traditional Photographer, 1 Candid Photographer, 1 Traditional Videographer, 1 Cinematic Videographer.</li>
+                            <li class="mt-2">Balanced mix of traditional and candid photography with cinematic and traditional videography.</li>
+                        </ul>
+                        <p class="text-[#FF6F00] font-semibold mt-5 text-xs sm:text-xl">Offer Price:</p>
+                        <div class="flex items-center my-4 gap-3">
+                            <p class="line-through text-gray-400 text-xs sm:text-xl">95000</p>
+                            <p class="font-bold text-base sm:text-2xl">90000</p>
+                        </div>
+                    
+                    </div>
+                       <!-- Celebrity Package -->
+                       <div class="flex justify-between items-center cursor-pointer mt-5">
+                        <a class="text-xs sm:text-xl font-bold text-[#0090FF]">Celebrity Package <span class="text-orange-500" onclick="togglePackageContent('celebrity-package')"><i class="fa-solid fa-caret-down"></i></span></a>
+                        <div class="flex gap-5 items-center">
+                            <p class="text-gray-400 text-xs sm:text-xl line-through">95000</p>
+                            <h3 class="text-xs sm:text-2xl font-bold">90000</h3>
+                        </div>
+                    </div>
+
+                    <div id="celebrity-package" class="package-content mt-2 sm:mt-5 hidden">
+                        <p class="text-xs sm:text-xl font-medium">Photography+Video+Drone</p>
+                        <ul class="list-disc pl-0 sm:pl-6 mt-3 space-y-2 text-xs sm:text-xl">
+                            <li>Full Frame Cameras, Prime and Wide Lenses, Gimbal, and Lights</li>
+                            <li class="mt-2">4-members team - 1 Traditional Photographer, 1 Candid Photographer, 1 Traditional Videographer, 1 Cinematic Videographer.</li>
+                            <li class="mt-2">Balanced mix of traditional and candid photography with cinematic and traditional videography.</li>
+                        </ul>
+                        <p class="text-[#FF6F00] font-semibold mt-5 text-xs sm:text-xl">Offer Price:</p>
+                        <div class="flex items-center my-4 gap-3">
+                            <p class="line-through text-gray-400 text-xs sm:text-xl">95000</p>
+                            <p class="font-bold text-base sm:text-2xl">90000</p>
+                        </div>
+                    
+                    </div>
+                       <!-- Luxury Package -->
+                       <div class="flex justify-between items-center cursor-pointer mt-5">
+                        <a class="text-xs sm:text-xl font-bold text-[#0090FF]">Luxury Package <span class="text-orange-500" onclick="togglePackageContent('luxury-package')"><i class="fa-solid fa-caret-down"></i></span></a>
+                        <div class="flex gap-5 items-center">
+                            <p class="text-gray-400 text-xs sm:text-xl line-through">95000</p>
+                            <h3 class="text-xs sm:text-2xl font-bold">90000</h3>
+                        </div>
+                    </div>
+
+                    <div id="luxury-package" class="package-content mt-2 sm:mt-5 hidden">
                         <p class="text-xs sm:text-xl font-medium">Photography+Video+Drone</p>
                         <ul class="list-disc pl-0 sm:pl-6 mt-3 space-y-2 text-xs sm:text-xl">
                             <li>Full Frame Cameras, Prime and Wide Lenses, Gimbal, and Lights</li>
@@ -182,7 +232,18 @@
         </div>
     </main>
     <div id="footer-container"></div>
-
+    <script>
+        function togglePackageContent(packageId) {
+            const packages = document.querySelectorAll('.package-content');
+            packages.forEach(pkg => {
+                if (pkg.id === packageId) {
+                    pkg.classList.toggle('hidden');
+                } else {
+                    pkg.classList.add('hidden');
+                }
+            });
+        }
+    </script>
     <script src="../_js/header.js" defer></script>
     <script src="../_js/footer.js" defer></script>
 </body>
