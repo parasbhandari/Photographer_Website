@@ -61,7 +61,7 @@ const packages = {
     // Generate HTML for the cards
     cardContainer.innerHTML = currentPackages.map(item => `
         <div class="card bg-white rounded-xl flex flex-col items-center justify-center p-4 md:p-6 h-full">
-      <img src="${item.image}" alt="${item.title}" class="w-[80vw] md:w-[20vw] h-[10vh] md:h-[30vh] object-contain rounded-3xl md:rounded-4xl" />
+      <img src="${item.image}" alt="${item.title}" class="w-full h-[30vh] object-cover hover:scale-105 transition-transform duration-300" />
       <h2 class="mt-2 text-lg md:text-xl font-medium">${item.title}</h2>
       <p class="text-justify w-[90%] md:w-[80%] mx-auto my-2 md:my-4 text-sm md:text-base">${item.description}</p>
       <button class="bg-gray-400 p-2 md:p-3 rounded-lg md:rounded-xl mt-2 md:mt-4 text-white w-full font-medium text-base md:text-xl hover:scale-105 hover:bg-orange-400 transition-transform" 
